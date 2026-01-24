@@ -10,7 +10,7 @@ import random
 from question import bqhumidité
 from question import bqréchauffement
 from question import bqrefroidissement
-from main.extension.nlp import charger_spacy
+from main.extension.chargement_spacy import charger_spacy
 
 if "index" not in st.session_state:
     st.session_state.index = 0
