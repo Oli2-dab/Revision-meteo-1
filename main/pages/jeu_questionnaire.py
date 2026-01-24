@@ -11,6 +11,7 @@ from question import bqhumidité
 from question import bqréchauffement
 from question import bqrefroidissement
 from rapidfuzz import fuzz
+from nlp import charger_spacy
 
 if "index" not in st.session_state:
     st.session_state.index = 0
@@ -47,29 +48,32 @@ if "trefroidissement" not in st.session_state:
 if "qactuel" not in st.session_state :
     st.session_state.qactuel = None
 
-
+val = charger_spacy()
 
 def valrép(rj, rjeu) :
-    réponse_joueur = rj.lower()
-    réponse_jeu = rjeu.lower()
-    validité = fuzz.token_sort_ratio(réponse_joueur, réponse_jeu)
+    réponse_joueur = rj.strip().lower()
+    réponse_jeu = rjeu.strip().lower()
 
-    if validité >= 85 :
+    pourvalrj = val(réponse_jeu)
+    pourvalrjeu = val(réponse_joueur)
+    validité = pourvalrj.similarity(pourvalrjeu)
+
+    if validité >= 0.80 :
         scoreq = 2
 
-    elif validité >= 40 :
+    elif validité >= 0.40 :
         scoreq = 1
     
     else :
-        scoreq = 0
+        scoreq = 0.0
 
     if réponse_joueur == "c2" :
         scoreq = 2
 
-    elif réponse_joueur == "c1" :
+    if réponse_joueur == "c1" :
         scoreq = 1
 
-    elif réponse_joueur == "c0" :
+    if réponse_joueur == "c0" :
         scoreq = 0
 
     return(scoreq)
