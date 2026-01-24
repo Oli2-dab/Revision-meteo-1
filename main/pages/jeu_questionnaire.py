@@ -10,7 +10,6 @@ import random
 from question import bqhumidité
 from question import bqréchauffement
 from question import bqrefroidissement
-from rapidfuzz import fuzz
 from nlp import charger_spacy
 
 if "index" not in st.session_state:
