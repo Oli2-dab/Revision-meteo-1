@@ -10,4 +10,9 @@ import spacy
 
 @st.cache_resource
 def charger_spacy() :
-    return spacy.load("fr_core_news_sm")
+    try :
+        val = spacy.load("fr_core_news_sm")
+    except OSError :
+        spacy.cli.download("fr_core_news_sm")
+        val = spacy.load("fr_core_news_sm")
+    return(val)
