@@ -22,10 +22,12 @@
 
 
 import streamlit as st
+from pages import jeu_questionnaire
 
 st.set_page_config(page_title="Révision météo 1")
 
 st.title("Platforme de révision pour le cours de météo 1")
 
 if st.button("Jeu questionnaire"):
-    st.experimental_set_query_params(page="jeu_questionnaire.py")
+    
+    jeu_questionnaire.principale()
