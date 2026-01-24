@@ -7,9 +7,9 @@
 
 import streamlit as st
 import random
-from question import bqhumidité
-from question import bqréchauffement
-from question import bqrefroidissement
+from ..question import bqhumidité
+from ..question import bqréchauffement
+from ..question import bqrefroidissement
 from extension.chargement_spacy import charger_spacy
 
 def principale() : 
