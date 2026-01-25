@@ -168,18 +168,6 @@ def principale(reset = False) :
                 score = scoreq
                 st.session_state.score += score
 
-                if scoreq == 2 :
-
-                    st.success("Bonne réponse! ✅")
-
-                elif scoreq == 1 :
-
-                    st.warning(f"Réponse incomplète. La bonne réponse était {rjeu}")
-
-                elif scoreq == 0 :
-
-                    st.error(f"Mauvaise réponse. La bonne réponse était {rjeu}")
-
                 if theme == "humidité" :
                     if question in st.session_state.qdscore :
                         sàenlevé = int(st.session_state.qdscore.get(question))
@@ -225,6 +213,18 @@ def principale(reset = False) :
                 st.rerun()
 
         if st.session_state.répval :
+
+            if scoreq == 2 :
+
+                    st.success("Bonne réponse! ✅")
+
+                elif scoreq == 1 :
+
+                    st.warning(f"Réponse incomplète. La bonne réponse était {rjeu}")
+
+                elif scoreq == 0 :
+
+                    st.error(f"Mauvaise réponse. La bonne réponse était {rjeu}")
 
             if st.button("Question suivante") :
 
