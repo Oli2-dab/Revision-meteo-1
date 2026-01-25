@@ -1,3 +1,5 @@
 streamlit
+numpy==1.26.4
 spacy==3.7.4
+thinc==8.2.3
 https://github.com/explosion/spacy-models/releases/download/fr_core_news_sm-3.7.0/fr_core_news_sm-3.7.0-py3-none-any.whl
