@@ -12,7 +12,18 @@ from question import bqréchauffement
 from question import bqrefroidissement
 from extension.chargement_spacy import charger_spacy
 
-def principale() : 
+def principale(reset = False) : 
+
+    if reset :
+
+        st.session_state.index = 0
+        st.session_state.score = 0
+        st.session_state.qactuel = 0
+
+        st.session_state.bqjeuhumidité = bqhumidité.copy()
+        st.session_state.bqjeuréchauffement = bqréchauffement.copy()
+        st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
+
 
     if "index" not in st.session_state:
         st.session_state.index = 0
@@ -48,6 +59,15 @@ def principale() :
 
     if "qactuel" not in st.session_state :
         st.session_state.qactuel = None
+
+    if "bqjeuhumidité" not in st.session_state :
+        st.session_state.bqjeuhumidité = bqhumidité.copy()
+
+    if "bqjeuréchauffement" not in st.session_state :
+        st.session_state.bqjeuréchauffement = bqréchauffement.copy()
+
+    if "bqjeurefroidissement" not in st.session_state :
+        st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
 
     val = charger_spacy()
 
@@ -87,62 +107,54 @@ def principale() :
 
             theme = "humidité"
 
-            choixq = random.randint(0, len(bqjeuhumidité) - 1)
+            choixq = random.randint(0, len(st.session_state.bqjeuhumidité) - 1)
 
-            question = bqjeuhumidité[choixq]["question"]
+            question = st.session_state.bqjeuhumidité[choixq]["question"]
 
-            rjeu = bqjeuhumidité[choixq]["réponse"]
+            rjeu = st.session_state.bqjeuhumidité[choixq]["réponse"]
 
-            bqjeuhumidité.pop(choixq)
+            st.session_state.bqjeuhumidité.pop(choixq)
 
         elif choix_thème == 2 :
 
             theme = "réchauffement"
 
-            choixq = random.randint(0, len(bqjeuréchauffement) - 1)
+            choixq = random.randint(0, len(st.session_state.bqjeuréchauffement) - 1)
 
-            question = bqjeuréchauffement[choixq]["question"]
+            question = st.session_state.bqjeuréchauffement[choixq]["question"]
 
-            rjeu = bqjeuréchauffement[choixq]["réponse"]
+            rjeu = st.session_state.bqjeuréchauffement[choixq]["réponse"]
 
-            bqjeuréchauffement.pop(choixq)
+            st.session_state.bqjeuréchauffement.pop(choixq)
 
         elif choix_thème == 3 :
 
             theme = "refroidissement"
 
-            choixq = random.randint(0, len(bqjeurefroidissement) - 1)
+            choixq = random.randint(0, len(st.session_state.bqjeurefroidissement) - 1)
 
-            question = bqjeurefroidissement[choixq]["question"]
+            question = st.session_state.bqjeurefroidissement[choixq]["question"]
 
-            rjeu = bqjeurefroidissement[choixq]["réponse"]
+            rjeu = st.session_state.bqjeurefroidissement[choixq]["réponse"]
 
-            bqjeurefroidissement.pop(choixq)
+            st.session_state.bqjeurefroidissement.pop(choixq)
 
         return(question, rjeu, theme)
 
     print("Bonjour et bienvenu à ce jeu questionnaire.")
     qrépondu = 0
 
-    bqjeuhumidité = []
-    bqjeuréchauffement = []
-    bqjeurefroidissement = []
-
-    bqjeuhumidité.extend(bqhumidité)
-    bqjeuréchauffement.extend(bqréchauffement)
-    bqjeurefroidissement.extend(bqrefroidissement)
-
     nbquestion = len(bqhumidité) + len(bqréchauffement) + len(bqrefroidissement)
 
     if st.session_state.index < nbquestion:
         st.subheader(f"Question {st.session_state.index + 1} sur {nbquestion}")
 
-        if st.session_state.qactuel == None :
+        if st.session_state.qactuel is None :
             st.session_state.qactuel = choix_question()
         question, rjeu, theme = st.session_state.qactuel
 
         st.write(question)
-        rj = st.text_input("Votre réponse")
+        rj = st.text_input("Votre réponse", key= f"réponse_{st.session_state.index}")
 
         if st.button("Valider la réponse") :
             scoreq = valrép(rj, rjeu)

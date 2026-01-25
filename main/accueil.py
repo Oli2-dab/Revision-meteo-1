@@ -26,8 +26,23 @@ from pages import jeu_questionnaire
 
 st.set_page_config(page_title="Révision météo 1")
 
+if "page" not in st.session_state :
+    st.session_state.page = "accueil"
+    st.session_state.page_précédente = None
+
 st.title("Platforme de révision pour le cours de météo 1")
 
+if st.button("Accueil") :
+    st.session_state.page = "accueil"
+
+changement_page = st.session_state.page != st.session_state.page_précédente
+
 if st.button("Jeu questionnaire"):
-    
-    jeu_questionnaire.principale()
+
+    st.session_state.page = "quiz"
+
+if st.session_state.page == "quiz" :
+
+    jeu_questionnaire.principale(reset = changement_page)
+
+st.session_state.page_précédente = st.session_state.page
