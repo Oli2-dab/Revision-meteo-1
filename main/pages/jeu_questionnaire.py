@@ -74,6 +74,9 @@ def principale(reset = False) :
     if "répval" not in st.session_state :
         st.session_state.répval = False
 
+    if "tdispo" not in st.session_state :
+        st.session_state.tdisp = []
+
     val = charger_spacy()
 
     def valrép(rj, rjeu) :
@@ -105,12 +108,21 @@ def principale(reset = False) :
         return(scoreq)
 
     def choix_question() :
-        choix_thème = random.randint(1,3)
 
+        tdispo = []
 
-        if choix_thème == 1 :
+        if len(st.session_state.bqjeuhumidité) > 0 :
+            tdispo.append("humidité")
 
-            theme = "humidité"
+        if len(st.session_state.bqjeuréchauffement) > 0 :
+            tdispo.append("réchauffement")
+
+        if len(st.session_state.bqjeurefroidissement) > 0 :
+            tdispo.append("refroidissement")
+
+        theme = random.choice(tdispo)
+
+        if theme == "humidité"  :
 
             choixq = random.randint(0, len(st.session_state.bqjeuhumidité) - 1)
 
@@ -120,9 +132,7 @@ def principale(reset = False) :
 
             st.session_state.bqjeuhumidité.pop(choixq)
 
-        elif choix_thème == 2 :
-
-            theme = "réchauffement"
+        elif theme == "réchauffement" :
 
             choixq = random.randint(0, len(st.session_state.bqjeuréchauffement) - 1)
 
@@ -132,9 +142,7 @@ def principale(reset = False) :
 
             st.session_state.bqjeuréchauffement.pop(choixq)
 
-        elif choix_thème == 3 :
-
-            theme = "refroidissement"
+        elif theme == "refroidissement" :
 
             choixq = random.randint(0, len(st.session_state.bqjeurefroidissement) - 1)
 
