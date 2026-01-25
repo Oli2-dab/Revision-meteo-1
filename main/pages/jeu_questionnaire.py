@@ -24,6 +24,8 @@ def principale(reset = False) :
         st.session_state.bqjeuréchauffement = bqréchauffement.copy()
         st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
 
+        st.session_state.répval - False
+
 
     if "index" not in st.session_state:
         st.session_state.index = 0
@@ -68,6 +70,9 @@ def principale(reset = False) :
 
     if "bqjeurefroidissement" not in st.session_state :
         st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
+
+    if "répval" not in st.session_state :
+        st.session_state.répval - False
 
     val = charger_spacy()
 
@@ -156,67 +161,76 @@ def principale(reset = False) :
         st.write(question)
         rj = st.text_input("Votre réponse", key= f"réponse_{st.session_state.index}")
 
-        if st.button("Valider la réponse") :
-            scoreq = valrép(rj, rjeu)
-            score = scoreq
-            st.session_state.score += score
+        if st.session_state.répval == False :
 
-            if scoreq == 2 :
+            if st.button("Valider la réponse") :
+                scoreq = valrép(rj, rjeu)
+                score = scoreq
+                st.session_state.score += score
 
-                st.success("Bonne réponse! ✅")
+                if scoreq == 2 :
 
-            elif scoreq == 1 :
+                    st.success("Bonne réponse! ✅")
 
-                st.warning(f"Réponse incomplète. La bonne réponse était {rjeu}")
+                elif scoreq == 1 :
 
-            elif scoreq == 0 :
+                    st.warning(f"Réponse incomplète. La bonne réponse était {rjeu}")
 
-                st.error(f"Mauvaise réponse. La bonne réponse était {rjeu}")
+                elif scoreq == 0 :
 
-            if theme == "humidité" :
-                if question in st.session_state.qdscore :
-                    sàenlevé = int(st.session_state.qdscore.get(question))
-                    st.session_state.sjhumidité -= sàenlevé
-                    st.session_state.sjhumidité += scoreq
-                    st.session_state.qdscore.update({question : scoreq})
+                    st.error(f"Mauvaise réponse. La bonne réponse était {rjeu}")
+
+                if theme == "humidité" :
+                    if question in st.session_state.qdscore :
+                        sàenlevé = int(st.session_state.qdscore.get(question))
+                        st.session_state.sjhumidité -= sàenlevé
+                        st.session_state.sjhumidité += scoreq
+                        st.session_state.qdscore.update({question : scoreq})
+                        
                     
-                
-                elif question not in st.session_state.qdscore :
-                    st.session_state.qdscore.update({question : scoreq})
-                    st.session_state.thumidité += 2
-                    st.session_state.sjhumidité += scoreq
+                    elif question not in st.session_state.qdscore :
+                        st.session_state.qdscore.update({question : scoreq})
+                        st.session_state.thumidité += 2
+                        st.session_state.sjhumidité += scoreq
 
 
-            elif theme == "réchauffement" :
-                if question in st.session_state.qdscore :
-                    sàenlevé = int(st.session_state.qdscore.get(question))
-                    st.session_state.sjréchauffement -= sàenlevé
-                    st.session_state.sjréchauffement += scoreq
-                    st.session_state.qdscore.update({question : scoreq})
+                elif theme == "réchauffement" :
+                    if question in st.session_state.qdscore :
+                        sàenlevé = int(st.session_state.qdscore.get(question))
+                        st.session_state.sjréchauffement -= sàenlevé
+                        st.session_state.sjréchauffement += scoreq
+                        st.session_state.qdscore.update({question : scoreq})
+                        
                     
-                
-                elif question not in st.session_state.qdscore :
-                    st.session_state.qdscore.update({question : scoreq})
-                    st.session_state.tréchauffement += 2
-                    st.session_state.sjréchauffement += scoreq
+                    elif question not in st.session_state.qdscore :
+                        st.session_state.qdscore.update({question : scoreq})
+                        st.session_state.tréchauffement += 2
+                        st.session_state.sjréchauffement += scoreq
 
 
-            elif theme == "refroidissement" :
-                if question in st.session_state.qdscore :
-                    sàenlevé = int(st.session_state.qdscore.get(question))
-                    st.session_state.sjrefroidissement -= sàenlevé
-                    st.session_state.sjrefroidissement += scoreq
-                    st.session_state.qdscore.update({question : scoreq})
+                elif theme == "refroidissement" :
+                    if question in st.session_state.qdscore :
+                        sàenlevé = int(st.session_state.qdscore.get(question))
+                        st.session_state.sjrefroidissement -= sàenlevé
+                        st.session_state.sjrefroidissement += scoreq
+                        st.session_state.qdscore.update({question : scoreq})
+                        
                     
-                
-                elif question not in st.session_state.qdscore :
-                    st.session_state.qdscore.update({question : scoreq})
-                    st.session_state.trefroidissement += 2
-                    st.session_state.sjrefroidissement += scoreq
+                    elif question not in st.session_state.qdscore :
+                        st.session_state.qdscore.update({question : scoreq})
+                        st.session_state.trefroidissement += 2
+                        st.session_state.sjrefroidissement += scoreq
 
-            st.session_state.qactuel = None
+                st.session_state.répval = True
 
-            st.session_state.index += 1
+        if st.session_state.répval == True :
 
+            if st.button("Question suivante") :
+
+                st.session_state.qactuel = None
+                st.session_state.index += 1
+                st.session_state.répval = False
+                    
+                    
     else :
         st.success("Bravo! Vous avez terminer ce quiz.")
