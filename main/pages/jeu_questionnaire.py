@@ -72,7 +72,7 @@ def principale(reset = False) :
         st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
 
     if "répval" not in st.session_state :
-        st.session_state.répval - False
+        st.session_state.répval = False
 
     val = charger_spacy()
 
@@ -231,6 +231,6 @@ def principale(reset = False) :
                 st.session_state.index += 1
                 st.session_state.répval = False
                     
-                    
+
     else :
         st.success("Bravo! Vous avez terminer ce quiz.")
