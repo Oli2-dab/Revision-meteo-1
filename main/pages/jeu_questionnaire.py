@@ -216,15 +216,15 @@ def principale(reset = False) :
 
             if scoreq == 2 :
 
-                    st.success("Bonne réponse! ✅")
+                st.success("Bonne réponse! ✅")
 
-                elif scoreq == 1 :
+            elif scoreq == 1 :
 
-                    st.warning(f"Réponse incomplète. La bonne réponse était {rjeu}")
+                st.warning(f"Réponse incomplète. La bonne réponse était {rjeu}")
 
-                elif scoreq == 0 :
+            elif scoreq == 0 :
 
-                    st.error(f"Mauvaise réponse. La bonne réponse était {rjeu}")
+                st.error(f"Mauvaise réponse. La bonne réponse était {rjeu}")
 
             if st.button("Question suivante") :
 
