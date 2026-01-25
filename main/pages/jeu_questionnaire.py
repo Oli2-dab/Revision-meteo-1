@@ -222,6 +222,7 @@ def principale(reset = False) :
                         st.session_state.sjrefroidissement += scoreq
 
                 st.session_state.répval = True
+                st.rerun()
 
         if st.session_state.répval :
 
