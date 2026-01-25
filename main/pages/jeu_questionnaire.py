@@ -24,7 +24,7 @@ def principale(reset = False) :
         st.session_state.bqjeuréchauffement = bqréchauffement.copy()
         st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
 
-        st.session_state.répval - False
+        st.session_state.répval = False
 
 
     if "index" not in st.session_state:
@@ -159,9 +159,9 @@ def principale(reset = False) :
         question, rjeu, theme = st.session_state.qactuel
 
         st.write(question)
-        rj = st.text_input("Votre réponse", key= f"réponse_{st.session_state.index}")
+        rj = st.text_input("Votre réponse", key= f"réponse_{st.session_state.index}", disabled = st.session_state.répval)
 
-        if st.session_state.répval == False :
+        if not st.session_state.répval :
 
             if st.button("Valider la réponse") :
                 scoreq = valrép(rj, rjeu)
@@ -223,7 +223,7 @@ def principale(reset = False) :
 
                 st.session_state.répval = True
 
-        if st.session_state.répval == True :
+        if st.session_state.répval :
 
             if st.button("Question suivante") :
 
