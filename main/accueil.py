@@ -19,6 +19,8 @@
 #Chaque question a un % pour le score 0, 1, 2 personalisé
 #Mode pour avoir des questions d'un seul chapitre
 #Mode pour les questions de math
+#Mettre l'IA dans un dossier séparé pour l'appeler dans différent programme
+#Idée : Faire une IA que j'entraîne, qui donne des réponses basée sur le résultat de chaque catégorie. Entrainé l'IA sur l'ordi, au lieu de e faire sur la platforme.
 
 
 import streamlit as st
