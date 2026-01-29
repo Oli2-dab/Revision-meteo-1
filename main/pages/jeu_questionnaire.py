@@ -11,6 +11,7 @@ from question import bqhumidité
 from question import bqréchauffement
 from question import bqrefroidissement
 from extension.chargement_spacy import charger_spacy
+from IA import IA
 
 def principale(reset = False) : 
 
@@ -242,4 +243,17 @@ def principale(reset = False) :
                     
 
     else :
+        
+        taux_hum_avant = st.session_state.sjhumidité / st.session_state.thumidité = 0
+        taux_hum = round(taux_hum_avant, 2)
+
+        taux_réch_avant = st.session_state.sjréchauffement / st.session_state.tréchauffement = 0
+        taux_réch = round(taux_réch_avant, 2)
+
+        taux_refr_avant = st.session_state.sjrefroidissement / st.session_state.trefroidissement = 0
+        taux_refr = round(taux_refr_avant, 2)
+
+        résultat_IA = IA(taux_hum, taux_réch, taux_refr)
+
         st.success("Bravo! Vous avez terminer ce quiz.")
+        st.success(résultat_IA)
