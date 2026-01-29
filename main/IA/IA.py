@@ -8,7 +8,7 @@
 import joblib
 import pandas as pd
 
-def IA(taux_hum, taux_réch, taux_refr) :
+def prédiction(taux_hum, taux_réch, taux_refr) :
 
     chargement_model = joblib.load("base_de_donnee_IA.joblib")
     taux = pd.DataFrame([[taux_hum,taux_réch,taux_refr]], columns = ["taux_humidité", "taux_réchauffement", "taux_refroidissement"])
