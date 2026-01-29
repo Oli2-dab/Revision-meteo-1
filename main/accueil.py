@@ -21,6 +21,7 @@
 #Mode pour les questions de math
 #Mettre l'IA dans un dossier séparé pour l'appeler dans différent programme
 #Idée : Faire une IA que j'entraîne, qui donne des réponses basée sur le résultat de chaque catégorie. Entrainé l'IA sur l'ordi, au lieu de e faire sur la platforme.
+#Faire quelque chose si le joueur fait les questions par catégorie, car certains taux seront 0/0. Division par 0 = impossible et mauvaise interprétation. Mettre taux à None?
 
 
 import streamlit as st
