@@ -11,7 +11,7 @@ from question import bqhumidité
 from question import bqréchauffement
 from question import bqrefroidissement
 from extension.chargement_spacy import charger_spacy
-from IA import prédiction
+from dossierIA.IA import prédiction
 
 def principale(reset = False) : 
 
