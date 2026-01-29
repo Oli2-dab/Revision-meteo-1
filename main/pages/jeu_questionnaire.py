@@ -257,4 +257,7 @@ def principale(reset = False) :
         résultat_IA = prédiction(taux_hum, taux_réch, taux_refr)
 
         st.success("Bravo! Vous avez terminer ce quiz.")
-        st.success(résultat_IA, taux_hum, taux_réch, taux_refr)
+        st.success(résultat_IA)
+        st.success(taux_hum)
+        st.success(taux_réch)
+        st.success(taux_refr)
