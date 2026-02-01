@@ -244,20 +244,7 @@ def principale(reset = False) :
                     
 
     else :
-        
-        taux_hum_avant = st.session_state.sjhumidité / st.session_state.thumidité
-        taux_hum = round(taux_hum_avant, 2)
-
-        taux_réch_avant = st.session_state.sjréchauffement / st.session_state.tréchauffement
-        taux_réch = round(taux_réch_avant, 2)
-
-        taux_refr_avant = st.session_state.sjrefroidissement / st.session_state.trefroidissement
-        taux_refr = round(taux_refr_avant, 2)
-
-        résultat_IA = prédiction(taux_hum, taux_réch, taux_refr)
+        résultat_IA = prédiction()
 
         st.success("Bravo! Vous avez terminer ce quiz.")
         st.success(résultat_IA)
-        st.success(taux_hum)
-        st.success(taux_réch)
-        st.success(taux_refr)
