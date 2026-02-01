@@ -22,6 +22,43 @@ def prédiction() :
 
     chargement_model = joblib.load("base_de_donnee_IA.joblib")
     taux = pd.DataFrame([[taux_hum,taux_réch,taux_refr]], columns = ["taux_humidité", "taux_réchauffement", "taux_refroidissement"])
-    résultat = chargement_model.predict(taux)
+    résultat_taux = chargement_model.predict(taux)
+
+    dict_taux = {
+        "l'humidité" : taux_hum,
+        "le réchauffement" : taux_réch,
+        "le refroidissement" : taux_refr
+    }
+
+    catégorie_affiché = min(dict_taux, key = dict_taux.get)
+
+    if résultat_taux == 1 :
+        résultat = "Prends-tu le test au serieux!!!"
+
+    elif résultat_taux == 2 :
+        résultat = ("Tu fais beacoup d'erreur dans plusieurs catégories. Je te conseil de réviser le chapitre sur", catégorie_affiché, "car c'est dans cette catégorie que tu fais le plus d'erreurs.")
+
+    elif résultat_taux == 3 :
+        résultat = ("En général, tu comprends bien, mais tu fais plusieurs erreurs. Je te conseil de réviser le chapitre sur", catégorie_affiché, "car c'est dans cette catégorie que tu fais le plus d'erreurs.")
+
+    elif résultat_taux == 4 :
+        résultat = ("Tu comprends bien ces catégories. Il ne te reste qu'a réviser le chapitre sur", catégorie_affiché)
+
+    elif résultat_taux == 5 :
+        résultat = "Tu y es presque. Tu n'as fait que quelque erreurs"
+
+    elif résultat_taux == 6 :
+        résultat = "Excellent résultat, tu connais très bien ta matière."
+
+    elif résultat_taux == 7 :
+        résultat = "Bravo, tu es excellent, tu as eu 100% partout. As-tu triché?"
 
     return(résultat)
+
+#Bravo, tu es excellent, tu as eu 100% partout. As-tu triché?                        7
+#Excellent résultat, tu connais très bien ta matière.                                6
+#Tu y es presque. Tu n'as fait que quelque erreurs                                   5
+#Tu comprends bien ces catégories. Il ne te reste qu'a réviser cette catégorie       4
+#En général, tu comprends bien, mais tu fais des erreurs dans ces catégories         3
+#Tu fais beacoup d'erreur dans ces catégories, je te conseil de réviser              2
+#Prends-tu le test au serieux!!!                                                     1

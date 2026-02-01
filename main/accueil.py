@@ -22,6 +22,12 @@
 #Mettre l'IA dans un dossier séparé pour l'appeler dans différent programme
 #Idée : Faire une IA que j'entraîne, qui donne des réponses basée sur le résultat de chaque catégorie. Entrainé l'IA sur l'ordi, au lieu de e faire sur la platforme.
 #Faire quelque chose si le joueur fait les questions par catégorie, car certains taux seront 0/0. Division par 0 = impossible et mauvaise interprétation. Mettre taux à None?
+#Faire une page pour entré des taux : Pour éviter de répondre à toutes les questions durant la présemtation. Faire deux page : Une avec l'IA normal et une avec l'IA mal entrainé : juste 10 possibilité d'entrainement, au lieu de 50
+#Faire une page pour décoder les métars
+#Faire une page pour les abréviations
+#Faire un autre score : 0, 1, 2, 3 ou lieu de 0, 1, 2
+#Faire une page pour les questions à choix multiple
+#Entrainé l'IA pour que si le score est de 0, elle ne le prennent pas en compte : changer fichier d'entrainement
 
 
 import streamlit as st
