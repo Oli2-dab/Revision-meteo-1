@@ -36,13 +36,13 @@ def prédiction() :
         résultat = "Prends-tu le test au serieux!!!"
 
     elif résultat_taux == 2 :
-        résultat = ("Tu fais beacoup d'erreur dans plusieurs catégories. Je te conseil de réviser le chapitre sur", catégorie_affiché, "car c'est dans cette catégorie que tu fais le plus d'erreurs.")
+        résultat = "Tu fais beacoup d'erreur dans plusieurs catégories. Je te conseil de réviser le chapitre sur", catégorie_affiché, "car c'est dans cette catégorie que tu fais le plus d'erreurs."
 
     elif résultat_taux == 3 :
-        résultat = ("En général, tu comprends bien, mais tu fais plusieurs erreurs. Je te conseil de réviser le chapitre sur", catégorie_affiché, "car c'est dans cette catégorie que tu fais le plus d'erreurs.")
+        résultat = "En général, tu comprends bien, mais tu fais plusieurs erreurs. Je te conseil de réviser le chapitre sur", catégorie_affiché, "car c'est dans cette catégorie que tu fais le plus d'erreurs."
 
     elif résultat_taux == 4 :
-        résultat = ("Tu comprends bien ces catégories. Il ne te reste qu'a réviser le chapitre sur", catégorie_affiché)
+        résultat = "Tu comprends bien ces catégories. Il ne te reste qu'a réviser le chapitre sur", catégorie_affiché
 
     elif résultat_taux == 5 :
         résultat = "Tu y es presque. Tu n'as fait que quelque erreurs"
