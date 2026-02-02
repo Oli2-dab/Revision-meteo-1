@@ -220,7 +220,9 @@ def principale() :
     else :
         résultat_IA = prédiction()
 
-        st.success(f"Bravo! Vous avez terminer ce quiz. Votre score est de {st.session_state.score}.")
+        total_score = st.session_state.index * 2
+
+        st.success(f"Bravo! Vous avez terminer ce quiz. Votre score est de {st.session_state.score} sur {total_score}.")
         st.success(résultat_IA)
 
 principale()
