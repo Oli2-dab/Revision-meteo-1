@@ -29,6 +29,7 @@
 #Entrainé l'IA pour que si le score est de 0, elle ne le prennent pas en compte : changer fichier d'entrainement
 
 
+
 import streamlit as st
 
 st.set_page_config(page_title="Révision météo 1")
