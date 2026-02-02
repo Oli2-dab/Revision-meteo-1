@@ -33,25 +33,25 @@ def prédiction() :
     catégorie_affiché = min(dict_taux, key = dict_taux.get)
 
     if résultat_taux == 1 :
-        résultat = "Prends-tu le test au serieux!!!"
+        résultat = f"Prends-tu le test au serieux!!!"
 
     elif résultat_taux == 2 :
-        résultat = "Tu fais beacoup d'erreur dans plusieurs catégories. Je te conseil de réviser le chapitre sur", catégorie_affiché, "car c'est dans cette catégorie que tu fais le plus d'erreurs."
+        résultat = f"Tu fais beacoup d'erreur dans plusieurs catégories. Je te conseil de réviser le chapitre sur {catégorie_affiché} car c'est dans cette catégorie que tu fais le plus d'erreurs."
 
     elif résultat_taux == 3 :
-        résultat = "En général, tu comprends bien, mais tu fais plusieurs erreurs. Je te conseil de réviser le chapitre sur", catégorie_affiché, "car c'est dans cette catégorie que tu fais le plus d'erreurs."
+        résultat = f"En général, tu comprends bien, mais tu fais plusieurs erreurs. Je te conseil de réviser le chapitre sur {catégorie_affiché} car c'est dans cette catégorie que tu fais le plus d'erreurs."
 
     elif résultat_taux == 4 :
-        résultat = "Tu comprends bien ces catégories. Il ne te reste qu'a réviser le chapitre sur", catégorie_affiché
+        résultat = f"Tu comprends bien ces catégories. Il ne te reste qu'a réviser le chapitre sur {catégorie_affiché}."
 
     elif résultat_taux == 5 :
-        résultat = "Tu y es presque. Tu n'as fait que quelque erreurs"
+        résultat = f"Tu y es presque. Tu n'as fait que quelque erreurs"
 
     elif résultat_taux == 6 :
-        résultat = "Excellent résultat, tu connais très bien ta matière."
+        résultat = f"Excellent résultat, tu connais très bien ta matière."
 
     elif résultat_taux == 7 :
-        résultat = "Bravo, tu es excellent, tu as eu 100% partout. As-tu triché?"
+        résultat = f"Bravo, tu es excellent, tu as eu 100% partout. As-tu triché?"
 
     return(résultat)
 
