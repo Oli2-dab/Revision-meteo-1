@@ -221,7 +221,6 @@ def principale() :
         résultat_IA = prédiction()
 
         st.success("Bravo! Vous avez terminer ce quiz.")
-        st.write("Votre score est de", score)
         st.success(résultat_IA)
 
 principale()
