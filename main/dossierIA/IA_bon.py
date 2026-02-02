@@ -6,6 +6,7 @@
 #
 
 import streamlit as st
+from dossierIA.IA import prédiction
 
 st.session_state.sjhumidité = st.text_input("sjhumidité")
 st.session_state.thumidité = st.text_input("thumidité")
@@ -20,3 +21,4 @@ st.session_state.sjréchauffement = int(st.session_state.sjréchauffement)
 st.session_state.tréchauffement = int(st.session_state.tréchauffement)
 st.session_state.sjrefroidissement = int(st.session_state.sjrefroidissement)
 st.session_state.trefroidissement = int(st.session_state.trefroidissement)
+
