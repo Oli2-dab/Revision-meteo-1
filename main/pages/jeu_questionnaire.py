@@ -25,9 +25,7 @@ def principale() :
         st.session_state.bqjeuréchauffement = bqréchauffement.copy()
         st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
 
-    if "index" not in st.session_state:
-        st.session_state.index = 0
-        st.session_state.score = 0
+    if "scoreq" not in st.session_state :
         st.session_state.scoreq = 0
 
     if "bqjeuhumidité" not in st.session_state :

@@ -31,15 +31,13 @@
 
 
 import streamlit as st
-from question import bqhumidité, bqrefroidissement, bqréchauffement
-from pages.jeu_questionnaire import principale
 
 st.set_page_config(page_title="Révision météo 1")
 st.title("Platforme de révision pour le cours de météo 1")
 
 pages = {
-    "Accueil" : st.Page("accueil.py", title = "Acceuil"),
-    "Jeu questionnaire" : st.Page("jeu_questionnaire.py", title = "Jeu")
+    "Accueil" : st.Page(__file__, title = "Acceuil"),
+    "Jeu questionnaire" : st.Page("pages/jeu_questionnaire.py", title = "Jeu")
 }
 
 st.navigation(pages)
