@@ -35,7 +35,9 @@ import streamlit as st
 st.set_page_config(page_title="Révision météo 1")
 st.title("Platforme de révision pour le cours de météo 1")
 
-st.navigation([
+navigation = st.navigation([
     st.Page(__file__, title = "Acceuil"),
     st.Page("pages/jeu_questionnaire.py", title = "Jeu")
 ])
+
+navigation.run
