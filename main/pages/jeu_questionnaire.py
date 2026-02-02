@@ -7,26 +7,11 @@
 
 import streamlit as st
 import random
-from question import bqhumidité
-from question import bqréchauffement
-from question import bqrefroidissement
+from question import bqhumidité, bqréchauffement, bqrefroidissement
 from extension.chargement_spacy import charger_spacy
 from dossierIA.IA import prédiction
 
-def principale(reset = False) : 
-
-    if reset :
-
-        st.session_state.index = 0
-        st.session_state.score = 0
-        st.session_state.qactuel = 0
-
-        st.session_state.bqjeuhumidité = bqhumidité.copy()
-        st.session_state.bqjeuréchauffement = bqréchauffement.copy()
-        st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
-
-        st.session_state.répval = False
-
+def principale() : 
 
     if "index" not in st.session_state:
         st.session_state.index = 0
@@ -38,6 +23,15 @@ def principale(reset = False) :
         st.session_state.rjeu = "rien"
         st.session_state.validité = 0  
         st.session_state.scoreq = 0
+
+    if "bqjeuhumidité" not in st.session_state :
+        st.session_state.bqjeuhumidité = bqhumidité.copy()
+
+    if "bqjeuréchauffement" not in st.session_state :
+        st.session_state.bqjeuréchauffement = bqréchauffement.copy()
+
+    if "bqjeurefroidissement" not in st.session_state :
+        st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
 
     if "sjhumidité" not in st.session_state:
         st.session_state.sjhumidité = 0
@@ -63,20 +57,8 @@ def principale(reset = False) :
     if "qactuel" not in st.session_state :
         st.session_state.qactuel = None
 
-    if "bqjeuhumidité" not in st.session_state :
-        st.session_state.bqjeuhumidité = bqhumidité.copy()
-
-    if "bqjeuréchauffement" not in st.session_state :
-        st.session_state.bqjeuréchauffement = bqréchauffement.copy()
-
-    if "bqjeurefroidissement" not in st.session_state :
-        st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
-
     if "répval" not in st.session_state :
         st.session_state.répval = False
-
-    if "tdispo" not in st.session_state :
-        st.session_state.tdispo = []
 
     val = charger_spacy()
 
@@ -154,9 +136,6 @@ def principale(reset = False) :
             st.session_state.bqjeurefroidissement.pop(choixq)
 
         return(question, rjeu, theme)
-
-    print("Bonjour et bienvenu à ce jeu questionnaire.")
-    qrépondu = 0
 
     nbquestion = len(bqhumidité) + len(bqréchauffement) + len(bqrefroidissement)
 
@@ -246,5 +225,5 @@ def principale(reset = False) :
     else :
         résultat_IA = prédiction()
 
-        st.success("Bravo! Vous avez terminer ce quiz.")
+        st.success("Bravo! Vous avez terminer ce quiz. Votre score est de", st.session_state.score)
         st.success(résultat_IA)

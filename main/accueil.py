@@ -31,27 +31,29 @@
 
 
 import streamlit as st
-from pages import jeu_questionnaire
+from question import bqhumidité, bqrefroidissement, bqréchauffement
+from pages.jeu_questionnaire import principale
 
 st.set_page_config(page_title="Révision météo 1")
-
-if "page" not in st.session_state :
-    st.session_state.page = "accueil"
-    st.session_state.page_précédente = None
-
 st.title("Platforme de révision pour le cours de météo 1")
 
-if st.button("Accueil") :
-    st.session_state.page = "accueil"
+def rénitialization_jeu() :
+    st.session_state.index = 0
+    st.session_state.score = 0
+    st.session_state.qactuel = None
+    st.session_state.répval = False
 
-changement_page = st.session_state.page != st.session_state.page_précédente
+    st.session_state.bqjeuhumidité = bqhumidité.copy()
+    st.session_state.bqjeuréchauffement = bqréchauffement.copy()
+    st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
 
-if st.button("Jeu questionnaire"):
+def jeu_complet() :
+    rénitialization_jeu()
+    principale()
 
-    st.session_state.page = "quiz"
+pages = {
+    "Accueil" : st.Page("accueil.py", title = "Acceuil"),
+    "Jeu questionnaire" : st.Page(jeu_complet, "jeu_questionnaire.py", title = "Jeu")
+}
 
-if st.session_state.page == "quiz" :
-
-    jeu_questionnaire.principale(reset = changement_page)
-
-st.session_state.page_précédente = st.session_state.page
+st.navigation(pages)
