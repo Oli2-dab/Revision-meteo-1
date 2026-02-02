@@ -57,6 +57,18 @@ def principale() :
 
     val = charger_spacy()
 
+    if st.session_state.rénitialization_jeu == False :
+        st.session_state.rénitialization_jeu = True
+
+        st.session_state.index = 0
+        st.session_state.score = 0
+        st.session_state.qactuel = None
+        st.session_state.répval = False
+
+        st.session_state.bqjeuhumidité = bqhumidité.copy()
+        st.session_state.bqjeuréchauffement = bqréchauffement.copy()
+        st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
+
     def valrép(rj, rjeu) :
         réponse_joueur = rj.strip().lower()
         réponse_jeu = rjeu.strip().lower()
@@ -224,5 +236,13 @@ def principale() :
 
         st.success(f"Bravo! Vous avez terminer ce quiz. Votre score est de {st.session_state.score} sur {total_score}.")
         st.success(résultat_IA)
+        
+        if st.button("Recommenser le questionnaire complet") :
+            st.session_state.rénitialization_jeu = False
+            st.rerun()
+
+        if st.button("Page d'accueil") :
+            st.session_state.rénitialization_jeu = False
+            st.switch_page("pages/accueil.py")
 
 principale()
