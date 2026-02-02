@@ -22,3 +22,6 @@ st.session_state.tréchauffement = int(st.session_state.tréchauffement)
 st.session_state.sjrefroidissement = int(st.session_state.sjrefroidissement)
 st.session_state.trefroidissement = int(st.session_state.trefroidissement)
 
+if st.button("IA") :
+    résultat_IA = prédiction()
+    st.success(résultat_IA)
