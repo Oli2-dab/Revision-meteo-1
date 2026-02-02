@@ -9,7 +9,14 @@ import streamlit as st
 import joblib
 import pandas as pd
 
-def prédiction() :
+st.session_state.sjhumidité = st.text_input("sjhumidité")
+st.session_state.thumidité = st.text_input("thumidité")
+st.session_state.sjréchauffement = st.text_input("sjréchauffement")
+st.session_state.tréchauffement = st.text_input("tréchauffement")
+st.session_state.sjrefroidissement = st.text_input("sjrefroidissement")
+st.session_state.trefroidissement=st.text_input("trefroidissement")
+
+def prédiction_mauvais() :
 
     taux_hum_avant = st.session_state.sjhumidité / st.session_state.thumidité
     taux_hum = round(taux_hum_avant, 2)
@@ -20,9 +27,9 @@ def prédiction() :
     taux_refr_avant = st.session_state.sjrefroidissement / st.session_state.trefroidissement
     taux_refr = round(taux_refr_avant, 2)
 
-    chargement_model = joblib.load("base_de_donnee_IA.joblib")
+    chargement_model = joblib.load("base_de_donnee_IA_mauvais.joblib")
     taux = pd.DataFrame([[taux_hum,taux_réch,taux_refr]], columns = ["taux_humidité", "taux_réchauffement", "taux_refroidissement"])
-    résultat_taux = chargement_model.predict(taux)[0]
+    résultat_taux = chargement_model.predict(taux)
 
     dict_taux = {
         "l'humidité" : taux_hum,
@@ -55,10 +62,6 @@ def prédiction() :
 
     return(résultat)
 
-#Bravo, tu es excellent, tu as eu 100% partout. As-tu triché?                        7
-#Excellent résultat, tu connais très bien ta matière.                                6
-#Tu y es presque. Tu n'as fait que quelque erreurs                                   5
-#Tu comprends bien ces catégories. Il ne te reste qu'a réviser cette catégorie       4
-#En général, tu comprends bien, mais tu fais des erreurs dans ces catégories         3
-#Tu fais beacoup d'erreur dans ces catégories, je te conseil de réviser              2
-#Prends-tu le test au serieux!!!                                                     1
+résultat_IA = prédiction_mauvais()
+
+st.success(résultat_IA)

@@ -15,3 +15,9 @@ if st.button("Questionnaire complet") :
 
 if st.button("Questionnaire température") :
     st.switch_page("pages/température.py")
+
+if st.button("Bonne IA") :
+    st.switch_page("dossierIA/IA_bon.py")
+
+if st.button("Mauvaise IA") :
+    st.switch_page("dossierIA/IA_mauvais.py")

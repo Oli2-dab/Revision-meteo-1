@@ -38,7 +38,9 @@ st.set_page_config(page_title="Révision météo 1")
 navigation = st.navigation([
     st.Page("pages/accueil.py", title = "Page d'accueil"),
     st.Page("pages/jeu_questionnaire.py", title = "Questionnaire complet"),
-    st.Page("pages/température.py", title = "Questionnaire température")
+    st.Page("pages/température.py", title = "Questionnaire température"),
+    st.Page("dossierIA/IA_bon.py", title = "Bonne IA"),
+    st.Page("dossierIA/IA_mauvais.py", title = "Mauvaise IA")
 ])
 
 navigation.run()
