@@ -37,23 +37,9 @@ from pages.jeu_questionnaire import principale
 st.set_page_config(page_title="Révision météo 1")
 st.title("Platforme de révision pour le cours de météo 1")
 
-def rénitialization_jeu() :
-    st.session_state.index = 0
-    st.session_state.score = 0
-    st.session_state.qactuel = None
-    st.session_state.répval = False
-
-    st.session_state.bqjeuhumidité = bqhumidité.copy()
-    st.session_state.bqjeuréchauffement = bqréchauffement.copy()
-    st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
-
-def jeu_complet() :
-    rénitialization_jeu()
-    principale()
-
 pages = {
     "Accueil" : st.Page("accueil.py", title = "Acceuil"),
-    "Jeu questionnaire" : st.Page(jeu_complet, "jeu_questionnaire.py", title = "Jeu")
+    "Jeu questionnaire" : st.Page("jeu_questionnaire.py", title = "Jeu")
 }
 
 st.navigation(pages)
