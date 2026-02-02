@@ -10,5 +10,8 @@ import streamlit as st
 st.title("Platforme de révision pour le cours de météo 1")
 st.write("Choisiez le mode de jeu auquel vous voulez jouer.")
 
-st.page_link("pages/jeu_questionnaire.py", label = "Questionnaire complet")
-st.page_link("pages/température.py", label = "Questionnaire température")
+if st.button("Questionnaire complet") :
+    st.switch_page("pages/jeu_questionnaire.py")
+
+if st.button("Questionnaire température") :
+    st.switch_page("pages/température.py")
