@@ -36,7 +36,8 @@ st.set_page_config(page_title="Révision météo 1")
 st.title("Platforme de révision pour le cours de météo 1")
 
 navigation = st.navigation([
-    st.Page("pages/jeu_questionnaire.py", title = "Jeu")
+    st.Page("pages/jeu_questionnaire.py", title = "Questionnaire complet"),
+    st.Page("pages/température.py", title = "Questionnaire température")
 ])
 
 navigation.run()
