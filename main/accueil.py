@@ -40,4 +40,4 @@ navigation = st.navigation([
     st.Page("pages/jeu_questionnaire.py", title = "Jeu")
 ])
 
-navigation.run
+navigation.run()
