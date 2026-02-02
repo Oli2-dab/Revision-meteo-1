@@ -27,6 +27,7 @@
 #Faire un autre score : 0, 1, 2, 3 ou lieu de 0, 1, 2
 #Faire une page pour les questions à choix multiple
 #Entrainé l'IA pour que si le score est de 0, elle ne le prennent pas en compte : changer fichier d'entrainement
+#Mettre une page pour sélectionner une IA bonne et mauvaise
 
 
 
