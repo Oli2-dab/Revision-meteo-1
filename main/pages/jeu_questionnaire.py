@@ -13,15 +13,21 @@ from dossierIA.IA import prédiction
 
 def principale() : 
 
+    if "rénitialization_jeu" not in st.session_state :
+        st.session_state.rénitialization_jeu = True
+
+        st.session_state.index = 0
+        st.session_state.score = 0
+        st.session_state.qactuel = None
+        st.session_state.répval = False
+
+        st.session_state.bqjeuhumidité = bqhumidité.copy()
+        st.session_state.bqjeuréchauffement = bqréchauffement.copy()
+        st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
+
     if "index" not in st.session_state:
         st.session_state.index = 0
         st.session_state.score = 0
-        st.session_state.theme = "rien"
-        st.session_state.question = "rien"
-        st.session_state.sàenlevé = 0
-        st.session_state.rj = "rien"
-        st.session_state.rjeu = "rien"
-        st.session_state.validité = 0  
         st.session_state.scoreq = 0
 
     if "bqjeuhumidité" not in st.session_state :
