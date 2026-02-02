@@ -148,8 +148,8 @@ def principale() :
 
             if st.button("Valider la réponse") :
                 st.session_state.scoreq = valrép(rj, rjeu)
-                score = st.session_state.scoreq
-                st.session_state.score += score
+                st.session_state.score = st.session_state.scoreq
+                st.session_state.score += st.session_state.score
 
                 if theme == "humidité" :
                     if question in st.session_state.qdscore :
@@ -220,7 +220,7 @@ def principale() :
     else :
         résultat_IA = prédiction()
 
-        st.success(f"Bravo! Vous avez terminer ce quiz. Votre score est de {score}.")
+        st.success(f"Bravo! Vous avez terminer ce quiz. Votre score est de {st.session_state.score}.")
         st.success(résultat_IA)
 
 principale()
