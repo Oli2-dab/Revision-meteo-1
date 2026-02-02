@@ -18,12 +18,12 @@ st.session_state.trefroidissement = st.text_input("trefroidissement")
 
 def prédiction_mauvais() :
 
-    int(st.session_state.sjhumidité)
-    int(st.session_state.thumidité)
-    int(st.session_state.sjréchauffement)
-    int(st.session_state.tréchauffement)
-    int(st.session_state.sjrefroidissement)
-    int(st.session_state.trefroidissement)
+    st.session_state.sjhumidité = int(st.session_state.sjhumidité)
+    st.session_state.thumidité = int(st.session_state.thumidité)
+    st.session_state.sjréchauffement = int(st.session_state.sjréchauffement)
+    st.session_state.tréchauffement = int(st.session_state.tréchauffement)
+    st.session_state.sjrefroidissement = int(st.session_state.sjrefroidissement)
+    st.session_state.trefroidissement = int(st.session_state.trefroidissement)
 
     taux_hum_avant = st.session_state.sjhumidité / st.session_state.thumidité
     taux_hum = round(taux_hum_avant, 2)
