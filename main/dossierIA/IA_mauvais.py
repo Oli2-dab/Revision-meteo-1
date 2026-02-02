@@ -62,6 +62,6 @@ def prédiction_mauvais() :
 
     return(résultat)
 
-résultat_IA = prédiction_mauvais()
-
-st.success(résultat_IA)
+if st.button("IA") :
+    résultat_IA = prédiction_mauvais()
+    st.success(résultat_IA)
