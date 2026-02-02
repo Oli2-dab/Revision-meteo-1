@@ -28,15 +28,6 @@ def principale() :
     if "scoreq" not in st.session_state :
         st.session_state.scoreq = 0
 
-    if "bqjeuhumidité" not in st.session_state :
-        st.session_state.bqjeuhumidité = bqhumidité.copy()
-
-    if "bqjeuréchauffement" not in st.session_state :
-        st.session_state.bqjeuréchauffement = bqréchauffement.copy()
-
-    if "bqjeurefroidissement" not in st.session_state :
-        st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
-
     if "sjhumidité" not in st.session_state:
         st.session_state.sjhumidité = 0
 
@@ -231,3 +222,5 @@ def principale() :
 
         st.success("Bravo! Vous avez terminer ce quiz. Votre score est de", st.session_state.score)
         st.success(résultat_IA)
+
+principale()
