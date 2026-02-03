@@ -19,11 +19,11 @@ st.session_state.tavantrefroidissement = st.text_input("tavantrefroidissement")
 
 if st.button("IA") :
     st.session_state.sjhumidité = int(st.session_state.sjavanthumidité)
-	st.session_state.thumidité = int(st.session_state.tavanthumidité)
-	st.session_state.sjréchauffement = int(st.session_state.sjavantréchauffement)
-	st.session_state.tréchauffement = int(st.session_state.tavantréchauffement)
-	st.session_state.sjrefroidissement = int(st.session_state.sjavantrefroidissement)
-	st.session_state.trefroidissement = int(st.session_state.tavantrefroidissement)
+    st.session_state.thumidité = int(st.session_state.tavanthumidité)
+    st.session_state.sjréchauffement = int(st.session_state.sjavantréchauffement)
+    st.session_state.tréchauffement = int(st.session_state.tavantréchauffement)
+    st.session_state.sjrefroidissement = int(st.session_state.sjavantrefroidissement)
+    st.session_state.trefroidissement = int(st.session_state.tavantrefroidissement)
     
     résultat_IA = prédiction()
     st.success(résultat_IA)
