@@ -6,7 +6,7 @@
 #
 
 import streamlit as st
-from IA import prédiction
+from dossierIA.IA import prédiction
 
 st.session_state.sjavanthumidité = st.text_input("sjavanthumidité")
 st.session_state.tavanthumidité = st.text_input("tavanthumidité")
