@@ -42,7 +42,7 @@ def prédiction() :
         résultat = f"En général, tu comprends bien, mais tu fais plusieurs erreurs. Je te conseil de réviser le chapitre sur {catégorie_affiché} car c'est dans cette catégorie que tu fais le plus d'erreurs."
 
     elif résultat_taux == 4 :
-        résultat = f"Tu comprends bien ces catégories. Il ne te reste qu'a réviser le chapitre sur {catégorie_affiché}."
+        résultat = f"Tu comprends bien la matière dans presque toutes les catégories. Il ne te reste qu'a réviser le chapitre sur {catégorie_affiché}."
 
     elif résultat_taux == 5 :
         résultat = f"Tu y es presque. Tu n'as fait que quelque erreurs"
