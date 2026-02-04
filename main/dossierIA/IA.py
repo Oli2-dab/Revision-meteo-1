@@ -11,6 +11,15 @@ import pandas as pd
 
 def prédiction() :
 
+    if st.session_state.thumidité == 0 :
+        st.session_state.thumidité = st.session_state.thumidité + 1
+
+    if st.session_state.tréchauffement == 0 :
+        st.session_state.tréchauffement = st.session_state.tréchauffement + 1
+
+    if st.session_state.trefroidissement == 0 :
+        st.session_state.trefroidissement = st.session_state.trefroidissement + 1
+
     taux_hum_avant = st.session_state.sjhumidité / st.session_state.thumidité
     taux_hum = round(taux_hum_avant, 2)
 
