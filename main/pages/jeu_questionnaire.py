@@ -376,7 +376,7 @@ def principale() :
                     
                     elif question not in st.session_state.qdscore :
                         st.session_state.qdscore.update({question : st.session_state.scoreq})
-                        st.session_state.tnuage_precipitationt += 2
+                        st.session_state.tnuage_precipitation += 2
                         st.session_state.sjnuage_precipitation += st.session_state.scoreq
 
                 st.session_state.répval = True
