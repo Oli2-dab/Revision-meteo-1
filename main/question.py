@@ -8,22 +8,22 @@
 import streamlit as st
 
 bqhumidité = [
-    {"question" : "Quel est l'élément le plus important en météo?", "réponse" : "la vapeur d'eau"},
-    {"question" : "Le point de rosée augmente si l'air est...", "réponse" : "chaud"},
-    {"question" : "Qu'est-ce que le point de rosée?", "réponse" : "La température à pression constante à laquelle si l'air doit être refroidi pour qu'il y ait saturation"},
-    {"question" : "Que fait l'eau lorsqu'elle est dans l'air et devient liquide?", "réponse" : "elle donne son énergie à l'air, ce qui augmente la température de l'air"},
+    {"question" : "Exam 1 Quel est l'élément le plus important en météo?", "réponse" : "la vapeur d'eau"},
+    {"question" : "Exam 1 Le point de rosée augmente si l'air est...", "réponse" : "chaud"},
+    {"question" : "Exam 1 Qu'est-ce que le point de rosée?", "réponse" : "La température à pression constante à laquelle si l'air doit être refroidi pour qu'il y ait saturation"},
+    {"question" : "Exam 1 Que fait l'eau lorsqu'elle est dans l'air et devient liquide?", "réponse" : "elle donne son énergie à l'air, ce qui augmente la température de l'air"},
 ]
 
 bqréchauffement = [
-    {"question" : "Quel est la température qui définit la tropopause?", "réponse" : "-56"},
-    {"question" : "Quels sont les quatre couches de l'atmosphère?", "réponse" : "la troposphère, la mésosphère, la stratosphère et la thermosphère"},
-    {"question" : "Quel type d'onde nous envoie le Soleil (2 lettres) et quel est sa longueur d'onde?", "réponse" : "uv et petite ou courte"},
-    {"question" : "Qu'est-ce que la réflexion Albédo?", "réponse" : "Lorsque les rayons touchent la Terre perpendiculairement, ils sont plus puissants que ceux tangents"},
+    {"question" : "Exam 1 Quel est la température qui définit la tropopause?", "réponse" : "-56"},
+    {"question" : "Exam 1 Quels sont les quatre couches de l'atmosphère?", "réponse" : "la troposphère, la mésosphère, la stratosphère et la thermosphère"},
+    {"question" : "Exam 1 Quel type d'onde nous envoie le Soleil (2 lettres) et quel est sa longueur d'onde?", "réponse" : "uv et petite ou courte"},
+    {"question" : "Exam 1 Qu'est-ce que la réflexion Albédo?", "réponse" : "Lorsque les rayons touchent la Terre perpendiculairement, ils sont plus puissants que ceux tangents"},
 ]
 
 bqrefroidissement = [
-    {"question" : "Comment ce nomme le concept qui définit que la température diminue de 1,98°C par 1000 pi?", "réponse" : "le gradient thermique vertical"},
-    {"question" : "Comment ce nomme le concept qui définit que la température diminue de 3°C par 1000 pi?", "réponse" : "le gradient adiabatique sec"},
+    {"question" : "Exam 1 Comment ce nomme le concept qui définit que la température diminue de 1,98°C par 1000 pi?", "réponse" : "le gradient thermique vertical"},
+    {"question" : "Exam 1 Comment ce nomme le concept qui définit que la température diminue de 3°C par 1000 pi?", "réponse" : "le gradient adiabatique sec"},
 ]
 
 stabilite_air = [
