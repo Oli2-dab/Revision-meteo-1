@@ -21,3 +21,5 @@ if st.button("Bonne IA") :
 
 if st.button("Mauvaise IA") :
     st.switch_page("dossierIA/IA_mauvais.py")
+
+st.write("Version 0.0.1")
