@@ -23,6 +23,26 @@ def prédiction() :
         addition = st.session_state.trefroidissement
         st.session_state.trefroidissement = addition + 1
 
+    if st.session_state.tstabilite_air == 0 :
+        addition = st.session_state.tstabilite_air
+        st.session_state.tstabilite_air = addition + 1
+
+    if st.session_state.tpression_atmo == 0 :
+        addition = st.session_state.tpression_atmo
+        st.session_state.tpression_atmo = addition + 1
+
+    if st.session_state.tmasse_air == 0 :
+        addition = st.session_state.tmasse_air
+        st.session_state.tmasse_air = addition + 1
+
+    if st.session_state.tfronts == 0 :
+        addition = st.session_state.tfronts
+        st.session_state.tfronts = addition + 1
+
+    if st.session_state.tnuage_precipitation == 0 :
+        addition = st.session_state.tnuage_precipitation
+        st.session_state.tnuage_precipitation = addition + 1
+
     taux_hum_avant = st.session_state.sjhumidité / st.session_state.thumidité
     taux_hum = round(taux_hum_avant, 2)
 
@@ -32,14 +52,34 @@ def prédiction() :
     taux_refr_avant = st.session_state.sjrefroidissement / st.session_state.trefroidissement
     taux_refr = round(taux_refr_avant, 2)
 
+    taux_stab_avant = st.session_state.sjstabilite_air / st.session_state.tstabilite_air
+    taux_stab = round(taux_stab_avant, 2)
+
+    taux_pres_avant = st.session_state.sjpression_atmo / st.session_state.tpression_atmo
+    taux_pres = round(taux_pres_avant, 2)
+
+    taux_mass_avant = st.session_state.sjmasse_air / st.session_state.tmasse_air
+    taux_mass = round(taux_mass_avant, 2)
+
+    taux_fron_avant = st.session_state.sjfronts / st.session_state.tfronts
+    taux_fron = round(taux_fron_avant, 2)
+
+    taux_nuag_avant = st.session_state.sjnuage_precipitation / st.session_state.tnuage_precipitation
+    taux_nuag = round(taux_nuag_avant, 2)
+
     chargement_model = joblib.load("base_de_donnee_IA.joblib")
-    taux = pd.DataFrame([[taux_hum,taux_réch,taux_refr]], columns = ["taux_humidité", "taux_réchauffement", "taux_refroidissement"])
+    taux = pd.DataFrame([[taux_hum,taux_réch,taux_refr]], columns = ["taux_humidité", "taux_réchauffement", "taux_refroidissement", "taux_stabilite", "taux_pression", "taux_masse", "taux_front", "taux_nuage"])
     résultat_taux = chargement_model.predict(taux)[0]
 
     dict_taux = {
         "l'humidité" : taux_hum,
         "le réchauffement" : taux_réch,
-        "le refroidissement" : taux_refr
+        "le refroidissement" : taux_refr,
+        "la stabilité de l'air" : taux_stab,
+        "la pression atmosphérique" : taux_pres,
+        "les masses d'air" : taux_mass,
+        "les fronts" : taux_fron,
+        "les nuages et les précipitations" : taux_nuag,
     }
 
     catégorie_affiché = min(dict_taux, key = dict_taux.get)
