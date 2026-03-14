@@ -10,6 +10,10 @@ import streamlit as st
 st.title("Platforme de révision pour le cours de météo 1")
 st.write("Choisiez le mode de jeu auquel vous voulez jouer.")
 
+st.write("AVERTISSEMENT")
+st.write("Cette platforme est utiliser pour différent projet. Pour la révision de météo, utiliser <<questionnaire complet>> seulement.")
+st.write("Si vous renconter des erreurs, svp m'écrire pour que je puisse les corrigées et que les autres ne les rencontres pas.")
+
 if st.button("Questionnaire complet") :
     st.switch_page("pages/jeu_questionnaire.py")
 
@@ -22,4 +26,4 @@ if st.button("Bonne IA") :
 if st.button("Mauvaise IA") :
     st.switch_page("dossierIA/IA_mauvais.py")
 
-st.write("Version 0.0.5")
+st.write("Version 0.0.6")
