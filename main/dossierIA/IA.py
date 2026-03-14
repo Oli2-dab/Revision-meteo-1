@@ -68,7 +68,7 @@ def prédiction() :
     taux_nuag = round(taux_nuag_avant, 2)
 
     chargement_model = joblib.load("base_de_donnee_IA.joblib")
-    taux = pd.DataFrame([[taux_hum,taux_réch,taux_refr]], columns = ["taux_humidité", "taux_réchauffement", "taux_refroidissement", "taux_stabilite", "taux_pression", "taux_masse", "taux_front", "taux_nuage"])
+    taux = pd.DataFrame([[taux_hum,taux_réch,taux_refr,taux_stab,taux_pres,taux_mass,taux_fron,taux_nuag]], columns = ["taux_humidité", "taux_réchauffement", "taux_refroidissement", "taux_stabilite", "taux_pression", "taux_masse", "taux_front", "taux_nuage"])
     résultat_taux = chargement_model.predict(taux)[0]
 
     dict_taux = {
