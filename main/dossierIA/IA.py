@@ -103,7 +103,7 @@ def prédiction() :
         résultat = f"Excellent résultat, tu connais très bien ta matière."
 
     elif résultat_taux == 7 :
-        résultat = f"Bravo, tu es excellent, tu as eu 100% partout. As-tu triché?"
+        résultat = f"Bravo, tu es excellent, tu as presque eu 100% partout. As-tu triché?"
 
     return(résultat)
 
