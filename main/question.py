@@ -35,8 +35,8 @@ stabilite_air = [
     {"question" : "Comment se nomme le type de stabilité lorsqu'une particule revient à son point de départ?", "réponse" : "stabilité absolue"},
     {"question" : "Si le GTVM change pour qu'il fasse plus froid à haut niveau et plus chaud à bas niveau, l'air devient-elle plus stable ou plus instable?", "réponse" : "instable"},
     {"question" : "Si le GTVM change pour qu'il fasse plus chaud à haut niveau et plus froid à bas niveau, l'air devient-elle plus stable ou plus instable?", "réponse" : "stable"},
-    {"question" : "Quels sont les quatres éléments qui caractérise l'air stable?", "réponse" : "visibilité mauvaise, nuage stagnant, précipitation faible ou modéré, vent constant et faible ou modérer et continue et turbulence nul à léger"},
-    {"question" : "Quels sont les quatres éléments qui caractérise l'air insatble?", "réponse" : "visibilité va s'améliorer, nuages vont bouger et nuage cumuliforme, précipitation en averse et avec des changements d'intensités, vent qui vont variés, jusqu'à fort, avec rafales et beaucoup de turbulence au niveau horizontale"},
+    {"question" : "Quels sont les cinq éléments qui caractérise l'air stable?", "réponse" : "visibilité mauvaise, nuage stagnant, précipitation faible ou modéré, vent constant et faible ou modérer et continue et turbulence nul à léger"},
+    {"question" : "Quels sont les cinq éléments qui caractérise l'air insatble?", "réponse" : "visibilité va s'améliorer, nuages vont bouger et nuage cumuliforme, précipitation en averse et avec des changements d'intensités, vent qui vont variés, jusqu'à fort, avec rafales et beaucoup de turbulence au niveau horizontale"},
 ]
 
 pression_atmo = [
@@ -113,10 +113,10 @@ fronts = [
     {"question" : "Quels sont les rapports de pente du front chaud?", "réponse" : "1 pour 150 à 1 pour 200"},
     {"question" : "Quel est le rapport de pente du front froid?", "réponse" : "1 pour 50"},
     {"question" : "Pour qu'une ligne de grain se forme, faut-il que le front froid soit rapide ou lent?", "réponse" : "rapide"},
-    {"question" : "Qu'est ce qui crée des fronts en altitude?", "réponse" : "des montagnes, un changement trop faible pour être qualifier de front au sol ou une inversion"},
+    {"question" : "Qu'est ce qui crée des fronts en altitude?", "réponse" : "des montagnes, un changement trop faible pour être qualifier de front au sol ou une réchauffement du sol par le soleil"},
     {"question" : "Généralement, va-t-on renconter des phénomènes avant ou après le changement de température avec un front en altitude?", "réponse" : "avant"},
     {"question" : "La différence entre les masses d'air est-elle plus importante au sol ou en altitude et qu'elle est l'altitude qui définit la partie basse de la partie haute (pour cette question uniquqment)?", "réponse" : "au sol, en dessous de 4000 pi"},
-    {"question" : "Quels sont les quatres caractéristiques qui vont changer lors du passage d'un front?", "réponse" : "la température, le point de rosée, la pression, le vent et la visibilité"},
+    {"question" : "Quels sont les cinq caractéristiques qui vont changer lors du passage d'un front?", "réponse" : "la température, le point de rosée, la pression, le vent et la visibilité"},
     {"question" : "Lors du passage d'un front, la température va-t-elle changer brusquement ou graduellement?", "réponse" : "brusquement"},
     {"question" : "Lors du passage d'un front chaud, est-ce que le point de rosé va augmenter?", "réponse" : "oui"},
     {"question" : "Lors du passage d'un front chaud, comment varie la pression?", "réponse" : "elle diminue"},
