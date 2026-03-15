@@ -11,7 +11,7 @@ st.title("Platforme de révision pour le cours de météo 1")
 st.write("Choisiez le mode de jeu auquel vous voulez jouer.")
 
 st.write("AVERTISSEMENT")
-st.write("Cette platforme est utiliser pour différent projet. Pour la révision de météo, utiliser <<questionnaire complet>> seulement. Dans la banque de question, il y a 10 questions de l'examen 1. Elle sont présentes pour un autre projet. Vous pouvez toujours essayer d'y répondre.")
+st.write("Cette platforme est utiliser pour différent projet. Pour la révision de météo, utiliser <<Questionnaire complet>> ou <<Questionnaire avec choix des thèmes>> seulement. Dans la banque de question, il y a 10 questions de l'examen 1. Elle sont présentes pour un autre projet. Vous pouvez toujours essayer d'y répondre.")
 st.write("Si vous renconter des erreurs, svp m'écrire pour que je puisse les corrigées pour que les autres ne les rencontres pas.")
 
 if st.button("Questionnaire complet") :
@@ -26,4 +26,6 @@ if st.button("Bonne IA") :
 if st.button("Mauvaise IA") :
     st.switch_page("dossierIA/IA_mauvais.py")
 
-st.write("Version 1.0.15")
+st.write("Version 1.0.16")
+
+st.write("1.0.16 : Ajout d'un jeu questionnaire où on peut choisir les chapirtres que l'on veut réviser.")
