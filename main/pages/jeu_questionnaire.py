@@ -13,7 +13,7 @@ from dossierIA.IA import prédiction
 
 def principale() : 
 
-    if "rénitialization_jeu" not in st.session_state :
+    if "rénitialization_jeu" not in st.session_state or st.session_state.rénitialization_jeu == False :
         st.session_state.rénitialization_jeu = True
 
         st.session_state.index = 0
@@ -29,6 +29,11 @@ def principale() :
         st.session_state.bqmasse_air = masse_air.copy()
         st.session_state.bqfronts = fronts.copy()
         st.session_state.bqnuage_precipitation = nuage_precipitation.copy()
+
+        for q in categorie.values() :
+            st.session_state.bqjeu += q.copy()
+
+        st.session_state.nbquestion = len(st.session_state.bqjeu)
 
     if "scoreq" not in st.session_state :
         st.session_state.scoreq = 0
@@ -54,19 +59,6 @@ def principale() :
         st.session_state.totalcat = {}
 
     val = charger_spacy()
-
-    if st.session_state.rénitialization_jeu == False :
-        st.session_state.rénitialization_jeu = True
-
-        st.session_state.index = 0
-        st.session_state.score = 0
-        st.session_state.qactuel = None
-        st.session_state.répval = False
-        st.session_state.bqjeu = []
-        for q in categorie.values() :
-            st.session_state.bqjeu += q.copy()
-
-        st.session_state.nbquestion = len(st.session_state.bqjeu)
 
     def valrép(rj, rjeu) :
         réponse_joueur = rj.strip().lower()

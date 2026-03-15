@@ -76,8 +76,8 @@ def principale_choix_t_questionnaire() :
                 return
             
             if st.session_state.bqjeu_questionnaire_choix :
-                st.session_state.rénitialization_jeu_questionnaire_choix = True
                 st.session_state.nbquestion = len(st.session_state.bqjeu_questionnaire_choix)
+                st.session_state.rénitialization_jeu_questionnaire_choix = True
                 st.rerun
 
 
