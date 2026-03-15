@@ -16,7 +16,7 @@ from dossierIA.IA import prédiction
 def principale_choix_t_questionnaire() :
 
     if "scoreq" not in st.session_state :
-        st.session_state.scoreq = 0
+        st.session_state.scoreq_ctq = 0
 
     if "qdscore" not in st.session_state:
         st.session_state.qdscore = {}
