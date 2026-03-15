@@ -35,6 +35,7 @@ def principale_choix_t_questionnaire() :
 
     if "rénitialization_jeu" not in st.session_state or st.session_state.rénitialization_jeu == False :
         st.session_state.rénitialization_jeu = True
+        st.session_state.choix_effectue = False
 
         st.session_state.index = 0
         st.session_state.score = 0
@@ -74,6 +75,9 @@ def principale_choix_t_questionnaire() :
             if not st.session_state.bqjeu:
                 st.warning("Veuillez sélectionner des thèmes")
                 return
+            
+            if st.session_state.bqjeu :
+                st.session_state.choix_effectue = True
 
 
     def valrép(rj, rjeu) :
@@ -178,19 +182,27 @@ def principale_choix_t_questionnaire() :
                     
 
     else :
-        résultat_IA = prédiction()
 
-        total_score = st.session_state.index * 2
+        if st.session_state.choix_effectue == True :
+            résultat_IA = prédiction()
 
-        st.success(f"Bravo! Vous avez terminer ce quiz. Votre score est de {st.session_state.score} sur {total_score}.")
-        st.success(résultat_IA)
-        
-        if st.button("Recommenser le questionnaire") :
-            st.session_state.rénitialization_jeu = False
-            st.rerun()
+            total_score = st.session_state.index * 2
 
-        if st.button("Page d'accueil") :
-            st.session_state.rénitialization_jeu = False
-            st.switch_page("pages/accueil.py")
+            st.subheader("Score par thème")
+            for theme, score in st.session_state.scorecat.items():
+                st.write(f"{theme}: {score}/{st.session_state.totalcat[theme]}")
+
+            st.success(f"Bravo! Vous avez terminer ce quiz. Votre score est de {st.session_state.score} sur {total_score}.")
+            st.success(résultat_IA)
+            
+            if st.button("Recommenser le questionnaire") :
+                st.session_state.rénitialization_jeu = False
+                st.session_state.choix_effectue = False
+                st.rerun()
+
+            if st.button("Page d'accueil") :
+                st.session_state.rénitialization_jeu = False
+                st.session_state.choix_effectue = False
+                st.switch_page("pages/accueil.py")
 
 principale_choix_t_questionnaire()

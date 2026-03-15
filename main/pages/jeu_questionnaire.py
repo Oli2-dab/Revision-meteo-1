@@ -172,6 +172,10 @@ def principale() :
 
         total_score = st.session_state.index * 2
 
+        st.subheader("Score par thème")
+        for theme, score in st.session_state.scorecat.items():
+            st.write(f"{theme}: {score}/{st.session_state.totalcat[theme]}")
+
         st.success(f"Bravo! Vous avez terminer ce quiz. Votre score est de {st.session_state.score} sur {total_score}.")
         st.success(résultat_IA)
         
