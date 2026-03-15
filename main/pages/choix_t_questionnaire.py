@@ -11,69 +11,25 @@ from question import bqhumidité, bqréchauffement, bqrefroidissement, stabilite
 from extension.validation import valrép
 from dossierIA.IA import prédiction
 
-def principale_ctq() :
+initialization = {
+    "scoreq_ctq":0,
+    "qdscore":{},
+    "qactuel_ctq":None,
+    "répval_ctq":False,
+    "scorecat":{},
+    "totalcat":{},
+    "nbquestion_ctq":0,
+    "rénitialization_ctq":False,
+    "index_ctq":0,
+    "score_ctq":0,
+    "bqjeu_ctq":[]
+}
 
-    if "scoreq_ctq" not in st.session_state :
-        st.session_state.scoreq_ctq = 0
+for nom, valeur in initialization.items() :
+    if nom not in st.session_state :
+        st.session_state[nom] = valeur
 
-    if "qdscore" not in st.session_state:
-        st.session_state.qdscore = {}
-
-    if "qactuel_ctq" not in st.session_state :
-        st.session_state.qactuel_ctq = None
-
-    if "répval_ctq" not in st.session_state :
-        st.session_state.répval_ctq = False
-
-    if "scorecat" not in st.session_state :
-        st.session_state.scorecat = {}
-
-    if "totalcat" not in st.session_state :
-        st.session_state.totalcat = {}
-
-    if "nbquestion_ctq" not in st.session_state :
-        st.session_state.nbquestion_ctq = 0
-
-    if "rénitialization_ctq" not in st.session_state :
-        st.session_state.rénitialization_ctq = False
-
-    if st.session_state.rénitialization_ctq == False :
-
-        st.session_state.index_ctq = 0
-        st.session_state.score_ctq = 0
-        st.session_state.qactuel_ctq = None
-        st.session_state.répval_ctq = False
-
-        st.session_state.bqjeu_ctq = []
-        theme_dispo_ctq = {
-            "humidite" : ("l'humidité", bqhumidité),
-            "rechauffement" : ("le réchauffement", bqréchauffement),
-            "refroidissement" : ("le refroidissement", bqrefroidissement),
-            "stabilite" : ("la stabilité de l'air", stabilite_air),
-            "pression" : ("la pression atmosphérique", pression_atmo),
-            "masse" : ("les masses d'air", masse_air),
-            "front" : ("les fronts", fronts),
-            "nuage" : ("les nuages et les précipitations", nuage_precipitation),
-        }
-
-        theme_choisie_ctq = {}
-        for t_ctq, (label_ctq, _) in theme_dispo_ctq.items() :
-            theme_choisie_ctq[t_ctq] = st.checkbox(label_ctq, key = f"theme_{t_ctq}")
-
-        if st.button("Débuter le questionnaire") :
-            for t_ctq in theme_choisie_ctq.items():
-                if st.session_state[f"theme_{t_ctq}"] :
-                    st.session_state.bqjeu_ctq += theme_dispo_ctq[t_ctq][1]
-
-            if not st.session_state.bqjeu_ctq:
-                st.warning("Veuillez sélectionner des thèmes")
-                return
-            
-            st.session_state.nbquestion_ctq = len(st.session_state.bqjeu_ctq)
-            st.session_state.rénitialization_ctq = True
-            st.rerun()
-
-    def choix_question() :
+def choix_question() :
 
         choixq_ctq = random.choice(st.session_state.bqjeu_ctq)
 
@@ -87,83 +43,126 @@ def principale_ctq() :
 
         return(question, rjeu, theme)
 
-    if st.session_state.index_ctq < st.session_state.nbquestion_ctq:
-        st.subheader(f"Question {st.session_state.index_ctq + 1} sur {st.session_state.nbquestion_ctq}")
+def choix_ctq() :
 
-        if st.session_state.qactuel_ctq is None :
-            st.session_state.qactuel_ctq = choix_question()
-        question, rjeu, theme = st.session_state.qactuel_ctq
+    st.session_state.index_ctq = 0
+    st.session_state.score_ctq = 0
+    st.session_state.qactuel_ctq = None
+    st.session_state.répval_ctq = False
 
-        st.write(question)
-        rj = st.text_input("Votre réponse", key= f"réponse_{st.session_state.index_ctq}", disabled = st.session_state.répval_ctq)
+    st.session_state.bqjeu_ctq = []
+    theme_dispo_ctq = {
+        "humidite" : ("l'humidité", bqhumidité),
+        "rechauffement" : ("le réchauffement", bqréchauffement),
+        "refroidissement" : ("le refroidissement", bqrefroidissement),
+        "stabilite" : ("la stabilité de l'air", stabilite_air),
+        "pression" : ("la pression atmosphérique", pression_atmo),
+        "masse" : ("les masses d'air", masse_air),
+        "front" : ("les fronts", fronts),
+        "nuage" : ("les nuages et les précipitations", nuage_precipitation),
+    }
 
-        if not st.session_state.répval_ctq :
+    for t_ctq, (label_ctq, _) in theme_dispo_ctq.items() :
+        st.checkbox(label_ctq, key = f"theme_{t_ctq}")
 
-            if st.button("Valider la réponse") :
-                st.session_state.scoreq_ctq = valrép(rj, rjeu)
-                st.session_state.score_ctq += st.session_state.scoreq_ctq
+    if st.button("Débuter le questionnaire") :
+        for t_ctq in theme_dispo_ctq():
+            if st.session_state[f"theme_{t_ctq}"] :
+                st.session_state.bqjeu_ctq += theme_dispo_ctq[t_ctq][1]
 
-                if theme not in st.session_state.scorecat :
-                    st.session_state.scorecat[theme] = 0
+        if not st.session_state.bqjeu_ctq:
+            st.warning("Veuillez sélectionner des thèmes")
+            return
+        
+        st.session_state.nbquestion_ctq = len(st.session_state.bqjeu_ctq)
+        st.session_state.rénitialization_ctq = True
+        st.rerun()
 
-                if theme not in st.session_state.totalcat :
-                    st.session_state.totalcat[theme] = 0
+def jeu_ctq() :
 
-                if question in st.session_state.qdscore :
-                    qancienne = st.session_state.qdscore[question]
-                    st.session_state.scorecat[theme] -= qancienne
+    st.subheader(f"Question {st.session_state.index_ctq + 1} sur {st.session_state.nbquestion_ctq}")
 
-                else :
-                    st.session_state.totalcat[theme] += 2
+    if st.session_state.qactuel_ctq is None :
+        st.session_state.qactuel_ctq = choix_question()
+    question, rjeu, theme = st.session_state.qactuel_ctq
 
-                st.session_state.scorecat[theme] += st.session_state.scoreq_ctq
-                st.session_state.qdscore[question] = st.session_state.scoreq_ctq
+    st.write(question)
+    rj = st.text_input("Votre réponse", key= f"réponse_{st.session_state.index_ctq}", disabled = st.session_state.répval_ctq)
 
-                st.session_state.répval_ctq = True
-                st.rerun()
+    if not st.session_state.répval_ctq :
 
-        if st.session_state.répval_ctq :
+        if st.button("Valider la réponse") :
+            st.session_state.scoreq_ctq = valrép(rj, rjeu)
+            st.session_state.score_ctq += st.session_state.scoreq_ctq
 
-            if st.session_state.scoreq_ctq == 2 :
+            if theme not in st.session_state.scorecat :
+                st.session_state.scorecat[theme] = 0
 
-                st.success("Bonne réponse! ✅")
+            if theme not in st.session_state.totalcat :
+                st.session_state.totalcat[theme] = 0
 
-            elif st.session_state.scoreq_ctq == 1 :
+            if question in st.session_state.qdscore :
+                qancienne = st.session_state.qdscore[question]
+                st.session_state.scorecat[theme] -= qancienne
 
-                st.warning(f"Réponse incomplète. La bonne réponse était {rjeu}")
+            else :
+                st.session_state.totalcat[theme] += 2
 
-            elif st.session_state.scoreq_ctq == 0 :
+            st.session_state.scorecat[theme] += st.session_state.scoreq_ctq
+            st.session_state.qdscore[question] = st.session_state.scoreq_ctq
 
-                st.error(f"Mauvaise réponse. La bonne réponse était {rjeu}")
+            st.session_state.répval_ctq = True
+            st.rerun()
 
-            if st.button("Question suivante") :
+    if st.session_state.répval_ctq :
 
-                st.session_state.qactuel_ctq = None
-                st.session_state.index_ctq += 1
-                st.session_state.répval_ctq = False
-                st.rerun()
-                    
+        if st.session_state.scoreq_ctq == 2 :
 
-    else :
+            st.success("Bonne réponse! ✅")
 
-        if st.session_state.rénitialization_ctq == True :
-            résultat_IA = prédiction()
+        elif st.session_state.scoreq_ctq == 1 :
 
-            total_score_ctq = st.session_state.index_ctq * 2
+            st.warning(f"Réponse incomplète. La bonne réponse était {rjeu}")
 
-            st.subheader("Score par thème")
-            for theme, score in st.session_state.scorecat.items():
-                st.write(f"{theme}: {score}/{st.session_state.totalcat[theme]}")
+        elif st.session_state.scoreq_ctq == 0 :
 
-            st.success(f"Bravo! Vous avez terminer ce quiz. Votre score est de {st.session_state.score_ctq} sur {total_score_ctq}.")
-            st.success(résultat_IA)
-            
-            if st.button("Recommenser le questionnaire") :
-                st.session_state.rénitialization_ctq = False
-                st.rerun()
+            st.error(f"Mauvaise réponse. La bonne réponse était {rjeu}")
 
-            if st.button("Page d'accueil") :
-                st.session_state.rénitialization_ctq = False
-                st.switch_page("pages/accueil.py")
+        if st.button("Question suivante") :
 
-principale_ctq()
+            st.session_state.qactuel_ctq = None
+            st.session_state.index_ctq += 1
+            st.session_state.répval_ctq = False
+            st.rerun()
+
+def resultat_ctq() :
+
+    résultat_IA = prédiction()
+
+    total_score_ctq = st.session_state.index_ctq * 2
+
+    st.subheader("Score par thème")
+    for theme, score in st.session_state.scorecat.items():
+        st.write(f"{theme}: {score}/{st.session_state.totalcat[theme]}")
+
+    st.success(f"Bravo! Vous avez terminer ce quiz. Votre score est de {st.session_state.score_ctq} sur {total_score_ctq}.")
+    st.success(résultat_IA)
+    
+    if st.button("Recommenser le questionnaire") :
+        st.session_state.rénitialization_ctq = False
+        st.rerun()
+
+    if st.button("Page d'accueil") :
+        st.session_state.rénitialization_ctq = False
+        st.switch_page("pages/accueil.py")
+
+
+
+if st.session_state.rénitialization_ctq == False :
+    choix_ctq()
+
+elif st.session_state.rénitialization_ctq == True and st.session_state.index_ctq < st.session_state.nbquestion_ctq :
+    jeu_ctq()
+
+else :
+    resultat_ctq()
