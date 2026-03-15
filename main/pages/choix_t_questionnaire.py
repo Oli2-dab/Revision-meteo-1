@@ -66,7 +66,7 @@ def choix_ctq() :
         st.checkbox(label_ctq, key = f"theme_{t_ctq}")
 
     if st.button("Débuter le questionnaire") :
-        for t_ctq in theme_dispo_ctq():
+        for t_ctq in theme_dispo_ctq.keys():
             if st.session_state[f"theme_{t_ctq}"] :
                 st.session_state.bqjeu_ctq += theme_dispo_ctq[t_ctq][1]
 
