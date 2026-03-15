@@ -17,8 +17,8 @@ st.write("Si vous renconter des erreurs, svp m'écrire pour que je puisse les co
 if st.button("Questionnaire complet") :
     st.switch_page("pages/jeu_questionnaire.py")
 
-if st.button("Questionnaire température") :
-    st.switch_page("pages/température.py")
+if st.button("Questionnaire avec choix des thèmes") :
+    st.switch_page("pages/choix_t_questionnaire.py")
 
 if st.button("Bonne IA") :
     st.switch_page("dossierIA/IA_bon.py")
@@ -26,4 +26,4 @@ if st.button("Bonne IA") :
 if st.button("Mauvaise IA") :
     st.switch_page("dossierIA/IA_mauvais.py")
 
-st.write("Version 0.0.10")
+st.write("Version 1.0.0")

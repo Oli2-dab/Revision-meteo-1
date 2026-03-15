@@ -1,0 +1,196 @@
+#   Ceci est un code pour créer une ia qui propose des recommandation basé sur les bonnes ou mauvaise réponse d'un questionnaire
+#   Pour le cours de philo 2 Cchic
+#   Questions basées sur les notes de cours personnelles de météo 1 du CQFA
+#
+#   Olivier Moreau
+#
+
+import streamlit as st
+import random
+from question import bqhumidité, bqréchauffement, bqrefroidissement, stabilite_air, pression_atmo, masse_air, fronts, nuage_precipitation, categorie
+from extension.chargement_spacy import charger_spacy
+from dossierIA.IA import prédiction
+
+def principale_choix_t_questionnaire() :
+
+    if "scoreq" not in st.session_state :
+        st.session_state.scoreq = 0
+
+    if "qdscore" not in st.session_state:
+        st.session_state.qdscore = {}
+
+    if "qactuel" not in st.session_state :
+        st.session_state.qactuel = None
+
+    if "répval" not in st.session_state :
+        st.session_state.répval = False
+
+    if "scorecat" not in st.session_state :
+        st.session_state.scorecat = {}
+
+    if "totalcat" not in st.session_state :
+        st.session_state.totalcat = {}
+
+    val = charger_spacy()
+
+    if "rénitialization_jeu" not in st.session_state or st.session_state.rénitialization_jeu == False :
+        st.session_state.rénitialization_jeu = True
+
+        st.session_state.index = 0
+        st.session_state.score = 0
+        st.session_state.qactuel = None
+        st.session_state.répval = False
+
+        st.session_state.bqjeuhumidité = bqhumidité.copy()
+        st.session_state.bqjeuréchauffement = bqréchauffement.copy()
+        st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
+        st.session_state.bqstabilite_air = stabilite_air.copy()
+        st.session_state.bqpression_atmo = pression_atmo.copy()
+        st.session_state.bqmasse_air = masse_air.copy()
+        st.session_state.bqfronts = fronts.copy()
+        st.session_state.bqnuage_precipitation = nuage_precipitation.copy()
+
+        st.session_state.bqjeu = []
+        theme_dispo = {
+            "humidite" : ("l'humidité", bqhumidité),
+            "rechauffement" : ("le réchauffement", bqréchauffement),
+            "refroidissement" : ("le refroidissement", bqrefroidissement),
+            "stabilite" : ("la stabilité de l'air", stabilite_air),
+            "pression" : ("la pression atmosphérique", pression_atmo),
+            "masse" : ("les masses d'air", masse_air),
+            "front" : ("les fronts", fronts),
+            "nuage" : ("les nuages et les précipitations", nuage_precipitation),
+        }
+
+        theme_choisie = {}
+        for t, (label, checkbox) in theme_dispo.items() :
+            theme_choisie[t] = st.checkbox(label)
+
+        if st.button("Débuter le questionnaire") :
+            for t, check in theme_choisie.items():
+                if check :
+                    st.session_state.bqjeu += theme_dispo[t][1]
+
+            if not st.session_state.bqjeu:
+                st.warning("Veuillez sélectionner des thèmes")
+                return
+
+
+    def valrép(rj, rjeu) :
+        réponse_joueur = rj.strip().lower()
+        réponse_jeu = rjeu.strip().lower()
+
+        pourvalrj = val(réponse_joueur)
+        pourvalrjeu = val(réponse_jeu)
+        validité = pourvalrj.similarity(pourvalrjeu)
+
+        if validité >= 0.80 :
+            scoreq = 2
+
+        elif validité >= 0.40 :
+            scoreq = 1
+        
+        else :
+            scoreq = 0.0
+
+        if réponse_joueur == "c2" :
+            scoreq = 2
+
+        if réponse_joueur == "c1" :
+            scoreq = 1
+
+        if réponse_joueur == "c0" :
+            scoreq = 0
+
+        return(scoreq)
+
+    def choix_question() :
+
+        choixq = random.choice(st.session_state.bqjeu)
+
+        question = choixq["question"]
+
+        rjeu = choixq["réponse"]
+
+        theme = choixq["theme"]
+
+        st.session_state.bqjeu.remove(choixq)
+
+        return(question, rjeu, theme)
+
+    nbquestion = len(st.session_state.bqjeu) + st.session_state.index
+
+    if st.session_state.index < nbquestion:
+        st.subheader(f"Question {st.session_state.index + 1} sur {nbquestion}")
+
+        if st.session_state.qactuel is None :
+            st.session_state.qactuel = choix_question()
+        question, rjeu, theme = st.session_state.qactuel
+
+        st.write(question)
+        rj = st.text_input("Votre réponse", key= f"réponse_{st.session_state.index}", disabled = st.session_state.répval)
+
+        if not st.session_state.répval :
+
+            if st.button("Valider la réponse") :
+                st.session_state.scoreq = valrép(rj, rjeu)
+                st.session_state.score += st.session_state.scoreq
+
+                if theme not in st.session_state.scorecat :
+                    st.session_state.scorecat[theme] = 0
+
+                if theme not in st.session_state.totalcat :
+                    st.session_state.totalcat[theme] = 0
+
+                if question in st.session_state.qdscore :
+                    qancienne = st.session_state.qdscore[question]
+                    st.session_state.scorecat[theme] -= qancienne
+
+                else :
+                    st.session_state.totalcat[theme] += 2
+
+                st.session_state.scorecat[theme] += st.session_state.scoreq
+                st.session_state.qdscore[question] = st.session_state.scoreq
+
+                st.session_state.répval = True
+                st.rerun()
+
+        if st.session_state.répval :
+
+            if st.session_state.scoreq == 2 :
+
+                st.success("Bonne réponse! ✅")
+
+            elif st.session_state.scoreq == 1 :
+
+                st.warning(f"Réponse incomplète. La bonne réponse était {rjeu}")
+
+            elif st.session_state.scoreq == 0 :
+
+                st.error(f"Mauvaise réponse. La bonne réponse était {rjeu}")
+
+            if st.button("Question suivante") :
+
+                st.session_state.qactuel = None
+                st.session_state.index += 1
+                st.session_state.répval = False
+                st.rerun()
+                    
+
+    else :
+        résultat_IA = prédiction()
+
+        total_score = st.session_state.index * 2
+
+        st.success(f"Bravo! Vous avez terminer ce quiz. Votre score est de {st.session_state.score} sur {total_score}.")
+        st.success(résultat_IA)
+        
+        if st.button("Recommenser le questionnaire") :
+            st.session_state.rénitialization_jeu = False
+            st.rerun()
+
+        if st.button("Page d'accueil") :
+            st.session_state.rénitialization_jeu = False
+            st.switch_page("pages/accueil.py")
+
+principale_choix_t_questionnaire()
