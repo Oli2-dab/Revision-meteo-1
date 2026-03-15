@@ -34,7 +34,10 @@ def principale_ctq() :
     if "nbquestion_ctq" not in st.session_state :
         st.session_state.nbquestion_ctq = 0
 
-    if "rénitialization_ctq" not in st.session_state or st.session_state.rénitialization_ctq == False :
+    if "rénitialization_ctq" not in st.session_state :
+        st.session_state.rénitialization_ctq = False
+
+    if st.session_state.rénitialization_ctq == False :
 
         st.session_state.index_ctq = 0
         st.session_state.score_ctq = 0
