@@ -5,6 +5,8 @@
 #   Olivier Moreau
 #
 
+"""
+
 import streamlit as st
 import random
 from question import bqhumidité, bqréchauffement, bqrefroidissement, stabilite_air, pression_atmo, masse_air, fronts, nuage_precipitation, categorie
@@ -208,3 +210,5 @@ def principale_choix_t_questionnaire() :
                 st.switch_page("pages/accueil.py")
 
 principale_choix_t_questionnaire()
+
+"""
