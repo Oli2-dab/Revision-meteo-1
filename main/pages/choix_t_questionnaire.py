@@ -77,6 +77,8 @@ def principale_choix_t_questionnaire() :
             
             if st.session_state.bqjeu_questionnaire_choix :
                 st.session_state.rénitialization_jeu_questionnaire_choix = True
+                st.session_state.nbquestion = len(st.session_state.bqjeu_questionnaire_choix)
+                st.rerun
 
 
     def valrép(rj, rjeu) :
@@ -121,10 +123,8 @@ def principale_choix_t_questionnaire() :
 
         return(question, rjeu, theme)
 
-    nbquestion = len(st.session_state.bqjeu_questionnaire_choix) + st.session_state.index_questionnaire_choix
-
-    if st.session_state.index_questionnaire_choix < nbquestion:
-        st.subheader(f"Question {st.session_state.index_questionnaire_choix + 1} sur {nbquestion}")
+    if st.session_state.index_questionnaire_choix < st.session_state.nbquestion:
+        st.subheader(f"Question {st.session_state.index_questionnaire_choix + 1} sur {st.session_state.nbquestion}")
 
         if st.session_state.qactuel is None :
             st.session_state.qactuel = choix_question()

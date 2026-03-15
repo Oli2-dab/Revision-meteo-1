@@ -66,6 +66,8 @@ def principale() :
         for q in categorie.values() :
             st.session_state.bqjeu += q.copy()
 
+        st.session_state.nbquestion = len(st.session_state.bqjeu)
+
     def valrép(rj, rjeu) :
         réponse_joueur = rj.strip().lower()
         réponse_jeu = rjeu.strip().lower()
@@ -108,10 +110,8 @@ def principale() :
 
         return(question, rjeu, theme)
 
-    nbquestion = len(st.session_state.bqjeu) + st.session_state.index
-
-    if st.session_state.index < nbquestion:
-        st.subheader(f"Question {st.session_state.index + 1} sur {nbquestion}")
+    if st.session_state.index < st.session_state.nbquestion:
+        st.subheader(f"Question {st.session_state.index + 1} sur {st.session_state.nbquestion}")
 
         if st.session_state.qactuel is None :
             st.session_state.qactuel = choix_question()
