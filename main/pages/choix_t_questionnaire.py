@@ -33,25 +33,25 @@ def principale_choix_t_questionnaire() :
 
     val = charger_spacy()
 
-    if "rénitialization_jeu" not in st.session_state or st.session_state.rénitialization_jeu == False :
-        st.session_state.rénitialization_jeu = True
+    if "rénitialization_jeu_questionnaire_choix" not in st.session_state or st.session_state._questionnaire_choix == False :
+        st.session_state._questionnaire_choix = True
         st.session_state.choix_effectue = False
 
-        st.session_state.index = 0
+        st.session_state.index_questionnaire_choix = 0
         st.session_state.score = 0
         st.session_state.qactuel = None
         st.session_state.répval = False
 
-        st.session_state.bqjeuhumidité = bqhumidité.copy()
-        st.session_state.bqjeuréchauffement = bqréchauffement.copy()
-        st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
+        st.session_state.bqhumidité = bqhumidité.copy()
+        st.session_state.bqréchauffement = bqréchauffement.copy()
+        st.session_state.bqrefroidissement = bqrefroidissement.copy()
         st.session_state.bqstabilite_air = stabilite_air.copy()
         st.session_state.bqpression_atmo = pression_atmo.copy()
         st.session_state.bqmasse_air = masse_air.copy()
         st.session_state.bqfronts = fronts.copy()
         st.session_state.bqnuage_precipitation = nuage_precipitation.copy()
 
-        st.session_state.bqjeu = []
+        st.session_state.bqjeu_questionnaire_choix = []
         theme_dispo = {
             "humidite" : ("l'humidité", bqhumidité),
             "rechauffement" : ("le réchauffement", bqréchauffement),
@@ -70,13 +70,13 @@ def principale_choix_t_questionnaire() :
         if st.button("Débuter le questionnaire") :
             for t, check in theme_choisie.items():
                 if check :
-                    st.session_state.bqjeu += theme_dispo[t][1]
+                    st.session_state.bqjeu_questionnaire_choix += theme_dispo[t][1]
 
-            if not st.session_state.bqjeu:
+            if not st.session_state.bqjeu_questionnaire_choix:
                 st.warning("Veuillez sélectionner des thèmes")
                 return
             
-            if st.session_state.bqjeu :
+            if st.session_state.bqjeu_questionnaire_choix :
                 st.session_state.choix_effectue = True
 
 
@@ -110,7 +110,7 @@ def principale_choix_t_questionnaire() :
 
     def choix_question() :
 
-        choixq = random.choice(st.session_state.bqjeu)
+        choixq = random.choice(st.session_state.bqjeu_questionnaire_choix)
 
         question = choixq["question"]
 
@@ -118,21 +118,21 @@ def principale_choix_t_questionnaire() :
 
         theme = choixq["theme"]
 
-        st.session_state.bqjeu.remove(choixq)
+        st.session_state.bqjeu_questionnaire_choix.remove(choixq)
 
         return(question, rjeu, theme)
 
-    nbquestion = len(st.session_state.bqjeu) + st.session_state.index
+    nbquestion = len(st.session_state.bqjeu_questionnaire_choix) + st.session_state.index_questionnaire_choix
 
-    if st.session_state.index < nbquestion:
-        st.subheader(f"Question {st.session_state.index + 1} sur {nbquestion}")
+    if st.session_state.index_questionnaire_choix < nbquestion:
+        st.subheader(f"Question {st.session_state.index_questionnaire_choix + 1} sur {nbquestion}")
 
         if st.session_state.qactuel is None :
             st.session_state.qactuel = choix_question()
         question, rjeu, theme = st.session_state.qactuel
 
         st.write(question)
-        rj = st.text_input("Votre réponse", key= f"réponse_{st.session_state.index}", disabled = st.session_state.répval)
+        rj = st.text_input("Votre réponse", key= f"réponse_{st.session_state.index_questionnaire_choix}", disabled = st.session_state.répval)
 
         if not st.session_state.répval :
 
@@ -176,7 +176,7 @@ def principale_choix_t_questionnaire() :
             if st.button("Question suivante") :
 
                 st.session_state.qactuel = None
-                st.session_state.index += 1
+                st.session_state.index_questionnaire_choix += 1
                 st.session_state.répval = False
                 st.rerun()
                     
@@ -186,7 +186,7 @@ def principale_choix_t_questionnaire() :
         if st.session_state.choix_effectue == True :
             résultat_IA = prédiction()
 
-            total_score = st.session_state.index * 2
+            total_score = st.session_state.index_questionnaire_choix * 2
 
             st.subheader("Score par thème")
             for theme, score in st.session_state.scorecat.items():
@@ -196,12 +196,12 @@ def principale_choix_t_questionnaire() :
             st.success(résultat_IA)
             
             if st.button("Recommenser le questionnaire") :
-                st.session_state.rénitialization_jeu = False
+                st.session_state._questionnaire_choix = False
                 st.session_state.choix_effectue = False
                 st.rerun()
 
             if st.button("Page d'accueil") :
-                st.session_state.rénitialization_jeu = False
+                st.session_state._questionnaire_choix = False
                 st.session_state.choix_effectue = False
                 st.switch_page("pages/accueil.py")
 
