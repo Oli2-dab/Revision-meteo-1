@@ -6,8 +6,12 @@
 #
 
 import streamlit as st
-from point_entrer import chargement_IA
+import joblib
 import pandas as pd
+
+@st.cache_resource
+def chargement_IA() :
+    return joblib.load("base_de_donnee_IA.joblib")
 
 def prédiction() :
 

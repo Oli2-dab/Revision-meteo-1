@@ -23,7 +23,6 @@
 
 
 import streamlit as st
-import joblib
 
 st.set_page_config(page_title="Révision météo 1")
 
@@ -34,10 +33,5 @@ navigation = st.navigation([
     st.Page("dossierIA/IA_bon.py", title = "Bonne IA"),
     st.Page("dossierIA/IA_mauvais.py", title = "Mauvaise IA")
 ])
-
-@st.cache_resource
-def chargement_IA() :
-    return joblib.load("base_de_donnee_IA.joblib")
-
 
 navigation.run()
