@@ -34,7 +34,6 @@ def principale_choix_t_questionnaire() :
     val = charger_spacy()
 
     if "rénitialization_jeu_questionnaire_choix" not in st.session_state or st.session_state.rénitialization_jeu_questionnaire_choix == False :
-        st.session_state.rénitialization_jeu_questionnaire_choix = True
         st.session_state.choix_effectue = False
 
         st.session_state.index_questionnaire_choix = 0
@@ -77,7 +76,7 @@ def principale_choix_t_questionnaire() :
                 return
             
             if st.session_state.bqjeu_questionnaire_choix :
-                st.session_state.choix_effectue = True
+                st.session_state.rénitialization_jeu_questionnaire_choix = True
 
 
     def valrép(rj, rjeu) :
