@@ -13,6 +13,9 @@ from dossierIA.IA import prédiction
 
 def principale() : 
 
+    if "nbquestion" not in st.session_state :
+        st.session_state.nbquestion = 0
+
     if "rénitialization_jeu" not in st.session_state or st.session_state.rénitialization_jeu == False :
         st.session_state.rénitialization_jeu = True
 

@@ -31,6 +31,9 @@ def principale_choix_t_questionnaire() :
     if "totalcat" not in st.session_state :
         st.session_state.totalcat = {}
 
+    if "nbquestion_jeu_questionnaire_choix" not in st.session_state :
+        st.session_state.nbquestion_jeu_questionnaire_choix = 0
+
     val = charger_spacy()
 
     if "rénitialization_jeu_questionnaire_choix" not in st.session_state or st.session_state.rénitialization_jeu_questionnaire_choix == False :
@@ -76,9 +79,9 @@ def principale_choix_t_questionnaire() :
                 return
             
             if st.session_state.bqjeu_questionnaire_choix :
-                st.session_state.nbquestion = len(st.session_state.bqjeu_questionnaire_choix)
+                st.session_state.nbquestion_jeu_questionnaire_choix = len(st.session_state.bqjeu_questionnaire_choix)
                 st.session_state.rénitialization_jeu_questionnaire_choix = True
-                st.rerun
+                st.rerun()
 
 
     def valrép(rj, rjeu) :
@@ -123,7 +126,7 @@ def principale_choix_t_questionnaire() :
 
         return(question, rjeu, theme)
 
-    if st.session_state.index_questionnaire_choix < st.session_state.nbquestion:
+    if st.session_state.index_questionnaire_choix < st.session_state.nbquestion_jeu_questionnaire_choix:
         st.subheader(f"Question {st.session_state.index_questionnaire_choix + 1} sur {st.session_state.nbquestion}")
 
         if st.session_state.qactuel is None :
