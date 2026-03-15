@@ -50,7 +50,7 @@ def prédiction_mauvais() :
         résultat = f"Prends-tu le test au serieux!!!"
 
     elif résultat_taux == 2 :
-        résultat = f"Tu fais beacoup d'erreur dans plusieurs catégories. Je te conseil de réviser le chapitre sur {catégorie_affiché} car c'est dans cette catégorie que tu fais le plus d'erreurs."
+        résultat = f"Tu fais beaucoup d'erreur dans plusieurs catégories. Je te conseil de réviser le chapitre sur {catégorie_affiché} car c'est dans cette catégorie que tu fais le plus d'erreurs."
 
     elif résultat_taux == 3 :
         résultat = f"En général, tu comprends bien, mais tu fais plusieurs erreurs. Je te conseil de réviser le chapitre sur {catégorie_affiché} car c'est dans cette catégorie que tu fais le plus d'erreurs."

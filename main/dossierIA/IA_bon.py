@@ -28,22 +28,31 @@ st.session_state.tavantnuage_precipitation = st.text_input("tnuage_precipitation
 
 
 if st.button("IA") :
-    st.session_state.sjhumidité = int(st.session_state.sjavanthumidité)
-    st.session_state.thumidité = int(st.session_state.tavanthumidité)
-    st.session_state.sjréchauffement = int(st.session_state.sjavantréchauffement)
-    st.session_state.tréchauffement = int(st.session_state.tavantréchauffement)
-    st.session_state.sjrefroidissement = int(st.session_state.sjavantrefroidissement)
-    st.session_state.trefroidissement = int(st.session_state.tavantrefroidissement)
-    st.session_state.sjstabilite_air = int(st.session_state.sjavantstabilite_air)
-    st.session_state.tstabilite_air = int(st.session_state.tavantstabilite_air)
-    st.session_state.sjpression_atmo = int(st.session_state.sjavantpression_atmo)
-    st.session_state.tpression_atmo = int(st.session_state.tavantpression_atmo)
-    st.session_state.sjmasse_air = int(st.session_state.sjavantmasse_air)
-    st.session_state.tmasse_air = int(st.session_state.tavantmasse_air)
-    st.session_state.sjfronts = int(st.session_state.sjavantfronts)
-    st.session_state.tfronts = int(st.session_state.tavantfronts)
-    st.session_state.sjnuage_precipitation = int(st.session_state.sjavantnuage_precipitation)
-    st.session_state.tnuage_precipitation = int(st.session_state.tavantnuage_precipitation)
     
+    scorecat = {
+        "humidite": int(st.session_state.sjavanthumidité),
+        "rechauffement": int(st.session_state.sjavantréchauffement),
+        "refroidissement": int(st.session_state.sjavantrefroidissement),
+        "stabilite": int(st.session_state.sjavantstabilite_air),
+        "pression": int(st.session_state.sjavantpression_atmo),
+        "masse": int(st.session_state.sjavantmasse_air),
+        "front": int(st.session_state.sjavantfronts),
+        "nuage": int(st.session_state.sjavantnuage_precipitation),
+    }
+
+    totalcat = {
+        "humidite": int(st.session_state.tavanthumidité),
+        "rechauffement": int(st.session_state.tavantréchauffement),
+        "refroidissement": int(st.session_state.tavantrefroidissement),
+        "stabilite": int(st.session_state.tavantstabilite_air),
+        "pression": int(st.session_state.tavantpression_atmo),
+        "masse": int(st.session_state.tavantmasse_air),
+        "front": int(st.session_state.tavantfronts),
+        "nuage": int(st.session_state.tavantnuage_precipitation),
+    }
+
+    st.session_state.scorecat = scorecat
+    st.session_state.totalcat = totalcat
+
     résultat_IA = prédiction()
     st.success(résultat_IA)

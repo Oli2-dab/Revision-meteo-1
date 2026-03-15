@@ -7,7 +7,7 @@
 
 import streamlit as st
 import random
-from question import bqhumidité, bqréchauffement, bqrefroidissement, stabilite_air, pression_atmo, masse_air, fronts, nuage_precipitation
+from question import bqhumidité, bqréchauffement, bqrefroidissement, stabilite_air, pression_atmo, masse_air, fronts, nuage_precipitation, categorie
 from extension.chargement_spacy import charger_spacy
 from dossierIA.IA import prédiction
 
@@ -33,62 +33,25 @@ def principale() :
     if "scoreq" not in st.session_state :
         st.session_state.scoreq = 0
 
-    if "sjhumidité" not in st.session_state:
-        st.session_state.sjhumidité = 0
-
-    if "sjréchauffement" not in st.session_state:
-        st.session_state.sjréchauffement = 0 
-
-    if "sjrefroidissement" not in st.session_state:
-        st.session_state.sjrefroidissement = 0
-    
-    if "sjstabilite_air" not in st.session_state:
-        st.session_state.sjstabilite_air = 0
-
-    if "sjpression_atmo" not in st.session_state:
-        st.session_state.sjpression_atmo = 0
-
-    if "sjmasse_air" not in st.session_state:
-        st.session_state.sjmasse_air = 0
-
-    if "sjfronts" not in st.session_state:
-        st.session_state.sjfronts = 0
-
-    if "sjnuage_precipitation" not in st.session_state:
-        st.session_state.sjnuage_precipitation = 0
-
     if "qdscore" not in st.session_state:
         st.session_state.qdscore = {}
-
-    if "thumidité" not in st.session_state:
-        st.session_state.thumidité = 0
-
-    if "tréchauffement" not in st.session_state:
-        st.session_state.tréchauffement = 0
-
-    if "trefroidissement" not in st.session_state:
-        st.session_state.trefroidissement = 0
-
-    if "tstabilite_air" not in st.session_state:
-        st.session_state.tstabilite_air = 0
-
-    if "tpression_atmo" not in st.session_state:
-        st.session_state.tpression_atmo = 0
-
-    if "tmasse_air" not in st.session_state:
-        st.session_state.tmasse_air = 0
-
-    if "tfronts" not in st.session_state:
-        st.session_state.tfronts = 0
-
-    if "tnuage_precipitation" not in st.session_state:
-        st.session_state.tnuage_precipitation = 0
 
     if "qactuel" not in st.session_state :
         st.session_state.qactuel = None
 
     if "répval" not in st.session_state :
         st.session_state.répval = False
+
+    if "bqjeu" not in st.session_state :
+        st.session_state.bqjeu = []
+        for q in categorie.values() :
+            st.session_state.bqjeu += q.copy()
+
+    if "scorecat" not in st.session_state :
+        st.session_state.scorecat = {}
+
+    if "totalcat" not in st.session_state :
+        st.session_state.totalcat = {}
 
     val = charger_spacy()
 
@@ -99,22 +62,16 @@ def principale() :
         st.session_state.score = 0
         st.session_state.qactuel = None
         st.session_state.répval = False
-
-        st.session_state.bqjeuhumidité = bqhumidité.copy()
-        st.session_state.bqjeuréchauffement = bqréchauffement.copy()
-        st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
-        st.session_state.bqstabilite_air = stabilite_air.copy()
-        st.session_state.bqpression_atmo = pression_atmo.copy()
-        st.session_state.bqmasse_air = masse_air.copy()
-        st.session_state.bqfronts = fronts.copy()
-        st.session_state.bqnuage_precipitation = nuage_precipitation.copy()
+        st.session_state.bqjeu = []
+        for q in categorie.values() :
+            st.session_state.bqjeu += q.copy()
 
     def valrép(rj, rjeu) :
         réponse_joueur = rj.strip().lower()
         réponse_jeu = rjeu.strip().lower()
 
-        pourvalrj = val(réponse_jeu)
-        pourvalrjeu = val(réponse_joueur)
+        pourvalrj = val(réponse_joueur)
+        pourvalrjeu = val(réponse_jeu)
         validité = pourvalrj.similarity(pourvalrjeu)
 
         if validité >= 0.80 :
@@ -139,117 +96,19 @@ def principale() :
 
     def choix_question() :
 
-        tdispo = []
+        choixq = random.choice(st.session_state.bqjeu)
 
-        if len(st.session_state.bqjeuhumidité) > 0 :
-            tdispo.append("humidité")
+        question = choixq["question"]
 
-        if len(st.session_state.bqjeuréchauffement) > 0 :
-            tdispo.append("réchauffement")
+        rjeu = choixq["réponse"]
 
-        if len(st.session_state.bqjeurefroidissement) > 0 :
-            tdispo.append("refroidissement")
+        theme = choixq["theme"]
 
-        if len(st.session_state.bqstabilite_air) > 0 :
-            tdispo.append("stabilite_de_l_air")
-
-        if len(st.session_state.bqpression_atmo) > 0 :
-            tdispo.append("pression_atmospherique")
-
-        if len(st.session_state.bqmasse_air) > 0 :
-            tdispo.append("masse_d_air")
-
-        if len(st.session_state.bqfronts) > 0 :
-            tdispo.append("les_fronts")
-
-        if len(st.session_state.bqnuage_precipitation) > 0 :
-            tdispo.append("nuage_et_precipitation")
-
-        theme = random.choice(tdispo)
-
-        if theme == "humidité"  :
-
-            choixq = random.randint(0, len(st.session_state.bqjeuhumidité) - 1)
-
-            question = st.session_state.bqjeuhumidité[choixq]["question"]
-
-            rjeu = st.session_state.bqjeuhumidité[choixq]["réponse"]
-
-            st.session_state.bqjeuhumidité.pop(choixq)
-
-        elif theme == "réchauffement" :
-
-            choixq = random.randint(0, len(st.session_state.bqjeuréchauffement) - 1)
-
-            question = st.session_state.bqjeuréchauffement[choixq]["question"]
-
-            rjeu = st.session_state.bqjeuréchauffement[choixq]["réponse"]
-
-            st.session_state.bqjeuréchauffement.pop(choixq)
-
-        elif theme == "refroidissement" :
-
-            choixq = random.randint(0, len(st.session_state.bqjeurefroidissement) - 1)
-
-            question = st.session_state.bqjeurefroidissement[choixq]["question"]
-
-            rjeu = st.session_state.bqjeurefroidissement[choixq]["réponse"]
-
-            st.session_state.bqjeurefroidissement.pop(choixq)
-
-        elif theme == "stabilite_de_l_air" :
-
-            choixq = random.randint(0, len(st.session_state.bqstabilite_air) - 1)
-
-            question = st.session_state.bqstabilite_air[choixq]["question"]
-
-            rjeu = st.session_state.bqstabilite_air[choixq]["réponse"]
-
-            st.session_state.bqstabilite_air.pop(choixq)
-
-        elif theme == "pression_atmospherique" :
-
-            choixq = random.randint(0, len(st.session_state.bqpression_atmo) - 1)
-
-            question = st.session_state.bqpression_atmo[choixq]["question"]
-
-            rjeu = st.session_state.bqpression_atmo[choixq]["réponse"]
-
-            st.session_state.bqpression_atmo.pop(choixq)
-        
-        elif theme == "masse_d_air" :
-
-            choixq = random.randint(0, len(st.session_state.bqmasse_air) - 1)
-
-            question = st.session_state.bqmasse_air[choixq]["question"]
-
-            rjeu = st.session_state.bqmasse_air[choixq]["réponse"]
-
-            st.session_state.bqmasse_air.pop(choixq)
-
-        elif theme == "les_fronts" :
-
-            choixq = random.randint(0, len(st.session_state.bqfronts) - 1)
-
-            question = st.session_state.bqfronts[choixq]["question"]
-
-            rjeu = st.session_state.bqfronts[choixq]["réponse"]
-
-            st.session_state.bqfronts.pop(choixq)
-
-        elif theme == "nuage_et_precipitation" :
-
-            choixq = random.randint(0, len(st.session_state.bqnuage_precipitation) - 1)
-
-            question = st.session_state.bqnuage_precipitation[choixq]["question"]
-
-            rjeu = st.session_state.bqnuage_precipitation[choixq]["réponse"]
-
-            st.session_state.bqnuage_precipitation.pop(choixq)
+        st.session_state.bqjeu.remove(choixq)
 
         return(question, rjeu, theme)
 
-    nbquestion = len(bqhumidité) + len(bqréchauffement) + len(bqrefroidissement) + len(stabilite_air) + len(pression_atmo) + len(masse_air) + len(fronts) + len(nuage_precipitation)
+    nbquestion = len(st.session_state.bqjeu) + st.session_state.index
 
     if st.session_state.index < nbquestion:
         st.subheader(f"Question {st.session_state.index + 1} sur {nbquestion}")
@@ -265,119 +124,23 @@ def principale() :
 
             if st.button("Valider la réponse") :
                 st.session_state.scoreq = valrép(rj, rjeu)
-                st.session_state.score = st.session_state.scoreq
-                st.session_state.score += st.session_state.score
+                st.session_state.score += st.session_state.scoreq
 
-                if theme == "humidité" :
-                    if question in st.session_state.qdscore :
-                        sàenlevé = int(st.session_state.qdscore.get(question))
-                        st.session_state.sjhumidité -= sàenlevé
-                        st.session_state.sjhumidité += st.session_state.scoreq
-                        st.session_state.qdscore.update({question : st.session_state.scoreq})
-                        
-                    
-                    elif question not in st.session_state.qdscore :
-                        st.session_state.qdscore.update({question : st.session_state.scoreq})
-                        st.session_state.thumidité += 2
-                        st.session_state.sjhumidité += st.session_state.scoreq
+                if theme not in st.session_state.scorecat :
+                    st.session_state.scorecat[theme] = 0
 
+                if theme not in st.session_state.totalcat :
+                    st.session_state.totalcat[theme] = 0
 
-                elif theme == "réchauffement" :
-                    if question in st.session_state.qdscore :
-                        sàenlevé = int(st.session_state.qdscore.get(question))
-                        st.session_state.sjréchauffement -= sàenlevé
-                        st.session_state.sjréchauffement += st.session_state.scoreq
-                        st.session_state.qdscore.update({question : st.session_state.scoreq})
-                        
-                    
-                    elif question not in st.session_state.qdscore :
-                        st.session_state.qdscore.update({question : st.session_state.scoreq})
-                        st.session_state.tréchauffement += 2
-                        st.session_state.sjréchauffement += st.session_state.scoreq
+                if question in st.session_state.qdscore :
+                    qancienne = st.session_state.qdscore[question]
+                    st.session_state.scorecat[theme] -= qancienne
 
+                else :
+                    st.session_state.totalcat[theme] += 2
 
-                elif theme == "refroidissement" :
-                    if question in st.session_state.qdscore :
-                        sàenlevé = int(st.session_state.qdscore.get(question))
-                        st.session_state.sjrefroidissement -= sàenlevé
-                        st.session_state.sjrefroidissement += st.session_state.scoreq
-                        st.session_state.qdscore.update({question : st.session_state.scoreq})
-                        
-                    
-                    elif question not in st.session_state.qdscore :
-                        st.session_state.qdscore.update({question : st.session_state.scoreq})
-                        st.session_state.trefroidissement += 2
-                        st.session_state.sjrefroidissement += st.session_state.scoreq
-
-
-                elif theme == "stabilite_de_l_air" :
-                    if question in st.session_state.qdscore :
-                        sàenlevé = int(st.session_state.qdscore.get(question))
-                        st.session_state.sjstabilite_air -= sàenlevé
-                        st.session_state.sjstabilite_air += st.session_state.scoreq
-                        st.session_state.qdscore.update({question : st.session_state.scoreq})
-                        
-                    
-                    elif question not in st.session_state.qdscore :
-                        st.session_state.qdscore.update({question : st.session_state.scoreq})
-                        st.session_state.tstabilite_air += 2
-                        st.session_state.sjstabilite_air += st.session_state.scoreq
-
-
-                elif theme == "pression_atmospherique" :
-                    if question in st.session_state.qdscore :
-                        sàenlevé = int(st.session_state.qdscore.get(question))
-                        st.session_state.sjpression_atmo -= sàenlevé
-                        st.session_state.sjpression_atmo += st.session_state.scoreq
-                        st.session_state.qdscore.update({question : st.session_state.scoreq})
-                        
-                    
-                    elif question not in st.session_state.qdscore :
-                        st.session_state.qdscore.update({question : st.session_state.scoreq})
-                        st.session_state.tpression_atmo += 2
-                        st.session_state.sjpression_atmo += st.session_state.scoreq
-
-
-                elif theme == "masse_d_air" :
-                    if question in st.session_state.qdscore :
-                        sàenlevé = int(st.session_state.qdscore.get(question))
-                        st.session_state.sjmasse_air -= sàenlevé
-                        st.session_state.sjmasse_air += st.session_state.scoreq
-                        st.session_state.qdscore.update({question : st.session_state.scoreq})
-                        
-                    
-                    elif question not in st.session_state.qdscore :
-                        st.session_state.qdscore.update({question : st.session_state.scoreq})
-                        st.session_state.tmasse_air += 2
-                        st.session_state.sjmasse_air += st.session_state.scoreq
-
-
-                elif theme == "les_fronts" :
-                    if question in st.session_state.qdscore :
-                        sàenlevé = int(st.session_state.qdscore.get(question))
-                        st.session_state.sjfronts -= sàenlevé
-                        st.session_state.sjfronts += st.session_state.scoreq
-                        st.session_state.qdscore.update({question : st.session_state.scoreq})
-                        
-                    
-                    elif question not in st.session_state.qdscore :
-                        st.session_state.qdscore.update({question : st.session_state.scoreq})
-                        st.session_state.tfronts += 2
-                        st.session_state.sjfronts += st.session_state.scoreq
-
-
-                elif theme == "nuage_et_precipitation" :
-                    if question in st.session_state.qdscore :
-                        sàenlevé = int(st.session_state.qdscore.get(question))
-                        st.session_state.sjnuage_precipitation -= sàenlevé
-                        st.session_state.sjnuage_precipitation += st.session_state.scoreq
-                        st.session_state.qdscore.update({question : st.session_state.scoreq})
-                        
-                    
-                    elif question not in st.session_state.qdscore :
-                        st.session_state.qdscore.update({question : st.session_state.scoreq})
-                        st.session_state.tnuage_precipitation += 2
-                        st.session_state.sjnuage_precipitation += st.session_state.scoreq
+                st.session_state.scorecat[theme] += st.session_state.scoreq
+                st.session_state.qdscore[question] = st.session_state.scoreq
 
                 st.session_state.répval = True
                 st.rerun()

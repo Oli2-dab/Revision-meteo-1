@@ -6,70 +6,42 @@
 #
 
 import streamlit as st
-import joblib
+from point_entrer import chargement_IA
 import pandas as pd
 
 def prédiction() :
 
-    if st.session_state.thumidité == 0 :
-        addition = st.session_state.thumidité
-        st.session_state.thumidité = addition + 1
+    scorecat = st.session_state.scorecat
+    totalcat = st.session_state.totalcat
+    taux_theme = {}
 
-    if st.session_state.tréchauffement == 0 :
-        addition = st.session_state.tréchauffement
-        st.session_state.tréchauffement = addition + 1
+    for t in totalcat :
 
-    if st.session_state.trefroidissement == 0 :
-        addition = st.session_state.trefroidissement
-        st.session_state.trefroidissement = addition + 1
+        if totalcat[t] == 0 :
+            taux_theme[t] = 0
 
-    if st.session_state.tstabilite_air == 0 :
-        addition = st.session_state.tstabilite_air
-        st.session_state.tstabilite_air = addition + 1
+        else :
+            taux_theme[t] = round(scorecat.get(t, 0) / totalcat[t], 2)
 
-    if st.session_state.tpression_atmo == 0 :
-        addition = st.session_state.tpression_atmo
-        st.session_state.tpression_atmo = addition + 1
+    taux_hum = taux_theme.get("humidite", 0)
 
-    if st.session_state.tmasse_air == 0 :
-        addition = st.session_state.tmasse_air
-        st.session_state.tmasse_air = addition + 1
+    taux_réch = taux_theme.get("rechauffement", 0)
 
-    if st.session_state.tfronts == 0 :
-        addition = st.session_state.tfronts
-        st.session_state.tfronts = addition + 1
+    taux_refr = taux_theme.get("refroidissement", 0)
 
-    if st.session_state.tnuage_precipitation == 0 :
-        addition = st.session_state.tnuage_precipitation
-        st.session_state.tnuage_precipitation = addition + 1
+    taux_stab = taux_theme.get("stabilite", 0)
 
-    taux_hum_avant = st.session_state.sjhumidité / st.session_state.thumidité
-    taux_hum = round(taux_hum_avant, 2)
+    taux_pres = taux_theme.get("pression", 0)
 
-    taux_réch_avant = st.session_state.sjréchauffement / st.session_state.tréchauffement
-    taux_réch = round(taux_réch_avant, 2)
+    taux_mass = taux_theme.get("masse", 0)
 
-    taux_refr_avant = st.session_state.sjrefroidissement / st.session_state.trefroidissement
-    taux_refr = round(taux_refr_avant, 2)
+    taux_fron = taux_theme.get("front", 0)
 
-    taux_stab_avant = st.session_state.sjstabilite_air / st.session_state.tstabilite_air
-    taux_stab = round(taux_stab_avant, 2)
+    taux_nuag = taux_theme.get("nuage", 0)
 
-    taux_pres_avant = st.session_state.sjpression_atmo / st.session_state.tpression_atmo
-    taux_pres = round(taux_pres_avant, 2)
-
-    taux_mass_avant = st.session_state.sjmasse_air / st.session_state.tmasse_air
-    taux_mass = round(taux_mass_avant, 2)
-
-    taux_fron_avant = st.session_state.sjfronts / st.session_state.tfronts
-    taux_fron = round(taux_fron_avant, 2)
-
-    taux_nuag_avant = st.session_state.sjnuage_precipitation / st.session_state.tnuage_precipitation
-    taux_nuag = round(taux_nuag_avant, 2)
-
-    chargement_model = joblib.load("base_de_donnee_IA.joblib")
+    model = chargement_IA()
     taux = pd.DataFrame([[taux_hum,taux_réch,taux_refr,taux_stab,taux_pres,taux_mass,taux_fron,taux_nuag]], columns = ["taux_humidité", "taux_réchauffement", "taux_refroidissement", "taux_stabilite", "taux_pression", "taux_masse", "taux_front", "taux_nuage"])
-    résultat_taux = chargement_model.predict(taux)[0]
+    résultat_taux = model.predict(taux)[0]
 
     dict_taux = {
         "l'humidité" : taux_hum,
@@ -88,7 +60,7 @@ def prédiction() :
         résultat = f"Prends-tu le test au serieux!!!"
 
     elif résultat_taux == 2 :
-        résultat = f"Tu fais beacoup d'erreur dans plusieurs catégories. Je te conseil de réviser le chapitre sur {catégorie_affiché} car c'est dans cette catégorie que tu fais le plus d'erreurs."
+        résultat = f"Tu fais beaucoup d'erreur dans plusieurs catégories. Je te conseil de réviser le chapitre sur {catégorie_affiché} car c'est dans cette catégorie que tu fais le plus d'erreurs."
 
     elif résultat_taux == 3 :
         résultat = f"En général, tu comprends bien, mais tu fais plusieurs erreurs. Je te conseil de réviser le chapitre sur {catégorie_affiché} car c'est dans cette catégorie que tu fais le plus d'erreurs."
