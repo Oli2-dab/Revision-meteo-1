@@ -5,7 +5,7 @@
 #   Olivier Moreau
 #
 
-from chargement_spacy import charger_spacy
+from extension.chargement_spacy import charger_spacy
 
 val = charger_spacy()
 
