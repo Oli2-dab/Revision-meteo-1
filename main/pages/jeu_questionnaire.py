@@ -7,8 +7,8 @@
 
 import streamlit as st
 import random
-from question import bqhumidité, bqréchauffement, bqrefroidissement, stabilite_air, pression_atmo, masse_air, fronts, nuage_precipitation, categorie
-from extension.chargement_spacy import charger_spacy
+from question import categorie
+from extension.validation import valrép
 from dossierIA.IA import prédiction
 
 def principale() : 
@@ -23,15 +23,6 @@ def principale() :
         st.session_state.score = 0
         st.session_state.qactuel = None
         st.session_state.répval = False
-
-        st.session_state.bqjeuhumidité = bqhumidité.copy()
-        st.session_state.bqjeuréchauffement = bqréchauffement.copy()
-        st.session_state.bqjeurefroidissement = bqrefroidissement.copy()
-        st.session_state.bqstabilite_air = stabilite_air.copy()
-        st.session_state.bqpression_atmo = pression_atmo.copy()
-        st.session_state.bqmasse_air = masse_air.copy()
-        st.session_state.bqfronts = fronts.copy()
-        st.session_state.bqnuage_precipitation = nuage_precipitation.copy()
 
         st.session_state.bqjeu = []
 
@@ -57,36 +48,6 @@ def principale() :
 
     if "totalcat" not in st.session_state :
         st.session_state.totalcat = {}
-
-    val = charger_spacy()
-
-    def valrép(rj, rjeu) :
-        réponse_joueur = rj.strip().lower()
-        réponse_jeu = rjeu.strip().lower()
-
-        pourvalrj = val(réponse_joueur)
-        pourvalrjeu = val(réponse_jeu)
-        validité = pourvalrj.similarity(pourvalrjeu)
-
-        if validité >= 0.80 :
-            scoreq = 2
-
-        elif validité >= 0.40 :
-            scoreq = 1
-        
-        else :
-            scoreq = 0.0
-
-        if réponse_joueur == "c2" :
-            scoreq = 2
-
-        if réponse_joueur == "c1" :
-            scoreq = 1
-
-        if réponse_joueur == "c0" :
-            scoreq = 0
-
-        return(scoreq)
 
     def choix_question() :
 
