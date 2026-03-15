@@ -33,6 +33,8 @@ def principale() :
         st.session_state.bqfronts = fronts.copy()
         st.session_state.bqnuage_precipitation = nuage_precipitation.copy()
 
+        st.session_state.bqjeu = []
+
         for q in categorie.values() :
             st.session_state.bqjeu += q.copy()
 
@@ -49,11 +51,6 @@ def principale() :
 
     if "répval" not in st.session_state :
         st.session_state.répval = False
-
-    if "bqjeu" not in st.session_state :
-        st.session_state.bqjeu = []
-        for q in categorie.values() :
-            st.session_state.bqjeu += q.copy()
 
     if "scorecat" not in st.session_state :
         st.session_state.scorecat = {}
