@@ -12,14 +12,9 @@ val = charger_spacy()
 def valrép(rj, rjeu, indice = "") :
     if not rj or rj.strip() == indice :
         return 0
-
-    if indice :
-        réponse_joueur = rj.replace(indice, "").strip().lower()
-        réponse_jeu = rjeu.replace(indice, "").strip().lower()
-
-    else :
-        réponse_joueur = rj.strip().lower()
-        réponse_jeu = rjeu.strip().lower()
+    
+    réponse_joueur = rj.replace(indice, "").strip().lower()
+    réponse_jeu = rjeu.replace(indice, "").strip().lower()
 
     if not réponse_joueur :
         return 0

@@ -26,11 +26,12 @@ if st.button("Bonne IA") :
 if st.button("Mauvaise IA") :
     st.switch_page("dossierIA/IA_mauvais.py")
 
-st.write("Version 1.0.24")
+st.write("Version 1.0.25")
 
 st.markdown("""
-            -**1.0.24**  
-            Correction de bugs avec le nouveau système de réponse  
+            -**1.0.25**  
+            Correction de bugs avec le nouveau système de réponse.  
+            Modification du modèle de langage.
             -**1.0.23**  
             Modification de l'IA pour ne pas prendre en compte les thèmes s'ils n'ont pas été sélectionnés.  
             Correction d'erreurs dans les réponses.  
