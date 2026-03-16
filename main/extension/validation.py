@@ -9,35 +9,32 @@ from extension.chargement_spacy import charger_spacy
 
 val = charger_spacy()
 
-def valrép(rj, rjeu, indice = "") :
-    if indice != "" :
-        réponse_joueur = rj.replace(indice, "").strip().lower()
-        réponse_jeu = rjeu.replace(indice, "").strip().lower()
+def valrép(rj, rjeu, indice):
+    if not rj or rj.strip() == "":
+        return 0
 
-    else :
-        réponse_joueur = rj.strip().lower()
-        réponse_jeu = rjeu.strip().lower()
+    réponse_joueur = rj.replace(indice, "").strip().lower()
+    réponse_jeu = rjeu.replace(indice, "").strip().lower()
+
+    if not réponse_joueur:
+        return 0
 
     pourvalrj = val(réponse_joueur)
     pourvalrjeu = val(réponse_jeu)
     validité = pourvalrj.similarity(pourvalrjeu)
 
-    if validité >= 0.80 :
+    if validité >= 0.80:
         scoreq = 2
-
-    elif validité >= 0.40 :
+    elif validité >= 0.40:
         scoreq = 1
-    
-    else :
-        scoreq = 0.0
-
-    if réponse_joueur == "c2" :
-        scoreq = 2
-
-    elif réponse_joueur == "c1" :
-        scoreq = 1
-
-    elif réponse_joueur == "c0" :
+    else:
         scoreq = 0
 
-    return(scoreq)
+    if réponse_joueur == "c2":
+        scoreq = 2
+    elif réponse_joueur == "c1":
+        scoreq = 1
+    elif réponse_joueur == "c0":
+        scoreq = 0
+
+    return scoreq

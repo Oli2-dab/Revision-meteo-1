@@ -94,7 +94,7 @@ def jeu_ctq() :
     if not st.session_state.répval_ctq :
 
         if st.button("Valider la réponse") :
-            st.session_state.scoreq_ctq = valrép(rj, rjeu)
+            st.session_state.scoreq_ctq = valrép(rj, rjeu, indice)
             st.session_state.score_ctq += st.session_state.scoreq_ctq
 
             if theme not in st.session_state.scorecat :
@@ -120,15 +120,15 @@ def jeu_ctq() :
 
         if st.session_state.scoreq_ctq == 2 :
 
-            st.success("Bonne réponse! ✅")
+            st.success(f"Bonne réponse! ✅ Si tu veux comparer avec la réponse du corrigé, la voici : {rjeu}")
 
         elif st.session_state.scoreq_ctq == 1 :
 
-            st.warning(f"Réponse incomplète. La bonne réponse était {rjeu}")
+            st.warning(f"Réponse incomplète. La bonne réponse était : {rjeu}")
 
         elif st.session_state.scoreq_ctq == 0 :
 
-            st.error(f"Mauvaise réponse. La bonne réponse était {rjeu}")
+            st.error(f"Mauvaise réponse. La bonne réponse était : {rjeu}")
 
         if st.button("Question suivante") :
 

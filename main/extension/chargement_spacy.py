@@ -11,6 +11,6 @@ import spacy
 @st.cache_resource
 def charger_spacy():
 
-    val = spacy.load("fr_core_news_sm")
+    val = spacy.load("fr_core_news_md")
     
     return val
