@@ -104,15 +104,15 @@ def principale() :
 
             if st.session_state.scoreq == 2 :
 
-                st.success("Bonne réponse! ✅")
+                st.success("Bonne réponse! ✅ Si tu veux comparer avec la réponse du corrigé, la voici : {rjeu}")
 
             elif st.session_state.scoreq == 1 :
 
-                st.warning(f"Réponse incomplète. La bonne réponse était {rjeu}")
+                st.warning(f"Réponse incomplète. La bonne réponse était : {rjeu}")
 
             elif st.session_state.scoreq == 0 :
 
-                st.error(f"Mauvaise réponse. La bonne réponse était {rjeu}")
+                st.error(f"Mauvaise réponse. La bonne réponse était : {rjeu}")
 
             if st.button("Question suivante") :
 

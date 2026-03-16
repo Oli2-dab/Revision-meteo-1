@@ -26,10 +26,14 @@ if st.button("Bonne IA") :
 if st.button("Mauvaise IA") :
     st.switch_page("dossierIA/IA_mauvais.py")
 
-st.write("Version 1.0.21")
+st.write("Version 1.0.22")
 
 st.markdown("""
-         -**1.0.16** : Ajout d'un jeu questionnaire où l'on peut choisir les chapitres que l'on veut réviser.  
-         -**1.0.17** : Correction d'erreurs dans les réponses.  
-         -**1.0.18** : Modification de l'IA pour ne pas prendre en compte les thèmes s'ils n'ont pas été sélectionnés.  
-         -**1.0.19** : Correction d'erreurs dans les réponses.""")
+            -**1.0.17**  
+            Ajout d'un jeu questionnaire où l'on peut choisir les chapitres que l'on veut réviser.  
+            Correction d'erreurs dans les réponses.  
+            -**1.0.22**  
+            Modification de l'IA pour ne pas prendre en compte les thèmes s'ils n'ont pas été sélectionnés.  
+            Correction d'erreurs dans les réponses.  
+            Modification du système de réponse pour que l'utilisateurs ait moins de réponse incomplète s'il met le mauvais déterminant.
+            """)
