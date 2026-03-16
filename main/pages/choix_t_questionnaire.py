@@ -39,7 +39,7 @@ def choix_question() :
 
         theme = choixq_ctq["theme"]
 
-        indice = choix_ctq["indice"]
+        indice = choixq_ctq["indice"]
 
         st.session_state.bqjeu_ctq.remove(choixq_ctq)
 
