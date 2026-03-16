@@ -21,6 +21,9 @@ def valrép(rj, rjeu, indice = "") :
         réponse_joueur = rj.strip().lower()
         réponse_jeu = rjeu.strip().lower()
 
+    if not réponse_joueur :
+        return 0
+
     pourvalrj = val(réponse_joueur)
     pourvalrjeu = val(réponse_jeu)
     validité = pourvalrj.similarity(pourvalrjeu)
