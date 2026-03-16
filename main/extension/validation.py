@@ -19,12 +19,6 @@ def valrép(rj, rjeu, indice):
     if not réponse_joueur:
         return 0
 
-    if len(réponse_joueur.split()) <= 1:
-        if réponse_joueur == réponse_jeu:
-            return 2
-        else:
-            return 0
-
     pourvalrj = val(réponse_joueur)
     pourvalrjeu = val(réponse_jeu)
     validité = pourvalrj.similarity(pourvalrjeu)
