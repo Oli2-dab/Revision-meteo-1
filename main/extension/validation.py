@@ -10,6 +10,9 @@ from extension.chargement_spacy import charger_spacy
 val = charger_spacy()
 
 def valrép(rj, rjeu, indice = "") :
+
+    if not rj or rj.strip() == "":
+        return 0
     
     réponse_joueur = rj.replace(indice, "").strip().lower()
     réponse_jeu = rjeu.replace(indice, "").strip().lower()
