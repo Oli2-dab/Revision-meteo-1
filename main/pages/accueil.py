@@ -26,7 +26,7 @@ if st.button("Bonne IA") :
 if st.button("Mauvaise IA") :
     st.switch_page("dossierIA/IA_mauvais.py")
 
-st.write("Version 1.0.19")
+st.write("Version 1.0.20")
 
 st.markdown("""
          -**1.0.16** : Ajout d'un jeu questionnaire où l'on peut choisir les chapitres que l'on veut réviser.  
