@@ -27,21 +27,21 @@ def prédiction() :
         else :
             taux_theme[t] = round(scorecat.get(t, 0) / totalcat[t], 2)
 
-    taux_hum = taux_theme.get("humidite", 0)
+    taux_hum = taux_theme.get("humidite", 2)
 
-    taux_réch = taux_theme.get("rechauffement", 0)
+    taux_réch = taux_theme.get("rechauffement", 2)
 
-    taux_refr = taux_theme.get("refroidissement", 0)
+    taux_refr = taux_theme.get("refroidissement", 2)
 
-    taux_stab = taux_theme.get("stabilite", 0)
+    taux_stab = taux_theme.get("stabilite", 2)
 
-    taux_pres = taux_theme.get("pression", 0)
+    taux_pres = taux_theme.get("pression", 2)
 
-    taux_mass = taux_theme.get("masse", 0)
+    taux_mass = taux_theme.get("masse", 2)
 
-    taux_fron = taux_theme.get("front", 0)
+    taux_fron = taux_theme.get("front", 2)
 
-    taux_nuag = taux_theme.get("nuage", 0)
+    taux_nuag = taux_theme.get("nuage", 2)
 
     model = chargement_IA()
     taux = pd.DataFrame([[taux_hum,taux_réch,taux_refr,taux_stab,taux_pres,taux_mass,taux_fron,taux_nuag]], columns = ["taux_humidité", "taux_réchauffement", "taux_refroidissement", "taux_stabilite", "taux_pression", "taux_masse", "taux_front", "taux_nuage"])
@@ -58,7 +58,9 @@ def prédiction() :
         "les nuages et les précipitations" : taux_nuag,
     }
 
-    catégorie_affiché = min(dict_taux, key = dict_taux.get)
+    dict_taux_filtré = {theme: nom_taux for theme, nom_taux in dict_taux.items() if nom_taux != 2}
+
+    catégorie_affiché = min(dict_taux_filtré, key=dict_taux_filtré.get)
 
     if résultat_taux == 1 :
         résultat = f"Prends-tu le test au serieux!!!"

@@ -39,9 +39,11 @@ def choix_question() :
 
         theme = choixq_ctq["theme"]
 
+        indice = choixq_ctq["indice"]
+
         st.session_state.bqjeu_ctq.remove(choixq_ctq)
 
-        return(question, rjeu, theme)
+        return(question, rjeu, theme, indice)
 
 def choix_ctq() :
 
@@ -84,10 +86,10 @@ def jeu_ctq() :
 
     if st.session_state.qactuel_ctq is None :
         st.session_state.qactuel_ctq = choix_question()
-    question, rjeu, theme = st.session_state.qactuel_ctq
+    question, rjeu, theme, indice = st.session_state.qactuel_ctq
 
     st.write(question)
-    rj = st.text_input("Votre réponse", key= f"réponse_{st.session_state.index_ctq}", disabled = st.session_state.répval_ctq)
+    rj = st.text_input("Votre réponse", value = indice, key= f"réponse_{st.session_state.index_ctq}", disabled = st.session_state.répval_ctq)
 
     if not st.session_state.répval_ctq :
 

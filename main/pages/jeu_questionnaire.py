@@ -59,19 +59,21 @@ def principale() :
 
         theme = choixq["theme"]
 
+        indice = choixq["indice"]
+
         st.session_state.bqjeu.remove(choixq)
 
-        return(question, rjeu, theme)
+        return(question, rjeu, theme, indice)
 
     if st.session_state.index < st.session_state.nbquestion:
         st.subheader(f"Question {st.session_state.index + 1} sur {st.session_state.nbquestion}")
 
         if st.session_state.qactuel is None :
             st.session_state.qactuel = choix_question()
-        question, rjeu, theme = st.session_state.qactuel
+        question, rjeu, theme, indice = st.session_state.qactuel
 
         st.write(question)
-        rj = st.text_input("Votre réponse", key= f"réponse_{st.session_state.index}", disabled = st.session_state.répval)
+        rj = st.text_input("Votre réponse", value = indice, key= f"réponse_{st.session_state.index}", disabled = st.session_state.répval)
 
         if not st.session_state.répval :
 
@@ -102,15 +104,15 @@ def principale() :
 
             if st.session_state.scoreq == 2 :
 
-                st.success("Bonne réponse! ✅")
+                st.success("Bonne réponse! ✅ Si tu veux comparer avec la réponse du corrigé, la voici : {rjeu}")
 
             elif st.session_state.scoreq == 1 :
 
-                st.warning(f"Réponse incomplète. La bonne réponse était {rjeu}")
+                st.warning(f"Réponse incomplète. La bonne réponse était : {rjeu}")
 
             elif st.session_state.scoreq == 0 :
 
-                st.error(f"Mauvaise réponse. La bonne réponse était {rjeu}")
+                st.error(f"Mauvaise réponse. La bonne réponse était : {rjeu}")
 
             if st.button("Question suivante") :
 

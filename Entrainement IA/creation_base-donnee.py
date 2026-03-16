@@ -6,39 +6,88 @@ data = []
 def rand(a, b):
     return round(random.uniform(a, b), 2)
 
-# Classe 7
-for _ in range(200):
-    data.append([rand(0.95,1.00), rand(0.95,1.00), rand(0.95,1.00), rand(0.95,1.00), rand(0.95,1.00), rand(0.95,1.00), rand(0.95,1.00), rand(0.95,1.00), 7])
-
-# Classe 6
-for _ in range(300):
-    data.append([rand(0.85,0.94), rand(0.85,0.94), rand(0.85,0.94), rand(0.85,0.94), rand(0.85,0.94), rand(0.85,0.94), rand(0.85,0.94), rand(0.85,0.94), 6])
-
-# Classe 5
-for _ in range(300):
-    data.append([rand(0.75,0.84), rand(0.75,0.84), rand(0.75,0.84), rand(0.75,0.84), rand(0.75,0.84), rand(0.75,0.84), rand(0.75,0.84), rand(0.75,0.84), 5])
-
-# Classe 4 (prioritaire)
-for _ in range(400):
-    high = [rand(0.80,1.00), rand(0.80,1.00), rand(0.80,1.00), rand(0.80,1.00), rand(0.80,1.00), rand(0.80,1.00), rand(0.80,1.00)]
-    low = rand(0.00,0.69)
+def génération(nb_ligne, high_range, résultat, nb_donnée = 8, manquante = 0):
     
+    for _ in range(nb_ligne):
+
+        taux_avec_résultat = [rand(*high_range) for _ in range(nb_donnée - manquante)]
+        valeures_manquantes = [2.00] * manquante
+
+        values = taux_avec_résultat + valeures_manquantes
+        random.shuffle(values)
+
+        data.append(values + [résultat])
+
+def génération_4(nb_ligne, manquante=0):
+
+    for _ in range(nb_ligne):
+
+        high = [rand(0.80,1.00) for _ in range(7-manquante)]
+        low = rand(0.00,0.69)
+
+        values = high + [low] + [2.00]*manquante
+        random.shuffle(values)
+
+        data.append(values + [4])
+
+# Résultat 7
+génération(200, (0.95,1.00), 7)
+
+# Résultat 6
+génération(300, (0.85,0.94), 6)
+
+# Résultat 5
+génération(300, (0.75,0.84), 5)
+
+# Résultat 4 (1 erreur)
+for _ in range(400):
+
+    high = [rand(0.80,1.00) for _ in range(7)]
+    low = rand(0.00,0.69)
+
     values = high + [low]
     random.shuffle(values)
-    
-    data.append([values[0], values[1], values[2], values[3], values[4], values[5], values[6], values[7], 4])
 
-# Classe 3
-for _ in range(300):
-    data.append([rand(0.60,0.74), rand(0.60,0.74), rand(0.60,0.74), rand(0.60,0.74), rand(0.60,0.74), rand(0.60,0.74), rand(0.60,0.74), rand(0.60,0.74), 3])
+    data.append(values + [4])
 
-# Classe 2
-for _ in range(300):
-    data.append([rand(0.20,0.59), rand(0.20,0.59), rand(0.20,0.59), rand(0.20,0.59), rand(0.20,0.59), rand(0.20,0.59), rand(0.20,0.59), rand(0.20,0.59), 2])
+# Résultat 3
+génération(300, (0.60,0.74), 3)
 
-# Classe 1
-for _ in range(200):
-    data.append([rand(0.00,0.19), rand(0.00,0.19), rand(0.00,0.19), rand(0.00,0.19), rand(0.00,0.19), rand(0.00,0.19), rand(0.00,0.19), rand(0.00,0.19), 1])
+# Résultat 2
+génération(300, (0.20,0.59), 2)
+
+# Résultat 1
+génération(200, (0.00,0.19), 1)
+
+
+
+# Résultat 7 avec thèmes manquants
+for nb_manquant in range(1,7):
+    génération(200, (0.95,1.00), 7, manquante = nb_manquant)
+
+# Résultat 6 avec thèmes manquants
+for nb_manquant in range(1,7):
+    génération(300, (0.85,0.94), 6, manquante = nb_manquant)
+
+# Résultat 5 avec thèmes manquants
+for nb_manquant in range(1,7):
+    génération(300, (0.75,0.84), 5, manquante = nb_manquant)
+
+# Résultat 4 avec thèmes manquants
+for nb_manquant in range(1,7):
+    génération_4(400, manquante = nb_manquant)
+
+# Résultat 3 avec thèmes manquants
+for nb_manquant in range(1,7):
+    génération(300, (0.60,0.74), 3, manquante = nb_manquant)
+
+# Résultat 2 avec thèmes manquants
+for nb_manquant in range(1,7):
+    génération(300, (0.20,0.59), 2, manquante = nb_manquant)
+
+# Résultat 1 avec thèmes manquants
+for nb_manquant in range(1,7):
+    génération(200, (0.00,0.19), 1, manquante = nb_manquant)
 
 base_de_donne = pd.DataFrame(
     data,

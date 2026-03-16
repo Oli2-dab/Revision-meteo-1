@@ -9,9 +9,14 @@ from extension.chargement_spacy import charger_spacy
 
 val = charger_spacy()
 
-def valrép(rj, rjeu) :
-    réponse_joueur = rj.strip().lower()
-    réponse_jeu = rjeu.strip().lower()
+def valrép(rj, rjeu, indice = "") :
+    if indice != "" :
+        réponse_joueur = rj.replace(indice, "").strip().lower()
+        réponse_jeu = rjeu.replace(indice, "").strip().lower()
+
+    else :
+        réponse_joueur = rj.strip().lower()
+        réponse_jeu = rjeu.strip().lower()
 
     pourvalrj = val(réponse_joueur)
     pourvalrjeu = val(réponse_jeu)
@@ -29,10 +34,10 @@ def valrép(rj, rjeu) :
     if réponse_joueur == "c2" :
         scoreq = 2
 
-    if réponse_joueur == "c1" :
+    elif réponse_joueur == "c1" :
         scoreq = 1
 
-    if réponse_joueur == "c0" :
+    elif réponse_joueur == "c0" :
         scoreq = 0
 
     return(scoreq)
