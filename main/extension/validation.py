@@ -14,7 +14,7 @@ def valrép(rj, rjeu, indice = "") :
     if rj.strip() == "":
         return 0
     
-    if not rj == "":
+    if rj == indice:
         return 0
     
     réponse_joueur = rj.replace(indice, "").strip().lower()
