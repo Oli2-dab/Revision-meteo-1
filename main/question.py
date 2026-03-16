@@ -93,7 +93,7 @@ masse_air = [
     {"theme" : "masse", "question" : "Qu'est-ce qu'une masse d'air mT?", "réponse" : "maritime tropicale"},
     {"theme" : "masse", "question" : "Qu'est-ce qu'une masse d'air cT?", "réponse" : "continentale tropicale"},
     {"theme" : "masse", "question" : "Quels sont les masses d'air qui touchent le Canada (abréviation)?", "réponse" : "ca, ma, mp, mt"},
-    {"theme" : "masse", "question" : "Si l'air est froid, la tropopause est-elle haute ou basse?", "réponse" : "haute"},
+    {"theme" : "masse", "question" : "Si l'air est froid, la tropopause est-elle haute ou basse?", "réponse" : "basse"},
     {"theme" : "masse", "question" : "Quels sont les trois caractéristiques qui influence le déplacement et le degré de changement d'une masse d'air?", "réponse" : "la vitesse de déplacement, l'humidité et la différence de température"},
     {"theme" : "masse", "question" : "Quel phénomène sera créé par un réchauffement par le dessous?", "réponse" : "convection"},
     {"theme" : "masse", "question" : "Quel phénomène sera créé par un refroidissement par le dessous?", "réponse" : "inversion"},
