@@ -6,6 +6,7 @@
 #
 
 from extension.chargement_spacy import charger_spacy
+import streamlit as st
 
 val = charger_spacy()
 
@@ -36,5 +37,7 @@ def valrép(rj, rjeu, indice):
         scoreq = 1
     elif réponse_joueur == "c0":
         scoreq = 0
+
+    st.write(validité)
 
     return scoreq

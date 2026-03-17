@@ -21,7 +21,7 @@ x = donné[["taux_humidité",
         "taux_nuage"]]
 y = donné["résultat"]
 
-X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.1)
+X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
 
 model = RandomForestClassifier(random_state = 42)
 model.fit(X_train, y_train)
@@ -33,7 +33,7 @@ nom_fichier = "base_de_donnee_IA.joblib"
 joblib.dump(model, nom_fichier)
 
 chargement_model = joblib.load("base_de_donnee_IA.joblib")
-taux = pd.DataFrame([[0.90, 0.98, 0.89, 0.95, 0.94, 0.93, 0.99, 0.60]], columns = ["taux_humidité", "taux_réchauffement", "taux_refroidissement", "taux_stabilite", "taux_pression", "taux_masse", "taux_front", "taux_nuage"])
+taux = pd.DataFrame([[0.50, 0.50, 0.55, 2.00, 2.00, 0.49, 0.45, 2.00]], columns = ["taux_humidité", "taux_réchauffement", "taux_refroidissement", "taux_stabilite", "taux_pression", "taux_masse", "taux_front", "taux_nuage"])
 résultat = chargement_model.predict(taux)
 print(résultat)
 
