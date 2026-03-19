@@ -38,6 +38,4 @@ def valrép(rj, rjeu, indice):
     elif réponse_joueur == "c0":
         scoreq = 0
 
-    st.write(validité)
-
     return scoreq
