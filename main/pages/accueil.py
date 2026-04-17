@@ -20,15 +20,11 @@ if st.button("Questionnaire complet") :
 if st.button("Questionnaire avec choix des thèmes") :
     st.switch_page("pages/choix_t_questionnaire.py")
 
-if st.button("Bonne IA") :
-    st.switch_page("dossierIA/IA_bon.py")
-
-if st.button("Mauvaise IA") :
-    st.switch_page("dossierIA/IA_mauvais.py")
-
-st.write("Version 1.0.39")
+st.write("Version 2.0.1")
 
 st.markdown("""
+            -**2.0.1**  
+            Supression de l'IA utilisé pour le projet de philo.  
             -**1.0.39**  
             Mise à jour de l'IA avec le nouveau modèle d'entrainement.  
             -**1.0.38**  

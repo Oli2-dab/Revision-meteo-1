@@ -9,7 +9,6 @@ import streamlit as st
 import random
 from question import bqhumidité, bqréchauffement, bqrefroidissement, stabilite_air, pression_atmo, masse_air, fronts, nuage_precipitation
 from extension.validation import valrép
-from dossierIA.IA import prédiction
 
 initialization = {
     "scoreq_ctq":0,
@@ -139,8 +138,6 @@ def jeu_ctq() :
 
 def resultat_ctq() :
 
-    résultat_IA = prédiction()
-
     total_score_ctq = st.session_state.index_ctq * 2
 
     st.subheader("Score par thème")
@@ -148,7 +145,6 @@ def resultat_ctq() :
         st.write(f"{theme}: {score}/{st.session_state.totalcat[theme]}")
 
     st.success(f"Bravo! Vous avez terminer ce quiz. Votre score est de {st.session_state.score_ctq} sur {total_score_ctq}.")
-    st.success(résultat_IA)
     
     if st.button("Recommenser le questionnaire") :
         st.session_state.rénitialization_ctq = False
