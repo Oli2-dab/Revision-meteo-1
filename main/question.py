@@ -270,6 +270,103 @@ atmo_type = [
 
 
 
+Questions météo 
+
+chapitre restant : PIREP, Visibilité et GFA
+
+Supprime les —- et écrit dans ces sections. Pas besoin de remplir theme/indice
+
+Chapitre PIREP
+1
+{"theme" : "", "question" : "Que signifie UACN01?", "réponse" : "PIREP non-urgent", "indice" : ""},
+2
+{"theme" : "", "question" : "Es-ce que un wind shear d’environ 15 kts en approche est un PIREP URGENT?", "réponse" : "Oui", "indice" : ""},
+3
+{"theme" : "", "question" : "Que signifie TR?", "réponse" : "Trace = La glace devient perceptible", "indice" : ""},
+4
+{"theme" : "", "question" : "qu’est-ce qu’un PIREP?", "réponse" : "rapport publié par un pilote", "indice" : ""},
+5
+{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP: UACN10 CZNB 101457 EG
+UA /OV YSM 330005 /TM 1453 /FLDURC /TP JS31 /SK 004 OVC 022 /IC TR LGT ICGIC /RM VERT VIS 008
+?", "réponse" : "Un British aerospace Jetstream en montée à 5 NM au 330° de YSM rapporte à 14:53Z un plafond à 400 ft avec une couche overcast à 2200 ft, un givrage trace à léger, icing in-cloud et une visibilité verticale de 800 ft. Raison de publication: givrage + plafond très bas + visibilité verticale réduite", "indice" : ""},
+6
+{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN10 CYTH 101728 WG
+UA /OV CYTH /TM 1707 /FLDURD /TP PC12 /WV 200022 /RM WND AT 500AGL ON APCH RWY 06 CORR COPY?", "réponse" : "Un PC12 (Pilates single-engin turboprop) en descente à CYTH à 17:07Z signale un vent du 200° à 22 kt et un vent particulier à 500 ft AGL sur l’approche de la piste 06. Raison de publication: vent de dos en descente", "indice" : ""},
+7
+{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN10 CYQQ 101823 VR
+UA /OV CYQQ /TM 1813 /FL3400 /TP F18 /RM ENTERED CLD AT 3400FT. TOPS 15000FT.?", "réponse" : "Un F18 près de CYQQ à 18:13Z indique être entré dans les nuages à 3400 ft avec des sommets atteignant 15 000 ft. Raison de publication: info essentielle", "indice" : ""},
+8
+{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN01 CYHZ 111755 QM
+UUA /OV CYHZ /TM 1753 /FLDURD /TP B190 /TB MDT BLO 030 /IC LGT RIME BLO 030 /RM WIND SHEAR +/- 15 KTS ON APCH?", "réponse" : "Un Beechcraft 1900 en descente à CYHZ à 17:53Z rapporte une turbulence modérée et un givrage léger blanc sous 3000 ft ainsi qu’un wind shear de ±15 kt en approche, ce qui en fait un PIREP urgent. Raison de publication: wind shear +15 kts", "indice" : ""},
+9
+{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN10 CYQR 111557 WG
+UA /OV CYQR 310001 /TM 1555 /FLDURD /TP CRJ2 /SK 021OVC /RM APCH RWY 13 PILOT BROKE OUT AT MIN. FLT VIS 1/4SM. VIA TWR?", "réponse" : "Un Bombardier CRJ200 en descente à 1 NM au 310° de CYQR à 15:55Z signale un plafond overcast à 2100 ft et indique avoir percé les nuages au minimum IFR avec une visibilité de 1/4 SM en approche piste 13. Raison de publication: conditions IFR sévères", "indice" : ""},
+10
+{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN10 CYQB 141533 UL
+UA /OV CYUL /TM 1531 /FL210 /TP CL25 /SK OVC170 /TB SFC-170 SMOOTH 170-210 SMALL RIDDLE ONLY /RM FREEZING PCPNS FM SFC-040, LIQUID PCPN ABV
+?", "réponse" : "Un CL-215 au FL210 près de CYUL à 15:31Z rapporte une couche overcast à 17 000 ft, des conditions lisses du sol à 21 000 ft et des précipitations givrantes du sol à 4000 ft puis liquides au-dessus. Raison de publication: précipitations givrantes", "indice" : ""},
+11
+{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN10 CYQB 012034 UL
+UA /OV CYFE 225005 /TM 2030 /FL013 /TP BE23 /SK 012 OVC 045 /RM LOW CIG, PCPN IN FRST 5NM N OF ST LAUR. FRM 5NM SW OF CYFE TO NE?", "réponse" : "Un Beech-craft 23 à 13 000 ft près de CYFE à 20:30Z signale un plafond bas avec overcast à 1200 ft et 4500 ft ainsi que des précipitations dans les 5 premiers NM au nord du St-Laurent et de 5 NM au sud-ouest de CYFE jusqu’au nord-est. Raison de publication: plafond bas + précipitations", "indice" : ""},
+12
+{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN10 CYXU 120022 YZ
+UA /OV CYYZ /TM 0020 /FL055 /TP UNKN /TB MOD 055-090 /RM REPD BY ALL TYPE?", "réponse" : "Un appareil non identifié près de CYYZ à 00:20Z rapporte une turbulence modérée entre 5500 et 9000 ft, confirmée par tous les types d’aéronefs. Raison de publication: turbulence modérée", "indice" : ""},
+
+13
+
+{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN10 CYXU 112200 YZ
+UA /OV CYGD /TM 2155 /FL330 /TP UNKN /TB LGT-MOD 330-350 /RM REPD AS LGT - OCNL MOD CHOP, REPD BY ALL TYP", "réponse" : "Un appareil non identifié au FL330 près de CYGD à 21:55Z signale une turbulence légère à modérée entre FL330 et FL350, décrite comme légère avec parfois du chop modéré, rapportée par tous les types. Raison de publication: turbulence en altitude", "indice" : ""},
+
+14
+
+{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN10 CYEG 120027 EG
+UA /OV 6122N13902W /TM 0005 /FL370 /TP B748 /RM MOUNTAIN WAVES +/- 10 KTS AND 100 FEET", "réponse" : "Un Boeing 747-8 au FL370 à 00:05Z au-dessus de 61°22N 139°02W rapporte des ondes orographiques causant des variations de ±10 kt et ±100 ft. Raison de publication: mountain waves", "indice" : ""},
+
+
+
+Questions météo 
+
+chapitre restant : PIREP, Visibilité et GFA
+
+Supprime les —- et écrit dans ces sections. Pas besoin de remplir theme/indice
+
+Chapitre visibilité 
+1
+{"theme" : "", "question" : "Quels sont les 6 facteurs qui peuvent influencer la visibilité?", "réponse" :" brume sèche, fumée, sable et poussière, précipitations, brouillard, conditions atmosphériques générales (stratosphère)", "indice" : ""},
+2
+{"theme" : "", "question" : "  pourquoi la visibilité est-elle relative?", "réponse" : "parce qu’elle dépend de qui la regarde et dans quel direction", "indice" : ""},
+3
+{"theme" : "", "question" : "comment évalue-t-on la visibilité au sol le jour?", "réponse" : "avec des points de repères", "indice" : ""},
+4
+{"theme" : "", "question" : "comment évalue-t-on la visibilité au sol le soir?", "réponse" : "avec une lumière non focalisée", "indice" : ""},
+5
+{"theme" : "", "question" : "quel est la définition de la visibilité dominante?", "réponse" : " visibilité maximale commune aux sections représentant au minimum inclusif de la moitié de l’horizon en SM", "indice" : ""},
+6
+{"theme" : "", "question" : "  quels sont trois facteurs nécessaires pour déterminer la RVR?", "réponse" : "  visibilité du capteur, luminosité ambiante et la brillance des feux de piste", "indice" : ""},
+7
+{"theme" : "", "question" : " Quel est la difference entre la brume sèche et le brouillard?", "réponse" : "brume sèche n’est pas saturé", "indice" : ""},
+8
+{"theme" : "", "question" : " quel est le phénomène qui réduit la visibilité même par ciel clair?", "réponse" : "le voile blanc", "indice" : ""},
+9
+{"theme" : "", "question" : " Quel est le brouillard le plus fréquent au Québec pendant chaque saison?", "réponse" : " printemps/ été = givrage d’advection automne = par rayonnement et hiver = givre glacée ", "indice" : ""},
+10
+{"theme" : "", "question" : " quel est le brouillard le plus dangereux pour l’aviation?", "réponse" : " le brouillard glacée puisqu’il produit du givrage sur l’aéronef", "indice" : ""},
+11
+{"theme" : "", "question" : "pourquoi une inversion en stratosphère trompe la visibilité air-air ?", "réponse" : "parce qu’il n’y a aucun repère entre l’avion et le nuage", "indice" : ""},
+12
+{"theme" : "", "question" : " les montagnes crée un effet de (…)?", "réponse" : "  loupe 🔍 ", "indice" : ""},
+13
+{"theme" : "", "question" : " quel est la cause du brouillard par rayonnement?", "réponse" : "  refroidissement nocturne du sol", "indice" : ""},
+14
+{"theme" : "", "question" : "    Quel est la cause du brouillard par advection?", "réponse" : "  air chaud et humide se déplaçant sur une surface froide", "indice" : ""},
+15
+{"theme" : "", "question" : "    Quel est la cause du brouillard de pente?", "réponse" : "  air forcé de monter une pente = refroidissement ", "indice" : ""},
+16
+{"theme" : "", "question" : "Quel est la cause du brouillard d’évaporation/ fumée de mer arctique?", "réponse" : " air froide passant au dessus d’eau plus chaude", "indice" : ""},
+17
+{"theme" : "", "question" : "Quel est la cause du brouillard glacé ?", "réponse" : " Brouillard contenant des gouttelettes surfondues", "indice" : ""},
+18
+{"theme" : "", "question" : "Quel est la cause du brouillard frontal?", "réponse" : "chaleur de l’air réchauffe les précipitations au début du front froid et ils s’évapore (stratus)", "indice" : ""},
 
 
 
