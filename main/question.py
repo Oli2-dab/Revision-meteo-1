@@ -180,6 +180,110 @@ nuage_precipitation = [
     {"theme" : "nuage", "question" : "Quels sont les effets sur le vol des précipitations?", "réponse" : "Possibilité de givrage, visibilité réduite, modifie l'écoulement de l'air sur l'aile, modifie la vitesse de décrochage, diminue le contact avec la piste", "indice" : ""},
 ]
 
+###
+fb_fd = [
+    {"theme" : "FBFD", "question" : "Quels sont les niveaux pour lesquelles le centre météorologique canadien émet des prévisions de vents et/ou de température, dans les bas niveaux? (Ne pas mettre pi)", "réponse" : "3000, 6000, 9000, 12000 et 18000", "indice" : ""},
+    {"theme" : "FBFD", "question" : "Que donnent les FB et les FD?", "réponse" : "Ils donnent des prévisions de vents et de température en altitude", "indice" : "Ils donnent des"},
+    {"theme" : "FBFD", "question" : "Est-ce que l'altitude des FB et des FD est en ASL ou en AGL?", "réponse" : "En ASL", "indice" : "En"},
+    {"theme" : "FBFD", "question" : "Complète la phrase suivante en écrivant uniquement les nombres séparés d'un virgule : On omet le FD/FB pour l'altitude ____ pi lorsque l'altitude du terrain est supérieur à ____ pi.", "réponse" : "3000, 1500", "indice" : ""},
+    {"theme" : "FBFD", "question" : "Quel élément est omis dans le FB/FD de 3000 pi (vent ou température)?", "réponse" : "température", "indice" : ""},
+    {"theme" : "FBFD", "question" : "Par qui sont données les vents et les tempéatures à haut niveau et quels sont les altitudes? (Ne pas mettre pi)", "réponse" : "Par les Américains pour les altitudes 24000, 30000, 34000, 39000, 45000 et 53000", "indice" : "Par les  pour les altitudes "},
+    {"theme" : "FBFD", "question" : "Pour les FD, est-ce que la direction du vent est donnée en centaine, dizaine ou à l'unité, en degrés?", "réponse" : "dizaine", "indice" : ""},
+    {"theme" : "FBFD", "question" : "Pour les FB/FD, est-ce que la direction du vent est donnée par rapport au nord vrai ou au nord magétique?", "réponse" : "Nord vrai", "indice" : "Nord "},
+    {"theme" : "FBFD", "question" : "Quel est l'unité de mesure de la vitesse des vents pour les FB/FD?", "réponse" : "Le noeud", "indice" : "Le "},
+    {"theme" : "FBFD", "question" : "Quel est l'unité de mesure de la température pour les FB/FD, le °C, le °K ou le °F?", "réponse" : "Le °C", "indice" : "Le "},
+    {"theme" : "FBFD", "question" : "Pour le FD, que représente les deux premiers chiffres?", "réponse" : "La direction des vents", "indice" : "La "},
+    {"theme" : "FBFD", "question" : "Pour le FD, que représente les chiffres du milieu?", "réponse" : "La vitesse des vents", "indice" : "La "},
+    {"theme" : "FBFD", "question" : "Pour le FD, que représente les deux derniers chiffres? (Après le +/- pour les bas niveaux)", "réponse" : "La température", "indice" : "La "},
+    {"theme" : "FBFD", "question" : "Pour les FB/FD, les bas niveaux sont ___ à 24 000 pi : inférieur , inférieur ou égale, supérieur, supérieur ou égale .", "réponse" : "inférieur ou égale", "indice" : ""},
+    {"theme" : "FBFD", "question" : "Pour les FB/FD, les hauts niveaux sont ___ à 24 000 pi : inférieur , inférieur ou égale, supérieur, supérieur ou égale .", "réponse" : "supérieur", "indice" : ""},
+    {"theme" : "FBFD", "question" : "La température est automatiquement négative pour les FB/FD ____ à _____ pi? (Sépare le(s) mot(s) et le nombre par une virgule)", "réponse" : "supérieur, 24000", "indice" : ""},
+    {"theme" : "FBFD", "question" : "Les FD sont émis combien de fois par jour? (en chiffre)", "réponse" : "2 fois", "indice" : " fois"},
+    {"theme" : "FBFD", "question" : "Les FD, un fois émis, sont valide pour combien de temps? (Sépare le(s) nombre(s) par une(des) virgule(s) et ne mets pas h)", "réponse" : "6, 12, 24", "indice" : ""},
+    {"theme" : "FBFD", "question" : "Les FB sont émis combien de fois par jour? (en chiffre)", "réponse" : "4", "indice" : ""},
+    {"theme" : "FBFD", "question" : "Dans le FD, quel code indique que les vents sont léger et variable?", "réponse" : "9900", "indice" : ""},
+    {"theme" : "FBFD", "question" : "Dans le FD, si les deux premiers chiffres dépasses 36, que faut-il faire?", "réponse" : "Enlevé 50 à la direction des vents et ajouté 100 à la vitesse des vents", "indice" : ""},
+    {"theme" : "FBFD", "question" : "Est-ce que les deux premiers chiffres d'un FD peuvent être supérieur à 36?", "réponse" : "Non", "indice" : ""},
+    {"theme" : "FBFD", "question" : "Pourquoi les FB sont-ils plus précis que les FD?", "réponse" : "Car, ils sortent plus souvent", "indice" : "Car, "},
+]
+
+airmet_sigmet = [
+    {"theme" : "___met", "question" : "Qu'est-ce qu'un Airmet?", "réponse" : "Un avis météo à court terme qui indique des conditions potentiellement dangereuses", "indice" : "Un "},
+    {"theme" : "___met", "question" : "Pourquoi les Airmet sont-ils utilisés?", "réponse" : "Pour indiquer les changements importants et pour modifier un GFA", "indice" : "Pour "},
+    {"theme" : "___met", "question" : "Les Airmet décrivent des conditions jusqu'à quel altitude inclusivement? (Ne pas mettre pi)", "réponse" : "24000", "indice" : ""},
+    {"theme" : "___met", "question" : "Quels sont, en générale, les critères d'émissions d'un Airmet?", "réponse" : "Un développement inatendu, la dissipation ou la non-manifestation des phénomènes", "indice" : ""},
+    {"theme" : "___met", "question" : "Quels sont spécifiquement les critères d'émissions d'un Airmet?", "réponse" : "Une vitesse moyenne des vents dépassant 30 kt, une visibilité réduite à moins de 3 SM, une couverture nuageuse fragmenté ou de ciel couvert dont la base est à moins de 1000 pi AGL, des orages isolés ou occasionnels, des orages isolés ou occasionnels accompagnés de grêle, des cumulus bourgeonnants isolés, occasionnels ou fréquents, des cumulus bourgeonnants occasionnels et orages isolés accompagné ou non de grêle, des cumulus bourgeonnants fréquents et orages isolés accompagné ou non de grêle, de la turbulence modérée, du givrage modéré ou une onde orographique modérée", "indice" : ""},
+    {"theme" : "___met", "question" : "Quel est la période de validité d'un Airmet?", "réponse" : "Elle est de 4 h ou jusqu'à sa mise-à-jour ou son annulation", "indice" : "Elle est de  h ou "},
+    {"theme" : "___met", "question" : "Comment les Airmet sont-ils classifiers?", "réponse" : "À l'aide d'une classification alphanumérique", "indice" : "À l'aide d'une "},
+    {"theme" : "___met", "question" : "Dans la phrase suivante, dans un Airmet : <<WTN 15 NM of LN>>, est ce que la largeur de la ligne est de 15 ou 30 NM?", "réponse" : "30 NM", "indice" : " NM"},
+    {"theme" : "___met", "question" : "Jusqu'à combien de temps avant le début du phénomène est-ce qu'un Airmet pourrais-être émis?", "réponse" : "4 h", "indice" : " h"},
+    {"theme" : "___met", "question" : "Est-ce que les Airmet sont mise-à-jour automatiquement?", "réponse" : "Non, sauf si une nouvelle GFA est émis", "indice" : " ,sauf si "},
+    {"theme" : "___met", "question" : "Quels sont les critères d'annulation d'un Airmet?", "réponse" : "L'émission d'une nouvelle GFA, la condition ne se matérialise pas ou se termine avant l'émission de la prochaine GFA ou les conditions deviennent assez dangereuse pour l'émission d'un Sigmet", "indice" : ""},
+    {"theme" : "___met", "question" : "Que doit-on inclure quand un Airmet est annulé?", "réponse" : "Un énoncé justifiant l'annulation", "indice" : ""},
+    {"theme" : "___met", "question" : "Pourquoi utilise-t-on des Airmet?", "réponse" : "Pour communiquer des changements météorologiques importants aux pilotes après leurs exposés et leurs départs", "indice" : ""},
+    {"theme" : "___met", "question" : "Où sont disponible les Airmet et les Sigmet?", "réponse" : "Sur le site de Nav Canada et sur 121.7", "indice" : "Sur  et sur "},
+    {"theme" : "___met", "question" : "Est-ce que ce sont les Airmet ou les Sigmet qui sont un moyen internationnal de communique de l'information?", "réponse" : "Sigmet", "indice" : ""},
+    {"theme" : "___met", "question" : "Quel est le rôle d'un sigmet?", "réponse" : "Il est de donner des alertes à court terme sur certains phénomènes dangereux", "indice" : "Il est de "},
+    {"theme" : "___met", "question" : "Quels sont les phénomènes indiqués par les Sigmet? (Pas précisément, on cherche une définition)", "réponse" : "Les phénomènes dangereux er d'importance vitale pour tous les types d'aéronefs", "indice" : "Les phénomènes "},
+    {"theme" : "___met", "question" : "Quel est la zone, au niveau verticale, dans laquel des Sigmet peuvent être émis?", "réponse" : "De la surface à 60000 pi inclusivement", "indice" : ""},
+    {"theme" : "___met", "question" : "Pourquoi utilise-t-on des Sigmet?", "réponse" : "Pour communiquer des changements météorologiques importants aux pilotes après leurs exposés et leurs départs et pour modifier automatiquement un GFA", "indice" : ""},
+    {"theme" : "___met", "question" : "Quels sont les critères d'émissions d'un Sigmet?", "réponse" : "Des orages fréquents accompagnés ou non de grêle, avec possibilité de tornade/trombe marine et/ou en ligne de grains, de la turbulence forte, du givrage fort dû ou non à de la pluie vergalçante, des ondes orographique importante, du cisaillement de vent à basse altitude, des fortes tempêtes de poussière ou de sable, des nuages radioactifs, des cendres volcaniques ou un cyclone tropical", "indice" : ""},
+    {"theme" : "___met", "question" : "Un Sigmet couvre une période de combien d'heures et quel est l'exception?", "réponse" : "4 h, sauf pour les Sigmet de cendres volcaniques et de cyclones tropicaux qui couvre 6 h", "indice" : " h, sauf pour les Sigmet  qui couvre  h"},
+    {"theme" : "___met", "question" : "Un Sigmet peut être émis combien de temps d'avance et quel est l'exception?", "réponse" : "4 h, sauf pour les Sigmet de cendres volcaniques et de cyclones tropicaux qui peuvent être émis 12 h d'avance", "indice" : " h, sauf pour les Sigmet  qui peuvent être émis  h d'avance"},
+    {"theme" : "___met", "question" : "Que signifie WVCN dans un Sigmet?", "réponse" : "Sigmet de cendre volcanique", "indice" : "Sigmet "},
+    {"theme" : "___met", "question" : "Que signifie WCCN dans un Sigmet?", "réponse" : "Sigmet de cyclone tropical", "indice" : "Sigmet "},
+    {"theme" : "___met", "question" : "Que signifie WSCN dans un Sigmet?", "réponse" : "Tous les autres Sigmet", "indice" : " Sigmet "},
+    {"theme" : "___met", "question" : "Lorsque l'on parle de la direction des vents, que signife le WD après le point cardinal? (en français)", "réponse" : "va vers", "indice" : ""},
+    {"theme" : "___met", "question" : "Lorsque l'on parle de la direction des vents, que signife le LY après le point cardinal? (en français)", "réponse" : "vient de", "indice" : ""},
+]
+
+atmo_type = [
+    {"theme" : "atmo", "question" : "Selon l'OACI, quel sont les caractérisrtiques de base de l'atmosphère?", "réponse" : "Un air qui est parfaitmement sec, qui est à 15°C au niveau de la mer, qui a un GTV de 1.98°C/1000 pi et une pression au niveau de la mer de 29.92 poHg", "indice" : "Un air qui est , qui  °C , qui °C/1000 pi et  poHg"},
+    {"theme" : "atmo", "question" : "Quels sont les critères pour que les conditions soit VMC?", "réponse" : "Plafond de plus de 3000 pi AGL ET visibilité de plus de 5 SM", "indice" : "Plafond de  pi  ET visibilité de  SM"},
+    {"theme" : "atmo", "question" : "Quels sont les critères pour que les conditions soit MVFR?", "réponse" : "Plafond de 1000 à 3000 pi AGL OU visibilité de 3 à 5 SM", "indice" : "Plafond de  pi  OU visibilité de  SM"},
+    {"theme" : "atmo", "question" : "Quels sont les critères pour que les conditions soit IMC?", "réponse" : "Plafond de moins de 1000 pi AGL OU visibilité de moins de 3 SM", "indice" : "Plafond de  pi  OU visibilité de  SM"},
+    {"theme" : "atmo", "question" : "Quel sont le minimum VFR selon le RAC, dans un espace aérien contrôlé?", "réponse" : "Visibilité d'au moins 3 SM, distance latérale de 1 SM des nuages et distance verticale de 500 pi des nuages", "indice" : "Visibilité d'au moins  SM, distance latérale de  SM des nuages et distance verticale de  pi des nuages"},
+    {"theme" : "atmo", "question" : "Quel sont le minimum VFR selon le RAC, dans un espace aérien non contrôlé, à 1000 pi et +?", "réponse" : "Visibilité d'au moins 1 SM, distance latérale de 2000 pi des nuages et distance verticale de 500 pi des nuages", "indice" : "Visibilité d'au moins  SM, distance latérale de  pi des nuages et distance verticale de  pi des nuages"},
+    {"theme" : "atmo", "question" : "Quel sont le minimum VFR selon le RAC, dans un espace aérien non contrôlé, en dessous de 1000 pi?", "réponse" : "Visibilité d'au moins 2 SM et hors des nuages", "indice" : "Visibilité d'au moins  SM et  des nuages"},
+    {"theme" : "atmo", "question" : "Quel sont le minimum VFR selon le RAC, dans un espace aérien contrôlé, avec un SVRF?", "réponse" : "Visibilité d'au moins 1 SM et hors des nuages", "indice" : "Visibilité d'au moins  SM et  des nuages"},
+    {"theme" : "atmo", "question" : "Quel est le minumum de température en Solo sur le C-23?", "réponse" : "- 18°C", "indice" : "- °C"},
+    {"theme" : "atmo", "question" : "Quel est le minumum de température en DC sur le C-23?", "réponse" : "- 24°C", "indice" : "- °C"},
+    {"theme" : "atmo", "question" : "Quel est le minumum de vents traversiers en Solo sur le C-23?", "réponse" : "17 KTS à 90°", "indice" : " KTS à 90°"},
+    {"theme" : "atmo", "question" : "Quel est le minumum de vents traversiers en DC sur le C-23?", "réponse" : "25 KTS à 90°", "indice" : " KTS à 90°"},
+    {"theme" : "atmo", "question" : "Quel est le minumum de vents en Solo sur le C-23, pour un étudiant ayant fait 0 à 29.9 heures en solo?", "réponse" : "22 KTS avec rafales n'excédant pas 10 KTS", "indice" : " KTS avec rafales n'excédant pas  KTS"},
+    {"theme" : "atmo", "question" : "Quel est le minumum de vents en Solo sur le C-23, pour un étudiant ayant fait 30 heures et plus en solo?", "réponse" : "28 KTS avec rafales n'excédant pas 15 KTS", "indice" : " KTS avec rafales n'excédant pas  KTS"},
+    {"theme" : "atmo", "question" : "Quel sont les minumums, selon le MANOP, pour un vol de circuit à CYRC en solo?", "réponse" : "Plafond de 1500 pi AGL et visibilité de 5 SM", "indice" : "Plafond de  pi AGL et visibilité de  SM"},
+    {"theme" : "atmo", "question" : "Quel sont les minumums, selon le MANOP, pour les zones d'entrainement ou le tour du lac, en solo?", "réponse" : "Plafond de 2500 pi AGL et visibilité de 9 SM", "indice" : "Plafond de  pi AGL et visibilité de  SM"},
+    {"theme" : "atmo", "question" : "Quel sont les minumums, selon le MANOP, pour un vol-voyage en solo?", "réponse" : "Plafond de 3000 pi AGL et visibilité de 9 SM", "indice" : "Plafond de  pi AGL et visibilité de  SM"},
+    {"theme" : "atmo", "question" : "Quel est la condition pour qu'il y ait des vols dans les zones d'entrainement/tour du lac?", "réponse" : "Il doit y avoir un instructeur de présent dans les zones d'entrainement ou tour du lac en tout temps", "indice" : ""},
+    {"theme" : "atmo", "question" : "Est-ce qu'un vol peut être approuvé, et quel sont le conditions pour le faire, lorsque le TAF de Bagotville ou de Roberval indique un Tempo inférieur au minimum prévu pour les zones et le tour du lac, mais qu'un instructeur est présent voit que les conditions dans les zones/tour du lac sont supérieur à 2500 pi AGL et 9 SM?", "réponse" : "oui, mais il doit y avoir un instructeur de présent en tout temps et les contions prévues ne peuvent pas être inférieur à 1500 pi AGL et 5 SM", "indice" : ""},
+    {"theme" : "atmo", "question" : "Pour qu'un vol-voyage soit approuvé, il faut que les conditions soit dans les limites __ heure(s), selon les TAF de CYRJ ET CYBG après le retour à CYRC? (nombre)", "réponse" : "1 h", "indice" : " h"},
+    {"theme" : "atmo", "question" : "Si les contions sont bonne partout, quel(s) type(s) de vol peut être approuvé?(Circuit = 1, Zones = 2, Vol-voyage = 3)", "réponse" : "1, 2, et 3", "indice" : ""},
+    {"theme" : "atmo", "question" : "Si les contions sont bonne à CYRC et CYBG, mais mauvaise à CYRJ, quel(s) type(s) de vol peut être approuvé?(Circuit = 1, Zones = 2, Vol-voyage = 3)", "réponse" : "1 et 2", "indice" : ""},
+    {"theme" : "atmo", "question" : "Si les contions sont bonne à CYRC et CYRJ, mais mauvaise à CYBG, quel(s) type(s) de vol peut être approuvé?(Circuit = 1, Zones = 2, Vol-voyage = 3)", "réponse" : "1 et 2", "indice" : ""},
+    {"theme" : "atmo", "question" : "Si les contions sont bonne à CYRC, mais mauvaise à CYBG et CYRJ, quel(s) type(s) de vol peut être approuvé?(Circuit = 1, Zones = 2, Vol-voyage = 3)", "réponse" : "1", "indice" : ""},
+    {"theme" : "atmo", "question" : "Si les contions sont bonne à CYBG, mais mauvaise à CYBG et CYRJ, quel(s) type(s) de vol peut être approuvé?(Circuit = 1, Zones = 2, Vol-voyage = 3)", "réponse" : "Aucun", "indice" : ""},
+    {"theme" : "atmo", "question" : "Si les contions mauvaise partout, quel(s) type(s) de vol peut être approuvé?(Circuit = 1, Zones = 2, Vol-voyage = 3)", "réponse" : "Aucun", "indice" : ""},
+    {"theme" : "atmo", "question" : "Pour les limites des vents traversiers en Solo, quel est la restriction sur le nombre d'heure (0 à 29.9 et 30 et +)?", "réponse" : "Les heures doivent avoir été faites au CQFA", "indice" : "Les heures doivent "},
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{"theme" : "", "question" : "?", "réponse" : "", "indice" : ""},
+###
+
 categorie = {
     "humidite" : bqhumidité,
     "rechauffement" : bqréchauffement,

@@ -20,9 +20,11 @@ if st.button("Questionnaire complet") :
 if st.button("Questionnaire avec choix des thèmes") :
     st.switch_page("pages/choix_t_questionnaire.py")
 
-st.write("Version 2.0.2")
+st.write("Version 2.0.3")
 
 st.markdown("""
+            -**2.0.3**  
+            Ajout de question en vu de l'examen 3.  
             -**2.0.2**  
             Correction de bugs suite à la supression de l'IA.  
             -**2.0.0**  
