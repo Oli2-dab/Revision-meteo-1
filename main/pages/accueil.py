@@ -20,15 +20,19 @@ if st.button("Questionnaire complet") :
 if st.button("Questionnaire avec choix des thèmes") :
     st.switch_page("pages/choix_t_questionnaire.py")
 
-if st.button("Bonne IA") :
-    st.switch_page("dossierIA/IA_bon.py")
-
-if st.button("Mauvaise IA") :
-    st.switch_page("dossierIA/IA_mauvais.py")
-
-st.write("Version 1.0.38")
+st.write("Version 2.1.5")
 
 st.markdown("""
+            -**2.1.5**  
+            Validation que les question en vu de l'examen 3 sont accessible.  
+            -**2.0.5**  
+            Ajout de question en vu de l'examen 3.  
+            -**2.0.2**  
+            Correction de bugs suite à la supression de l'IA.  
+            -**2.0.0**  
+            Supression de l'IA utilisé pour le projet de philo.  
+            -**1.0.39**  
+            Mise à jour de l'IA avec le nouveau modèle d'entrainement.  
             -**1.0.38**  
             Correction d'erreurs dans les réponses.  
             -**1.0.37**  

@@ -30,8 +30,6 @@ navigation = st.navigation([
     st.Page("pages/accueil.py", title = "Page d'accueil"),
     st.Page("pages/jeu_questionnaire.py", title = "Questionnaire complet"),
     st.Page("pages/choix_t_questionnaire.py", title = "Questionnaire avec choix des thèmes"),
-    st.Page("dossierIA/IA_bon.py", title = "Bonne IA"),
-    st.Page("dossierIA/IA_mauvais.py", title = "Mauvaise IA")
 ])
 
 navigation.run()

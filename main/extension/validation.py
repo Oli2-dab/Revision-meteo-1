@@ -6,6 +6,7 @@
 #
 
 from extension.chargement_spacy import charger_spacy
+import streamlit as st
 
 val = charger_spacy()
 

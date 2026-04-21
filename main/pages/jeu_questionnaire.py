@@ -9,7 +9,6 @@ import streamlit as st
 import random
 from question import categorie
 from extension.validation import valrép
-from dossierIA.IA import prédiction
 
 def principale() : 
 
@@ -123,8 +122,6 @@ def principale() :
                     
 
     else :
-        résultat_IA = prédiction()
-
         total_score = st.session_state.index * 2
 
         st.subheader("Score par thème")
@@ -132,8 +129,7 @@ def principale() :
             st.write(f"{theme}: {score}/{st.session_state.totalcat[theme]}")
 
         st.success(f"Bravo! Vous avez terminer ce quiz. Votre score est de {st.session_state.score} sur {total_score}.")
-        st.success(résultat_IA)
-        
+
         if st.button("Recommenser le questionnaire complet") :
             st.session_state.rénitialization_jeu = False
             st.rerun()
