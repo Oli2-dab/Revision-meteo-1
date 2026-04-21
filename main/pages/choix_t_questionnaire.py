@@ -7,7 +7,7 @@
 
 import streamlit as st
 import random
-from question import bqhumidité, bqréchauffement, bqrefroidissement, stabilite_air, pression_atmo, masse_air, fronts, nuage_precipitation
+from question import bqhumidité, bqréchauffement, bqrefroidissement, stabilite_air, pression_atmo, masse_air, fronts, nuage_precipitation, fb_fd, airmet_sigmet, atmo_type, pirep, givrage, visibilité, gfa
 from extension.validation import valrép
 
 initialization = {
@@ -61,6 +61,13 @@ def choix_ctq() :
         "masse" : ("les masses d'air", masse_air),
         "front" : ("les fronts", fronts),
         "nuage" : ("les nuages et les précipitations", nuage_precipitation),
+        "FDFB" : ("Les FB et les FD", fb_fd),
+        "___met" : ("Les AIRMET et les SIGMET", airmet_sigmet),
+        "atmo" : ("L'atmosphère type", atmo_type),
+        "pilot_report" : ("Les PIREP", pirep),
+        "giv" : ("Le givrage", givrage),
+        "vis" : ("La visibilité", visibilité),
+        "prev_zone_graphique" : ("Les GFA", gfa)
     }
 
     for t_ctq, (label_ctq, _) in theme_dispo_ctq.items() :

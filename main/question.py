@@ -267,106 +267,173 @@ atmo_type = [
     {"theme" : "atmo", "question" : "Pour les limites des vents traversiers en Solo, quel est la restriction sur le nombre d'heure (0 à 29.9 et 30 et +)?", "réponse" : "Les heures doivent avoir été faites au CQFA", "indice" : "Les heures doivent "},
 ]
 
+pirep = [
+    {"theme" : "pilot_report", "question" : "Que signifie UACN10?", "réponse" : "PIREP normal", "indice" : ""},
+    {"theme" : "pilot_report", "question" : "Que signifie UACN01?", "réponse" : "PIREP urgent", "indice" : ""},
+    {"theme" : "pilot_report", "question" : "Quels sont les critères pour émettres des PIREP avec indication de PIREP urgent? (Sans déterminant)", "réponse" : "Cendre volcanique, tornade, nuage en entonnoir, trombe marine, turbulence forte, givrage fort, grêle, cisaillement de vent à basse altitude ou tout autre phénomène signalé considéré comme dangereux", "indice" : ""},
+    {"theme" : "pilot_report", "question" : "Que signifie TR dans un PIREP?", "réponse" : "Trace", "indice" : ""},
+    {"theme" : "pilot_report", "question" : "Qu'est-ce qu'un PIREP?", "réponse" : "Un rapport publié par un pilote", "indice" : "Un "},
+    {"theme" : "pilot_report", "question" : "Les vents dans les PIREP sont-ils données en degré vrai ou magnétique?", "réponse" : "degré vrai", "indice" : "degré "},
+    {"theme" : "pilot_report", "question" : "Quels sont les caractéristiques de la turbulence légère?", "réponse" : "Cause momentanément de faibles changements dans l'altitude ou l'assiette", "indice" : ""},
+    {"theme" : "pilot_report", "question" : "Quels sont les caractéristiques de la turbulence modérée?", "réponse" : "Cause des changements d'altitude ou d'assiette et peut causé des variations de vitesse indiquée. L'avion deumeure en contrôle constant", "indice" : ""},
+    {"theme" : "pilot_report", "question" : "Quels sont les caractéristiques de la turbulence forte?", "réponse" : "Cause de grands changements abruptes de l,altitude ou de l'assiette avec de grandes variations de la vitesse indiquée. L'aéronef peut momentanément être hors de contrôle", "indice" : ""},
+    {"theme" : "pilot_report", "question" : "Que signifie CAT dans la section turbulence des PIREP?", "réponse" : "Turbulence en air clair", "indice" : ""},
+    {"theme" : "pilot_report", "question" : "Décode et définit la raison principale de publication de ce PIREP (Met Aucune info s'il n'y a rien): UACN10 CZNB 101457 EG UA /OV YSM 330005 /TM 1453 /FLDURC /TP JS31 /SK 004 OVC 022 /IC TR LGT ICGIC /RM VERT VIS 008", "réponse" : "Priorité : normal, Type : British aerospace Jetstream, Altitude : en montée, Lieu : à 5 NM au 330° de YSM, Quand : 14 h 53 Z, Nauge : overcast de 400 à 2200 pi, Température : Aucune info, Vents : Aucune info, Turbulence : Aucune info, Givrage : trace à léger in-cloud et Remarque : visibilité verticale de 800 pi. Raison de publication : givrage, plafond très bas et visibilité verticale réduite", "indice" : "Priorité : , Type : , Altitude : , Lieu : à , Quand :  h  Z, Nuage : , Température : , Vents : , Turbulence : , Givrage :  et Remarque : . Raison de publication : "},
+    {"theme" : "pilot_report", "question" : "Décode et définit la raison principale de publication de ce PIREP (Met Aucune info s'il n'y a rien): UACN10 CYTH 101728 WG UA /OV CYTH /TM 1707 /FLDURD /TP PC12 /WV 200022 /RM WND AT 500AGL ON APCH RWY 06 CORR COPY", "réponse" : "Priorité : normal, Type : PC12, Altitude : en descente, Lieu : à la verticale de CYTH, Quand : 17 h 07 Z, Nuage : Aucune info, Température : Aucune info, Vents : 200° à 22 kt, Turbulence : Aucune info, Givrage : Aucune info et Remarque : un vent de dos à 500 ft AGL sur l'approche de la piste 06. Raison de publication : vent de dos en descente", "indice" : "Priorité : , Type : , Altitude : , Lieu : à , Quand :  h  Z, Nuage : , Température : , Vents : , Turbulence : , Givrage :  et Remarque : . Raison de publication : "},
+    {"theme" : "pilot_report", "question" : "Décode et définit la raison principale de publication de ce PIREP (Met Aucune info s'il n'y a rien): UACN10 CYQQ 101823 VR UA /OV CYQQ /TM 1813 /FL340 /TP F18 /RM ENTERED CLD AT 3400FT. TOPS 15000FT.", "réponse" : "Priorité : normal, Type : F18, Altitude : 34000 pi, Lieu : à la verticale de CYQQ, Quand : 18 h 13 Z, Nuage : Aucune info, Température : Aucune info, Vents : Aucune info, Turbulence : Aucune info, Givrage : Aucune info et Remarque : indique être entré dans les nuages à 3400 ft avec des sommets atteignant 15 000 ft. Raison de publication : taille des nuages", "indice" : "Priorité : , Type : , Altitude : , Lieu : à , Quand :  h  Z, Nuage : , Température : , Vents : , Turbulence : , Givrage :  et Remarque : . Raison de publication : "},
+    {"theme" : "pilot_report", "question" : "Décode et définit la raison principale de publication de ce PIREP (Met Aucune info s'il n'y a rien): UACN01 CYHZ 111755 QM UUA /OV CYHZ /TM 1753 /FLDURD /TP B190 /TB MDT BLO 030 /IC LGT RIME BLO 030 /RM WIND SHEAR +/- 15 KTS ON APCH", "réponse" : "Priorité : urgent, Type : Beechcraft 1900, Altitude : en descente, Lieu : à la verticale de CYHZ, Quand : 17 h 53 Z, Nuage : Aucune info, Température : Aucune info, Vents : Aucune info, Turbulence : modérée, Givrage : léger blanc sous 3000 pi et Remarque : wind shear de +/- 15 kt en approche. Raison de publication : PIREP urgent, wind shear +15 kts", "indice" : "Priorité : , Type : , Altitude : , Lieu : à , Quand :  h  Z, Nuage : , Température : , Vents : , Turbulence : , Givrage :  et Remarque : . Raison de publication : "},
+    {"theme" : "pilot_report", "question" : "Décode et définit la raison principale de publication de ce PIREP (Met Aucune info s'il n'y a rien): UACN10 CYQR 111557 WG UA /OV CYQR 310001 /TM 1555 /FLDURD /TP CRJ2 /SK 021OVC /RM APCH RWY 13 PILOT BROKE OUT AT MIN. FLT VIS 1/4SM. VIA TWR", "réponse" : "Priorité : normal, Type : Bombardier CRJ200, Altitude : en descente, Lieu : à 1 NM au 310° de CYQR, Quand : 15 h 55 Z, Nuage : overcast à 2100 pi, Température : Aucune info, Vents : Aucune info, Turbulence : Aucune info, Givrage : Aucune info et Remarque : indique avoir percé les nuages au minimum IFR et tour à une visibilité de 1/4 SM en approche piste 13. Raison de publication : conditions IFR minimales", "indice" : "Priorité : , Type : , Altitude : , Lieu : à , Quand :  h  Z, Nuage : , Température : , Vents : , Turbulence : , Givrage :  et Remarque : . Raison de publication : "},
+
+
+    
+    #{"theme" : "pilot_report", "question" : "Décode et définit la raison principale de publication de ce PIREP (Met Aucune info s'il n'y a rien): UACN10 CYQB 141533 UL UA /OV CYUL /TM 1531 /FL210 /TP CL25 /SK OVC170 /TB SFC-170 SMOOTH 170-210 SMALL RIDDLE ONLY /RM FREEZING PCPNS FM SFC-040, LIQUID PCPN ABV", "réponse" : "Un CL-215 au FL210 près de CYUL à 15:31Z rapporte une couche overcast à 17 000 ft, des conditions lisses du sol à 21 000 ft et des précipitations givrantes du sol à 4000 ft puis liquides au-dessus. Raison de publication: précipitations givrantes", "indice" : ""},
+    
+    #{"theme" : "pilot_report", "question" : "Décode et définit la raison principale de publication de ce PIREP (Met Aucune info s'il n'y a rien): UACN10 CYQB 012034 UL UA /OV CYFE 225005 /TM 2030 /FL013 /TP BE23 /SK 012 OVC 045 /RM LOW CIG, PCPN IN FRST 5NM N OF ST LAUR. FRM 5NM SW OF CYFE TO NE", "réponse" : "Un Beech-craft 23 à 13 000 ft près de CYFE à 20:30Z signale un plafond bas avec overcast à 1200 ft et 4500 ft ainsi que des précipitations dans les 5 premiers NM au nord du St-Laurent et de 5 NM au sud-ouest de CYFE jusqu'au nord-est. Raison de publication: plafond bas + précipitations", "indice" : ""},
+    
+    #{"theme" : "pilot_report", "question" : "Décode et définit la raison principale de publication de ce PIREP (Met Aucune info s'il n'y a rien): UACN10 CYXU 120022 YZ UA /OV CYYZ /TM 0020 /FL055 /TP UNKN /TB MOD 055-090 /RM REPD BY ALL TYPE", "réponse" : "Un appareil non identifié près de CYYZ à 00:20Z rapporte une turbulence modérée entre 5500 et 9000 ft, confirmée par tous les types d'aéronefs. Raison de publication: turbulence modérée", "indice" : ""},
+    
+    #{"theme" : "pilot_report", "question" : "Décode et définit la raison principale de publication de ce PIREP (Met Aucune info s'il n'y a rien): UACN10 CYXU 112200 YZ UA /OV CYGD /TM 2155 /FL330 /TP UNKN /TB LGT-MOD 330-350 /RM REPD AS LGT - OCNL MOD CHOP, REPD BY ALL TYP", "réponse" : "Un appareil non identifié au FL330 près de CYGD à 21:55Z signale une turbulence légère à modérée entre FL330 et FL350, décrite comme légère avec parfois du chop modéré, rapportée par tous les types. Raison de publication: turbulence en altitude", "indice" : ""},
+    
+    #{"theme" : "pilot_report", "question" : "Décode et définit la raison principale de publication de ce PIREP (Met Aucune info s'il n'y a rien): UACN10 CYEG 120027 EG UA /OV 6122N13902W /TM 0005 /FL370 /TP B748 /RM MOUNTAIN WAVES +/- 10 KTS AND 100 FEET", "réponse" : "Un Boeing 747-8 au FL370 à 00:05Z au-dessus de 61°22N 139°02W rapporte des ondes orographiques causant des variations de ±10 kt et ±100 ft. Raison de publication: mountain waves", "indice" : ""},
+]
+
+givrage = [
+    {"theme" : "giv", "question" : "Qu'est-ce que le givrage?", "réponse" : "Des cristaux de galce qui dégèlent, des goutelette d'eau sous le point de congélation et un contact avec un aéronef sous le point de congélation", "indice" : ""},
+    {"theme" : "giv", "question" : "Que dit le RAC s'il est raisonnable de croire que du givre, de la galce ou de la neige risquent d'adhérer à l'aéronef?", "réponse" : "Une ou plusieurs inspections doivent être faites avec le décollage ou la tentative de décollage", "indice" : ""},
+    {"theme" : "giv", "question" : "Que dit le RAC par rapport au décollage en contition de givrage?", "réponse" : "Il ne devrait y avoir aucune tentative de décollage tant que le commandant n'est pas assuré que du givre, de la glace ou de la neige n'adhère pas aux surfaces critiques de l'aéronef", "indice" : ""},
+    {"theme" : "giv", "question" : "Le givarge impact qui?", "réponse" : "Tout le monde", "indice" : ""},
+    {"theme" : "giv", "question" : "Comment est affecté le poids quand il y a du givrage et quels sont les conséquences?", "réponse" : "Il augmente, augmentation de la consommation, modifie le centrage, diminue les performances, besoin de plus de portance et brise les antennes", "indice" : "Il , "},
+    {"theme" : "giv", "question" : "Comment est affecté la portance quand il y a du givrage et pourquoi?", "réponse" : "Elle diminue, car le givrage affecte la couche limite", "indice" : "Elle , car le givrage "},
+    {"theme" : "giv", "question" : "Comment est affecté la trainée quand il y a du givrage?", "réponse" : "La trainé induite diminue, mais la trainé de forme et de frottement augmente", "indice" : "La trainé "},
+    {"theme" : "giv", "question" : "Comment est affecté la traction quand il y a du girvrage et quels sont les conséquences?", "réponse" : "Elle diminue, augmentation de la consommation et risque de débalencement de l'hélice, surtout à l'emplanture", "indice" : "Elle ,"},
+    {"theme" : "giv", "question" : "Comment voir, au niveau de la vitesse, que nous rencontrons du givrage?", "réponse" : "Elle diminue tranquillement et subtilement", "indice" : "Elle "},
+    {"theme" : "giv", "question" : "Est-ce que la phrase suivante est bonne : <<Plus un nuage contient de l'eau liquide, moins il y a de chance d'avoir du givrage fort>>?", "réponse" : "Non", "indice" : ""},
+    {"theme" : "giv", "question" : "Quel est un élément très important lorsque l'on parle de contenue en eau liquide?", "réponse" : "La hauteur du nuage", "indice" : ""},
+    {"theme" : "giv", "question" : "Que peuvent faire des courants verticaux puissants ou un soulèvement orographique lorsque l'on parle de givrage?", "réponse" : "Ils peuvent amener des goutelettes liquides à haute altitude", "indice" : "Ils peuvent "},
+    {"theme" : "giv", "question" : "Dans un nuage convectif, est-ce que se sera les grosses goutelettes ou les petites goutelettes qui gèleront en premier et pourquoi?", "réponse" : "Les grosses, car elles ont une plus grande surface de contact", "indice" : "Les , car "},
+    {"theme" : "giv", "question" : "Au niveau légal, pouvons-nous agir sur notre altitude/cap avant d'informer l'ATC lorsque nous rencontrons des conditions de givrage ?", "réponse" : "Oui", "indice" : ""},
+    {"theme" : "giv", "question" : "À quel température gèle les grosses goutelettes?", "réponse" : "-10°C", "indice" : "°C"},
+    {"theme" : "giv", "question" : "À quel température gèle les très petites goutelettes?", "réponse" : "-40°C", "indice" : "°C"},
+    {"theme" : "giv", "question" : "Que se passe-t-il lorsque la température est très froide et il y a des critaux de glace et des goutelettes d'eau dans l'air?", "réponse" : "Les goutelettes vont se sublimer et faire grandir les cristaux", "indice" : ""},
+    {"theme" : "giv", "question" : "Entre quels altitudes est-ce que le givarge est la plus intense? (si deux altitudes sont possible pour un extrême, les séparés par /)", "réponse" : "Entre 0°C et -10/-15°C", "indice" : "Entre °C et °C"},
+    {"theme" : "giv", "question" : "Dans des conditions de givrage, est-ce que se sera les ailes ou l'empenage qui accumulent le plus de givrage et pourquoi?", "réponse" : "L'empenage, car il est plus profiler", "indice" : ""},
+    {"theme" : "giv", "question" : "Dans le nuage stratiforme, où sont les plus grandes goutelettes?", "réponse" : "En bas", "indice" : "En "},
+    {"theme" : "giv", "question" : "Dans le nuage cumuliforme, où sont les plus grandes goutelettes?", "réponse" : "En haut", "indice" : "En "},
+    {"theme" : "giv", "question" : "Quel est le procésus de congélation d'une goutelette, lorsqu'elle rencontre la surface d'un avion à moins de 0°C?", "réponse" : "La suface de la goutelette libère de la chaleur latente à la surface. Le haut de la goutelette continue d'avancer et s'étalle", "indice" : ""},
+    {"theme" : "giv", "question" : "Quels sont les caractéristiques du givre blanc?", "réponse" : "Il gèle très vite et emprisonne l'air, il gèle sur toute la surface à partir de l'avant de l'aile, il est très friable et fent facilement", "indice" : "Il "},
+    {"theme" : "giv", "question" : "Quels sont les caractéristiques du givre transparent?", "réponse" : "Il est difficile à voir au début, plus grosse goutelette, peut s'étendre possiblement en dehors de la zone protégé, plus solide, dû au verglas et on en retrouve plus dans les fronts chauds, car les goutelettes sont plus chaudes", "indice" : "Il "},
+    {"theme" : "giv", "question" : "Quels sont les caractéristiques du givre mixte?", "réponse" : "Mélange entre le givre blanc et le givre transparent, va s'étendre en derrière les surfaces protégées et plus facile à voir", "indice" : ""},
+    {"theme" : "giv", "question" : "Quel type de givrage aura les plus grosses goutelettes?", "réponse" : "Le givre transparent", "indice" : "Le givre "},
+    {"theme" : "giv", "question" : "Quels sont les caractéristiques de la gelée blanche?", "réponse" : "Aussi appelé frimas, causé par l'humidité qui gèle lorsqu'il est très proche de l'aile froide, dû au carburant, et facile à enlevé", "indice" : ""},
+    {"theme" : "giv", "question" : "Est-il légale de décollé avec de la gelée blanche sur le dessus, sur le dessous ou sur les deux côtés de l'aile?", "réponse" : "Sur le dessous", "indice" : "Sur "},
+    {"theme" : "giv", "question" : "Que signifie Trace, lorsque l'on parle de givrage?", "réponse" : "Il n'y a pas de danger pour un vol d'une durée inférieur à une heure, même sans utilisation d'équipement de dégivrage et la glace devient perceptible, car son taux d'accumulation est légèrement supérieur à son taux de sublimation", "indice" : ""},
+    {"theme" : "giv", "question" : "Que signifie Léger, lorsque l'on parle de givrage?", "réponse" : "Le taux d'accréation de la glace est tel qu'un danger peut exister si on n'utilise pas de système de dégivrage pour un vol de plus d'une heure et l'emploi intermittent d'un système de dégirage ou d'antigivrage élimine ou empêche l'accumulation de galce", "indice" : ""},
+    {"theme" : "giv", "question" : "Que signifie Modéré, lorsque l'on parle de givrage?", "réponse" : "Le taux d'accréation de la glace tel que même de courtes périodes d'expostion peuvent devenir dangreuses et on doit utiliser un système de dégirage ou d'antigivrage ou changer de route", "indice" : ""},
+    {"theme" : "giv", "question" : "Que signifie Fort, lorsque l'on parle de givrage?", "réponse" : "Le taux d'accréation de la glace tel que les systèmes de dégirage ou d'antigivrage ne parviennent pas à réduire la danger. Il faut immédiatement changer de route", "indice" : ""},
+    {"theme" : "giv", "question" : "Existe-t-il des moyens efficace de mesurer l'accumulation de glace sur un aéronef?", "réponse" : "Non", "indice" : ""},
+    {"theme" : "giv", "question" : "Dans un nuage convectif, parlons-nous de givrage de longue ou de courte durée au niveau horizontal?", "réponse" : " courte durée", "indice" : " durée"},
+    {"theme" : "giv", "question" : "Y a-t-il présence de beaucoup de SLD dans les nuages convectifs ou stratiformes?", "réponse" : "Dans les nuages convectifs", "indice" : "Dans les nuages "},
+    {"theme" : "giv", "question" : "Dans un nuage convectifs, entre quels température retrouvons-nous du givrage modéré à sévère et généralement clair?", "réponse" : "De -25 à 0 °C", "indice" : "De  à  °C"},
+    {"theme" : "giv", "question" : "Dans un nuage convectifs, entre quels température retrouvons-nous du givrage léger et généralement blanc?", "réponse" : "De -40 à -25 °C", "indice" : "De  à  °C"},
+    {"theme" : "giv", "question" : "Le givrage est-il moins sévère dans un nuage convertif ou stratiforme?", "réponse" : "Dans un nuage stratiforme", "indice" : "Dans un nuage "},
+    {"theme" : "giv", "question" : "Dans un nuage stratiforme, le givrage est-il plus étendu au niveau vertical ou horizontal?", "réponse" : "Au niveau horizontal", "indice" : "Au niveau "},
+    {"theme" : "giv", "question" : "Quel est la cause principale de la possible présence de SLD dans un nuage stratiforme?", "réponse" : "Une inversion", "indice" : ""},
+    {"theme" : "giv", "question" : "Pour TC, nous nous dirigons vers un front chaud à partir de l'air froid, dans quel ordre allons-nous rencontrer les différentes précipitations?", "réponse" : "1: granules de glace, 2: précipitations verglaçantes,3: pluie", "indice" : "1: , 2: ,3: "},
+    {"theme" : "giv", "question" : "À quel endroit est-ce que le givrage est le plus fort lorsque nous rencontrons de la bruie verglaçante provenant d'un stratus?", "réponse" : "Juste en dessous de la base du nuage", "indice" : ""},
+    {"theme" : "giv", "question" : "Quel abréviation (3 lettres) indique la présence d'une inversion sur un GFA?", "réponse" : "AFL", "indice" : ""},
+    {"theme" : "giv", "question" : "Quels sont les trois facteurs qui influencent l'accumulation de glace sur un appareil?", "réponse" : "La forme du profil, la vitesse et la grosseur des gouttelettes", "indice" : ""},
+    {"theme" : "giv", "question" : "Pour éviter le givrage, faut-il que le profil soit épais (beaucoup de déviation) ou mince (peu de déviation)?", "réponse" : "Il faut un profil épais", "indice" : "Il faut un profil "},
+    {"theme" : "giv", "question" : "Pour éviter le givrage, faut-il aller vite ou lentement?", "réponse" : "Il faut aller lentement", "indice" : "Il faut aller "},
+    {"theme" : "giv", "question" : "Pour éviter le givrage, faut-il traverser des grosses ou des plus petites goutellettes?", "réponse" : "Des plus petites goutelettes", "indice" : "Des plus  goutelettes "},
+    {"theme" : "giv", "question" : "Dans le calcul du point de congélation, notre réponse est-elle en AGL ou ASL?", "réponse" : "Elle est en AGL", "indice" : "Elle est en "},
+]
+
+visibilité = [
+    {"theme" : "vis", "question" : "Quels sont les 6 facteurs qui peuvent influencer la visibilité air-air? (sans déterminant)", "réponse" :" brume sèche, fumée, sable et poussière, précipitations, brouillard, visibilité dans la stratosphère", "indice" : ""},
+    {"theme" : "vis", "question" : "Pourquoi la visibilité est-elle relative?", "réponse" : "Parce qu'elle dépend de qui la regarde et dans quel direction", "indice" : "Parce qu'elle "},
+    {"theme" : "vis", "question" : "Comment évalue-t-on la visibilité au sol le jour?", "réponse" : "À l'aide de points de repères", "indice" : "À l'aide de "},
+    {"theme" : "vis", "question" : "Comment évalue-t-on la visibilité au sol le soir?", "réponse" : "À l'aide d'une lumière non focalisée", "indice" : "À l'aide d'"},
+    {"theme" : "vis", "question" : "Quel est la définition de la visibilité dominante?", "réponse" : "La visibilité maximale commune aux sections représentant au minimum inclusif de la moitié de l'horizon en SM", "indice" : ""},
+    {"theme" : "vis", "question" : "Quels sont trois facteurs nécessaires pour déterminer la RVR? (sans déterminant)", "réponse" : " Visibilité du capteur, luminosité ambiante et brillance des feux de piste", "indice" : ""},
+    {"theme" : "vis", "question" : "Quel est la difference entre la brume sèche et le brouillard?", "réponse" : "La brume sèche n'est pas saturé", "indice" : ""},
+    {"theme" : "vis", "question" : "Quel est le phénomène qui réduit la visibilité même par ciel clair?", "réponse" : "Le voile blanc", "indice" : "Le "},
+    {"theme" : "vis", "question" : "Quel est le brouillard le plus fréquent au Québec lors de l'été et du printemps?", "réponse" : "Le brouillard d'advection", "indice" : "Le "},
+    {"theme" : "vis", "question" : "Quel est le brouillard le plus fréquent au Québec lors de l'automne?", "réponse" : "Le brouillard par rayonnement", "indice" : "Le "},
+    {"theme" : "vis", "question" : "Quel est le brouillard le plus fréquent au Québec lors de l'hiver'?", "réponse" : "Le brouillard glacée ", "indice" : "Le "},
+    {"theme" : "vis", "question" : "Pourquoi avons-nous de la difficulté dans stratosphère de bien jugé les ditances entre nous et les nuages?", "réponse" : "Car il n'y a aucun repère entre l'avion et les nuages", "indice" : "Car "},
+    {"theme" : "vis", "question" : "Les montagnes crée un effet de (…)?", "réponse" : "loupe", "indice" : ""},
+    {"theme" : "vis", "question" : "Quel est la cause du brouillard par rayonnement?", "réponse" : "Le refroidissement nocturne du sol", "indice" : ""},
+    {"theme" : "vis", "question" : "Quel(s) élément(s) fait(font) disparaitre le brouillard par rayonnmenent et quel est la limitation?", "réponse" : "Le vent et la conduction du sol, si le soleil peut percer le brouillard et réchuaffé le sol", "indice" : " , si "},
+    {"theme" : "vis", "question" : "Quel est la cause du brouillard par advection?", "réponse" : "De l'air chaud et humide se déplaçe horizontalement sur une surface froide, dû à un vent jusqu'à modéré", "indice" : ""},
+    {"theme" : "vis", "question" : "Quel(s) élément(s) fait(font) disparaitre le brouillard par advection?", "réponse" : "Le vent fort et la conduction du sol", "indice" : ""},
+    {"theme" : "vis", "question" : "Quel est la cause du brouillard de pente?", "réponse" : "De l'air forcé de monter une pente et un refroidissement par advection", "indice" : ""},
+    {"theme" : "vis", "question" : "Quel(s) élément(s) fait(font) disparaitre le brouillard de pente?", "réponse" : "Le vent modéré ou fort", "indice" : ""},
+    {"theme" : "vis", "question" : "Quel est la cause du brouillard d'évaporation/fumée de mer arctique?", "réponse" : "L'évaportation de l'eau, plus chaude que l'air, dans l'air", "indice" : ""},
+    {"theme" : "vis", "question" : "Quel(s) élément(s) fait(font) disparaitre le brouillard d'évaporation/fumée de mer arctique?", "réponse" : "Le vent", "indice" : ""},
+    {"theme" : "vis", "question" : "Quel est la cause du brouillard glacé?", "réponse" : "La sublimation de vapeur d'eau dans de l'air très froid. Dû principalement aux véhicules et aux usines", "indice" : ""},
+    {"theme" : "vis", "question" : "Quel est la cause du brouillard frontal?", "réponse" : "Les nimbostratus, principalement, qui crée des précipitations qui s'évaporent dans l'air et qui créent des stratus en altitude et du brouillard au sol", "indice" : ""},
+    {"theme" : "vis", "question" : "Que devient le brouillard d'avection quand il se lève?", "réponse" : "Il devient un stratus", "indice" : "Il devient "},
+    {"theme" : "vis", "question" : "Vrai ou faux : La transition entre le jour et la nuit est très facile pour notre oeil?", "réponse" : "Faux", "indice" : ""},
+    {"theme" : "vis", "question" : "Vrai ou faux : Le soleil peut être réfléchit par le brouillard/brume et réduire encore plus notre visibilité?", "réponse" : "Vrai", "indice" : ""},
+    {"theme" : "vis", "question" : "Que pouvons nous voir à l'aide des fumées des feux de forêt sur les cartes satelittes?", "réponse" : "La direction des vents", "indice" : ""},
+    {"theme" : "vis", "question" : "Quel élément, essentiel aux vols VFR est affecté par les éléments qui diminue la visibilité?", "réponse" : "L'horizon", "indice" : ""},
+    {"theme" : "vis", "question" : "Avons-nous une meilleure visibilité dans de la pluie ou de la neige?", "réponse" : "Dans de la pluie", "indice" : "Dans de la "},
+]
+
+gfa = [
+    {"theme" : "prev_zone_graphique", "question" : "Jusqu'à quelle altitude, inclusivement, les GFA couvrent?", "réponse" : "24000 pi", "indice" : " pi"},
+    {"theme" : "prev_zone_graphique", "question" : "Combien de fois par jour les GFA sont émises? (en chiffre/nombre)", "réponse" : "4", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Combien de temps avant le début de la période de prévision un GFA peut-il être émis?", "réponse" : "30 minutes", "indice" : " minutes"},
+    {"theme" : "prev_zone_graphique", "question" : "Combien de cartes sont émises lorsque des GFA sortent? (en chiffre/nombre)", "réponse" : "6 cartes", "indice" : " cartes"},
+    {"theme" : "prev_zone_graphique", "question" : "Quel est la période de validité des GFA?", "réponse" : "12 heures, plus une prévision IFR de 12 heures supplémentaire", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Sur quel GFA se retrouve l'apperçu IFR de 12 heures supplémentaire?", "réponse" : "Sur le GFA de nuage et temps de 12 heures", "indice" : "Sur le GFA de "},
+    {"theme" : "prev_zone_graphique", "question" : "Après 6 heures, si un système se déplace à 5 kts, quel distance aura-t-il parcouru?", "réponse" : "30 NM", "indice" : " NM"},
+    {"theme" : "prev_zone_graphique", "question" : "Est-ce qu'un GFA donne un aperçu des conditions instantanés ou un aperçu des changements temporels?", "réponse" : "un aperçu des conditions instantanés", "indice" : "un aperçu des "},
+    {"theme" : "prev_zone_graphique", "question" : "À moins d'indication contraire, les altitudes des nuages sont données en ASL ou en AGL?", "réponse" : "En ASL", "indice" : "En "},
+    {"theme" : "prev_zone_graphique", "question" : "Quel est la vitesse de déplacement minimal d'un système ou d'un front pour que celui-ci soit indiqué?", "réponse" : "5 kt", "indice" : " kt"},
+    {"theme" : "prev_zone_graphique", "question" : "Si un système ne va pas assez vite pour qu'une vitesse soit indiquée, quels quatre lettres seront écrites?", "réponse" : "STNR", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Est-ce que le sommet des nuages convectifs est indiquée s'il dépasse 24000 pi?", "réponse" : "Oui", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Quels sont les deux zones nuageuses organisées qui feront en sorte qu'une bordure festonnée brune sera présente sur un GFA? (Abréviation)", "réponse" : "BKN et OVC", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Quels sont les deux critères pour que l'on affiche pas de bordure festonnée brune sur un GFA?", "réponse" : "Il n'y a pas de zone de nuages organisés et la visibilité est supérieur à 6 SM", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Quels est la visibilité maximale qui sera indiqué sur les GFA? (abréviation)", "réponse" : "P6SM", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Que signifie LYRS sur un GFA, après l'épaisseur d'une couche de nuage?", "réponse" : "L'espacement entre deux couches de nuages, inclus dans les altitudes données, est inférieur à 2000 pi", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Les obstacle à la vue sont uniquement indiqué si la visibilité est inférieur ou égale à quel distance sur un GFA?", "réponse" : "6 SM", "indice" : " SM"},
+    {"theme" : "prev_zone_graphique", "question" : "Que représente les zones hachuré entourées d'une ligne pointillé (verte si la carte est en couleur)?", "réponse" : "Elles représentent les zones de précipitations intermittentes et d'averses", "indice" : "Elles représentent les zones de "},
+    {"theme" : "prev_zone_graphique", "question" : "Que représente les zones pointillées entourées d'une ligne continue (verte si la carte est en couleur)?", "réponse" : "Elles représentent les zones de précipitations continues", "indice" : "Elles représentent les zones de "},
+    {"theme" : "prev_zone_graphique", "question" : "Que représente les zones entourées d'une ligne pointillé (orange si la carte est en couleur)?", "réponse" : "Elles représentent les zones d'obstacle à la vue", "indice" : "Elles représentent les zones d'"},
+    {"theme" : "prev_zone_graphique", "question" : "Que représente les zones entourées d'une ligne continue (rouge si la carte est en couleur)?", "réponse" : "Elles représentent les zones de précipitations verglaçantes", "indice" : "Elles représentent les zones de "},
+    {"theme" : "prev_zone_graphique", "question" : "Quels sont les trois abréviations qui indiquent l'étendu d'une zone de nuages convectifs et d'averses?", "réponse" : "ISOL, OCNL, FRQ", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Quel est la couverture spatiale de l'indication ISOL sur un GFA?", "réponse" : "25 '%' ou moins", "indice" : " '%' "},
+    {"theme" : "prev_zone_graphique", "question" : "Quel est la couverture spatiale de l'indication OCNL sur un GFA?", "réponse" : "De 26 à 50 '%'", "indice" : " '%'"},
+    {"theme" : "prev_zone_graphique", "question" : "Quel est la couverture spatiale de l'indication FRQ sur un GFA?", "réponse" : "Supérieur à 50 '%'", "indice" : " '%'"},
+    {"theme" : "prev_zone_graphique", "question" : "Quels sont les trois abréviations qui indiquent l'étendu d'une zone de nuages non convectifs et de précipitations?", "réponse" : "LCL, PTCHY, XTNSV ou INTMT", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Quel est la couverture spatiale de l'indication LCL sur un GFA?", "réponse" : "25 '%' ou moins", "indice" : " '%' "},
+    {"theme" : "prev_zone_graphique", "question" : "Quel est la couverture spatiale de l'indication PTCHY sur un GFA?", "réponse" : "De 26 à 50 '%'", "indice" : " '%'"},
+    {"theme" : "prev_zone_graphique", "question" : "Quel est la couverture spatiale de l'indication XTNSV OU INTMT sur un GFA?", "réponse" : "Supérieur à 50 '%'", "indice" : " '%'"},
+    {"theme" : "prev_zone_graphique", "question" : "Quel est la vitesse soutenue minimale pour afficher les barbules de vents sur les GFA?", "réponse" : "20 kt", "indice" : " kt"},
+    {"theme" : "prev_zone_graphique", "question" : "Est-ce que des vents modérés et soutenus de moins de 20 kt peuvent être affiché sur les GFA s'il risque d'entrainer de la turbulence mécanique modérer?", "réponse" : "Oui", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Quel est la lettre qui indique la vitesse de pointe des rafales sur un GFA?", "réponse" : "G", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Quels lettres indiquent le givre blanc sur un GFA?", "réponse" : "RIME", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Quels lettres indiquent le givre transparent sur un GFA?", "réponse" : "CLR", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Quels lettres indiquent le givre mixte sur un GFA?", "réponse" : "MX", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Pour quels intensités de givrage est-ce qu'il y a une indication sur la carte du GFA?", "réponse" : "Modéré et fort", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "De quel couleur sont les zones de givrage sur un GFA?", "réponse" : "Bleu", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Où sont indiqués les zones de givrage léger sur un GFA?", "réponse" : "Dans la case des commentaires", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Est-ce que les zones de givrages fortes sont indiquées par un pointillé plus dense?", "réponse" : "Oui", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "De quel couleur est représenté les zones de turbulence sur les GFA?", "réponse" : "Rouge", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Comment est indiqué une zone de forte turbulence par rapprot à une zone de turbulence modérer sur un GFA?", "réponse" : "Avec des hachures plus sérrées", "indice" : "Avec "},
+    {"theme" : "prev_zone_graphique", "question" : "Comment est indiqué la zone du bas de turbulence, lorsque deux zones de turbulence sont l'une par dessus l'autre, sur un GFA?", "réponse" : "Avec des lignes hachurées qui monte vers la droite", "indice" : "Avec "},
+    {"theme" : "prev_zone_graphique", "question" : "Comment est indiqué la zone du haut de turbulence, lorsque deux zones de turbulence sont l'une par dessus l'autre, sur un GFA?", "réponse" : "Avec des lignes hachurées qui monte vers la gauche", "indice" : "Avec "},
+    {"theme" : "prev_zone_graphique", "question" : "Quels sont les différences entre les lignes de niveau de congélation sur un GFA?", "réponse" : "2500 pi", "indice" : " pi"},
+    {"theme" : "prev_zone_graphique", "question" : "Les niveaux des lignes de congélation est-il est ASL ou en AGL?", "réponse" : "En ASL", "indice" : "En "},
+    {"theme" : "prev_zone_graphique", "question" : "Quel est la vitesse de pointe minimale pour qu'un L LVL JET soit indiqué sur un GFA?", "réponse" : "50 kt", "indice" : " kt"},
+    {"theme" : "prev_zone_graphique", "question" : "Est-ce qu'un L LVL JET peut être indiqué sur un GFA si vitesse de pointe et inférieur à 50 kt et peut causé du cisaillement de vent ou de la turbulence?", "réponse" : "Oui", "indice" : ""},
+    {"theme" : "prev_zone_graphique", "question" : "Quel est l'altitude maximale où les L LVL JET ne sont généralement plus indiqué, à moins que le relief soit élevé?", "réponse" : "6000 pi", "indice" : " pi"},
+]
 
 
 
-Questions météo 
 
-chapitre restant : PIREP, Visibilité et GFA
-
-Supprime les —- et écrit dans ces sections. Pas besoin de remplir theme/indice
-
-Chapitre PIREP
-1
-{"theme" : "", "question" : "Que signifie UACN01?", "réponse" : "PIREP non-urgent", "indice" : ""},
-2
-{"theme" : "", "question" : "Es-ce que un wind shear d’environ 15 kts en approche est un PIREP URGENT?", "réponse" : "Oui", "indice" : ""},
-3
-{"theme" : "", "question" : "Que signifie TR?", "réponse" : "Trace = La glace devient perceptible", "indice" : ""},
-4
-{"theme" : "", "question" : "qu’est-ce qu’un PIREP?", "réponse" : "rapport publié par un pilote", "indice" : ""},
-5
-{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP: UACN10 CZNB 101457 EG
-UA /OV YSM 330005 /TM 1453 /FLDURC /TP JS31 /SK 004 OVC 022 /IC TR LGT ICGIC /RM VERT VIS 008
-?", "réponse" : "Un British aerospace Jetstream en montée à 5 NM au 330° de YSM rapporte à 14:53Z un plafond à 400 ft avec une couche overcast à 2200 ft, un givrage trace à léger, icing in-cloud et une visibilité verticale de 800 ft. Raison de publication: givrage + plafond très bas + visibilité verticale réduite", "indice" : ""},
-6
-{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN10 CYTH 101728 WG
-UA /OV CYTH /TM 1707 /FLDURD /TP PC12 /WV 200022 /RM WND AT 500AGL ON APCH RWY 06 CORR COPY?", "réponse" : "Un PC12 (Pilates single-engin turboprop) en descente à CYTH à 17:07Z signale un vent du 200° à 22 kt et un vent particulier à 500 ft AGL sur l’approche de la piste 06. Raison de publication: vent de dos en descente", "indice" : ""},
-7
-{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN10 CYQQ 101823 VR
-UA /OV CYQQ /TM 1813 /FL3400 /TP F18 /RM ENTERED CLD AT 3400FT. TOPS 15000FT.?", "réponse" : "Un F18 près de CYQQ à 18:13Z indique être entré dans les nuages à 3400 ft avec des sommets atteignant 15 000 ft. Raison de publication: info essentielle", "indice" : ""},
-8
-{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN01 CYHZ 111755 QM
-UUA /OV CYHZ /TM 1753 /FLDURD /TP B190 /TB MDT BLO 030 /IC LGT RIME BLO 030 /RM WIND SHEAR +/- 15 KTS ON APCH?", "réponse" : "Un Beechcraft 1900 en descente à CYHZ à 17:53Z rapporte une turbulence modérée et un givrage léger blanc sous 3000 ft ainsi qu’un wind shear de ±15 kt en approche, ce qui en fait un PIREP urgent. Raison de publication: wind shear +15 kts", "indice" : ""},
-9
-{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN10 CYQR 111557 WG
-UA /OV CYQR 310001 /TM 1555 /FLDURD /TP CRJ2 /SK 021OVC /RM APCH RWY 13 PILOT BROKE OUT AT MIN. FLT VIS 1/4SM. VIA TWR?", "réponse" : "Un Bombardier CRJ200 en descente à 1 NM au 310° de CYQR à 15:55Z signale un plafond overcast à 2100 ft et indique avoir percé les nuages au minimum IFR avec une visibilité de 1/4 SM en approche piste 13. Raison de publication: conditions IFR sévères", "indice" : ""},
-10
-{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN10 CYQB 141533 UL
-UA /OV CYUL /TM 1531 /FL210 /TP CL25 /SK OVC170 /TB SFC-170 SMOOTH 170-210 SMALL RIDDLE ONLY /RM FREEZING PCPNS FM SFC-040, LIQUID PCPN ABV
-?", "réponse" : "Un CL-215 au FL210 près de CYUL à 15:31Z rapporte une couche overcast à 17 000 ft, des conditions lisses du sol à 21 000 ft et des précipitations givrantes du sol à 4000 ft puis liquides au-dessus. Raison de publication: précipitations givrantes", "indice" : ""},
-11
-{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN10 CYQB 012034 UL
-UA /OV CYFE 225005 /TM 2030 /FL013 /TP BE23 /SK 012 OVC 045 /RM LOW CIG, PCPN IN FRST 5NM N OF ST LAUR. FRM 5NM SW OF CYFE TO NE?", "réponse" : "Un Beech-craft 23 à 13 000 ft près de CYFE à 20:30Z signale un plafond bas avec overcast à 1200 ft et 4500 ft ainsi que des précipitations dans les 5 premiers NM au nord du St-Laurent et de 5 NM au sud-ouest de CYFE jusqu’au nord-est. Raison de publication: plafond bas + précipitations", "indice" : ""},
-12
-{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN10 CYXU 120022 YZ
-UA /OV CYYZ /TM 0020 /FL055 /TP UNKN /TB MOD 055-090 /RM REPD BY ALL TYPE?", "réponse" : "Un appareil non identifié près de CYYZ à 00:20Z rapporte une turbulence modérée entre 5500 et 9000 ft, confirmée par tous les types d’aéronefs. Raison de publication: turbulence modérée", "indice" : ""},
-
-13
-
-{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN10 CYXU 112200 YZ
-UA /OV CYGD /TM 2155 /FL330 /TP UNKN /TB LGT-MOD 330-350 /RM REPD AS LGT - OCNL MOD CHOP, REPD BY ALL TYP", "réponse" : "Un appareil non identifié au FL330 près de CYGD à 21:55Z signale une turbulence légère à modérée entre FL330 et FL350, décrite comme légère avec parfois du chop modéré, rapportée par tous les types. Raison de publication: turbulence en altitude", "indice" : ""},
-
-14
-
-{"theme" : "", "question" : "décode et définit la raison principale de publication de ce PIREP : UACN10 CYEG 120027 EG
-UA /OV 6122N13902W /TM 0005 /FL370 /TP B748 /RM MOUNTAIN WAVES +/- 10 KTS AND 100 FEET", "réponse" : "Un Boeing 747-8 au FL370 à 00:05Z au-dessus de 61°22N 139°02W rapporte des ondes orographiques causant des variations de ±10 kt et ±100 ft. Raison de publication: mountain waves", "indice" : ""},
-
-
-
-Questions météo 
-
-chapitre restant : PIREP, Visibilité et GFA
-
-Supprime les —- et écrit dans ces sections. Pas besoin de remplir theme/indice
-
-Chapitre visibilité 
-1
-{"theme" : "", "question" : "Quels sont les 6 facteurs qui peuvent influencer la visibilité?", "réponse" :" brume sèche, fumée, sable et poussière, précipitations, brouillard, conditions atmosphériques générales (stratosphère)", "indice" : ""},
-2
-{"theme" : "", "question" : "  pourquoi la visibilité est-elle relative?", "réponse" : "parce qu’elle dépend de qui la regarde et dans quel direction", "indice" : ""},
-3
-{"theme" : "", "question" : "comment évalue-t-on la visibilité au sol le jour?", "réponse" : "avec des points de repères", "indice" : ""},
-4
-{"theme" : "", "question" : "comment évalue-t-on la visibilité au sol le soir?", "réponse" : "avec une lumière non focalisée", "indice" : ""},
-5
-{"theme" : "", "question" : "quel est la définition de la visibilité dominante?", "réponse" : " visibilité maximale commune aux sections représentant au minimum inclusif de la moitié de l’horizon en SM", "indice" : ""},
-6
-{"theme" : "", "question" : "  quels sont trois facteurs nécessaires pour déterminer la RVR?", "réponse" : "  visibilité du capteur, luminosité ambiante et la brillance des feux de piste", "indice" : ""},
-7
-{"theme" : "", "question" : " Quel est la difference entre la brume sèche et le brouillard?", "réponse" : "brume sèche n’est pas saturé", "indice" : ""},
-8
-{"theme" : "", "question" : " quel est le phénomène qui réduit la visibilité même par ciel clair?", "réponse" : "le voile blanc", "indice" : ""},
-9
-{"theme" : "", "question" : " Quel est le brouillard le plus fréquent au Québec pendant chaque saison?", "réponse" : " printemps/ été = givrage d’advection automne = par rayonnement et hiver = givre glacée ", "indice" : ""},
-10
-{"theme" : "", "question" : " quel est le brouillard le plus dangereux pour l’aviation?", "réponse" : " le brouillard glacée puisqu’il produit du givrage sur l’aéronef", "indice" : ""},
-11
-{"theme" : "", "question" : "pourquoi une inversion en stratosphère trompe la visibilité air-air ?", "réponse" : "parce qu’il n’y a aucun repère entre l’avion et le nuage", "indice" : ""},
-12
-{"theme" : "", "question" : " les montagnes crée un effet de (…)?", "réponse" : "  loupe 🔍 ", "indice" : ""},
-13
-{"theme" : "", "question" : " quel est la cause du brouillard par rayonnement?", "réponse" : "  refroidissement nocturne du sol", "indice" : ""},
-14
-{"theme" : "", "question" : "    Quel est la cause du brouillard par advection?", "réponse" : "  air chaud et humide se déplaçant sur une surface froide", "indice" : ""},
-15
-{"theme" : "", "question" : "    Quel est la cause du brouillard de pente?", "réponse" : "  air forcé de monter une pente = refroidissement ", "indice" : ""},
-16
-{"theme" : "", "question" : "Quel est la cause du brouillard d’évaporation/ fumée de mer arctique?", "réponse" : " air froide passant au dessus d’eau plus chaude", "indice" : ""},
-17
-{"theme" : "", "question" : "Quel est la cause du brouillard glacé ?", "réponse" : " Brouillard contenant des gouttelettes surfondues", "indice" : ""},
-18
-{"theme" : "", "question" : "Quel est la cause du brouillard frontal?", "réponse" : "chaleur de l’air réchauffe les précipitations au début du front froid et ils s’évapore (stratus)", "indice" : ""},
 
 
 
@@ -389,5 +456,12 @@ categorie = {
     "pression" : pression_atmo,
     "masse" : masse_air,
     "front" : fronts,
-    "nuage" : nuage_precipitation
+    "nuage" : nuage_precipitation,
+    "FDFB" : fb_fd,
+    "___met" : airmet_sigmet,
+    "atmo" : atmo_type,
+    "pilot_report" : pirep,
+    "giv" : givrage,
+    "vis" : visibilité,
+    "prev_zone_graphique" : gfa
 }
