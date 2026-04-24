@@ -243,8 +243,8 @@ atmo_type = [
     {"theme" : "atmo", "question" : "Quels sont les critères pour que les conditions soit MVFR?", "réponse" : "Plafond de 1000 à 3000 pi AGL OU visibilité de 3 à 5 SM", "indice" : "Plafond de  pi  OU visibilité de  SM"},
     {"theme" : "atmo", "question" : "Quels sont les critères pour que les conditions soit IMC?", "réponse" : "Plafond de moins de 1000 pi AGL OU visibilité de moins de 3 SM", "indice" : "Plafond de  pi  OU visibilité de  SM"},
     {"theme" : "atmo", "question" : "Quel sont le minimum VFR selon le RAC, dans un espace aérien contrôlé?", "réponse" : "Visibilité d'au moins 3 SM, distance latérale de 1 SM des nuages et distance verticale de 500 pi des nuages", "indice" : "Visibilité d'au moins  SM, distance latérale de  SM des nuages et distance verticale de  pi des nuages"},
-    {"theme" : "atmo", "question" : "Quel sont le minimum VFR selon le RAC, dans un espace aérien non contrôlé, à 1000 pi et +?", "réponse" : "Visibilité d'au moins 1 SM, distance latérale de 2000 pi des nuages et distance verticale de 500 pi des nuages", "indice" : "Visibilité d'au moins  SM, distance latérale de  pi des nuages et distance verticale de  pi des nuages"},
-    {"theme" : "atmo", "question" : "Quel sont le minimum VFR selon le RAC, dans un espace aérien non contrôlé, en dessous de 1000 pi?", "réponse" : "Visibilité d'au moins 2 SM et hors des nuages", "indice" : "Visibilité d'au moins  SM et  des nuages"},
+    {"theme" : "atmo", "question" : "Quel sont le minimum VFR selon le RAC, dans un espace aérien non contrôlé, à 1000 pi AGL et +?", "réponse" : "Visibilité d'au moins 1 SM, distance latérale de 2000 pi des nuages et distance verticale de 500 pi des nuages", "indice" : "Visibilité d'au moins  SM, distance latérale de  pi des nuages et distance verticale de  pi des nuages"},
+    {"theme" : "atmo", "question" : "Quel sont le minimum VFR selon le RAC, dans un espace aérien non contrôlé, en dessous de 1000 pi AGL?", "réponse" : "Visibilité d'au moins 2 SM et hors des nuages", "indice" : "Visibilité d'au moins  SM et  des nuages"},
     {"theme" : "atmo", "question" : "Quel sont le minimum VFR selon le RAC, dans un espace aérien contrôlé, avec un SVRF?", "réponse" : "Visibilité d'au moins 1 SM et hors des nuages", "indice" : "Visibilité d'au moins  SM et  des nuages"},
     {"theme" : "atmo", "question" : "Quel est le minumum de température en Solo sur le C-23?", "réponse" : "- 18°C", "indice" : "- °C"},
     {"theme" : "atmo", "question" : "Quel est le minumum de température en DC sur le C-23?", "réponse" : "- 24°C", "indice" : "- °C"},
@@ -378,6 +378,7 @@ visibilité = [
     {"theme" : "vis", "question" : "Que pouvons nous voir à l'aide des fumées des feux de forêt sur les cartes satelittes?", "réponse" : "La direction des vents", "indice" : ""},
     {"theme" : "vis", "question" : "Quel élément, essentiel aux vols VFR est affecté par les éléments qui diminue la visibilité?", "réponse" : "L'horizon", "indice" : ""},
     {"theme" : "vis", "question" : "Avons-nous une meilleure visibilité dans de la pluie ou de la neige?", "réponse" : "Dans de la pluie", "indice" : "Dans de la "},
+    {"theme" : "vis", "question" : "Est-il possible d'avoir du givrage dans du brouillard glacé?", "réponse" : "Oui", "indice" : ""},
 ]
 
 gfa = [
