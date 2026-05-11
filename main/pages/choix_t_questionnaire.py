@@ -7,7 +7,7 @@
 
 import streamlit as st
 import random
-from question import bqhumidité, bqréchauffement, bqrefroidissement, stabilite_air, pression_atmo, masse_air, fronts, nuage_precipitation, fb_fd, airmet_sigmet, atmo_type, pirep, givrage, visibilité, gfa
+from question import bqhumidité, bqréchauffement, bqrefroidissement, metar, taf_atis, code_aéroport, stabilite_air, pression_atmo, masse_air, fronts, nuage_precipitation, fb_fd, airmet_sigmet, atmo_type, pirep, givrage, visibilité, gfa
 from extension.validation import valrép
 
 initialization = {
@@ -56,6 +56,9 @@ def choix_ctq() :
         "humidite" : ("l'humidité", bqhumidité),
         "rechauffement" : ("le réchauffement", bqréchauffement),
         "refroidissement" : ("le refroidissement", bqrefroidissement),
+        "metar_et_speci" : ("Les METAR", metar),
+        "TAF_et_ATIS" : ("Les TAF et les ATIS", taf_atis),
+        "code" : ("Les codes d'aéroport", code_aéroport),
         "stabilite" : ("la stabilité de l'air", stabilite_air),
         "pression" : ("la pression atmosphérique", pression_atmo),
         "masse" : ("les masses d'air", masse_air),

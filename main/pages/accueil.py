@@ -20,7 +20,7 @@ if st.button("Questionnaire complet") :
 if st.button("Questionnaire avec choix des thèmes") :
     st.switch_page("pages/choix_t_questionnaire.py")
 
-st.write("Version 2.2.6")
+st.write("Version 2.2.7")
 
 st.markdown("""
             -**2.2.6**  
