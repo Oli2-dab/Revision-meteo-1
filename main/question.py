@@ -349,7 +349,7 @@ atmo_type = [
     {"theme" : "atmo", "question" : "Si les contions sont bonne à CYRC et CYBG, mais mauvaise à CYRJ, quel(s) type(s) de vol peut être approuvé?(Circuit = 1, Zones = 2, Vol-voyage = 3)", "réponse" : "1 et 2", "indice" : ""},
     {"theme" : "atmo", "question" : "Si les contions sont bonne à CYRC et CYRJ, mais mauvaise à CYBG, quel(s) type(s) de vol peut être approuvé?(Circuit = 1, Zones = 2, Vol-voyage = 3)", "réponse" : "1 et 2", "indice" : ""},
     {"theme" : "atmo", "question" : "Si les contions sont bonne à CYRC, mais mauvaise à CYBG et CYRJ, quel(s) type(s) de vol peut être approuvé?(Circuit = 1, Zones = 2, Vol-voyage = 3)", "réponse" : "1", "indice" : ""},
-    {"theme" : "atmo", "question" : "Si les contions sont bonne à CYBG, mais mauvaise à CYBG et CYRJ, quel(s) type(s) de vol peut être approuvé?(Circuit = 1, Zones = 2, Vol-voyage = 3)", "réponse" : "Aucun", "indice" : ""},
+    {"theme" : "atmo", "question" : "Si les contions sont bonne à CYBG, mais mauvaise à CYRC et CYRJ, quel(s) type(s) de vol peut être approuvé?(Circuit = 1, Zones = 2, Vol-voyage = 3)", "réponse" : "Aucun", "indice" : ""},
     {"theme" : "atmo", "question" : "Si les contions mauvaise partout, quel(s) type(s) de vol peut être approuvé?(Circuit = 1, Zones = 2, Vol-voyage = 3)", "réponse" : "Aucun", "indice" : ""},
     {"theme" : "atmo", "question" : "Pour les limites des vents traversiers en Solo, quel est la restriction sur le nombre d'heure (0 à 29.9 et 30 et +)?", "réponse" : "Les heures doivent avoir été faites au CQFA", "indice" : "Les heures doivent "},
 ]
