@@ -7,7 +7,7 @@
 
 import streamlit as st
 import random
-from question import bqhumidité, bqréchauffement, bqrefroidissement, metar, taf_atis, code_aéroport, stabilite_air, pression_atmo, masse_air, fronts, nuage_precipitation, fb_fd, airmet_sigmet, atmo_type, pirep, givrage, visibilité, gfa
+from question import bqhumidité, bqréchauffement, bqrefroidissement, metar, taf_atis, code_aéroport, stabilite_air, pression_atmo, masse_air, fronts, nuage_precipitation, fb_fd, airmet_sigmet, atmo_type, pirep, givrage, visibilité, gfa, analyse, vent, cb
 from extension.validation import valrép
 
 initialization = {
@@ -70,7 +70,10 @@ def choix_ctq() :
         "pilot_report" : ("Les PIREP", pirep),
         "giv" : ("Le givrage", givrage),
         "vis" : ("La visibilité", visibilité),
-        "prev_zone_graphique" : ("Les GFA", gfa)
+        "prev_zone_graphique" : ("Les GFA", gfa),
+        "carte_analyse" : ("Les cartes d'analyse de surface", analyse),
+        "vent_turbulence" : ("Le vent et la turbulence dans la couche limite", vent),
+        "orage" : ("Les orages", cb)
     }
 
     for t_ctq, (label_ctq, _) in theme_dispo_ctq.items() :
