@@ -267,7 +267,6 @@ nuage_precipitation = [
     {"theme" : "nuage", "question" : "Quels sont les effets sur le vol des précipitations?", "réponse" : "Possibilité de givrage, visibilité réduite, modifie l'écoulement de l'air sur l'aile, modifie la vitesse de décrochage, diminue le contact avec la piste", "indice" : ""},
 ]
 
-###
 fb_fd = [
     {"theme" : "FBFD", "question" : "Quels sont les niveaux pour lesquelles le centre météorologique canadien émet des prévisions de vents et/ou de température, dans les bas niveaux? (Ne pas mettre pi)", "réponse" : "3000, 6000, 9000, 12000 et 18000", "indice" : ""},
     {"theme" : "FBFD", "question" : "Que donnent les FB et les FD?", "réponse" : "Ils donnent des prévisions de vents et de température en altitude", "indice" : "Ils donnent des"},
@@ -519,22 +518,63 @@ gfa = [
     {"theme" : "prev_zone_graphique", "question" : "Quel est l'altitude maximale où les L LVL JET ne sont généralement plus indiqué, à moins que le relief soit élevé?", "réponse" : "6000 pi", "indice" : " pi"},
 ]
 
+analyse = [
+    {"theme" : "carte_analyse", "question" : "Combien de fois par jour sont émis les cartes d'analyse de surface? (chiffre seulement)", "réponse" : "4", "indice" : ""},
+    {"theme" : "carte_analyse", "question" : "Les cartes d'analyse de suface sont émises combien de temps après l'observation?", "réponse" : "3 h", "indice" : " h"},
+    {"theme" : "carte_analyse", "question" : "Sur une carte d'analyse de surface, un cercle vide veut dire? (abréviation)", "réponse" : "SKC", "indice" : ""},
+    {"theme" : "carte_analyse", "question" : "Sur une carte d'analyse de surface, un cercle au 1/4 plein veut dire? (abréviation)", "réponse" : "FEW", "indice" : ""},
+    {"theme" : "carte_analyse", "question" : "Sur une carte d'analyse de surface, un cercle à 1/2 plein veut dire? (abréviation)", "réponse" : "SCT", "indice" : ""},
+    {"theme" : "carte_analyse", "question" : "Sur une carte d'analyse de surface, un cercle au 3/4 plein veut dire? (abréviation)", "réponse" : "BKN", "indice" : ""},
+    {"theme" : "carte_analyse", "question" : "Sur une carte d'analyse de surface, un cercle plein veut dire? (abréviation)", "réponse" : "OVC", "indice" : ""},
+    {"theme" : "carte_analyse", "question" : "Une petite ligne sur une barbule de vent représente?", "réponse" : "5 kt", "indice" : " kt"},
+    {"theme" : "carte_analyse", "question" : "Une grande ligne sur une barbule de vent représente?", "réponse" : "10 kt", "indice" : " kt"},
+    {"theme" : "carte_analyse", "question" : "Un triangle (fanion) sur une barbule de vent représente?", "réponse" : "50 kt", "indice" : " kt"},
+    {"theme" : "carte_analyse", "question" : "Le chiffre/nombre en haut à gauche du cercle, sur une carte d'analyse de surface représente? (Sans déterminant)", "réponse" : "Température", "indice" : ""},
+    {"theme" : "carte_analyse", "question" : "Le chiffre/nombre en haut à droite du cercle, sur une carte d'analyse de surface représente? (Sans déterminant)", "réponse" : "Pression au niveau de la mer", "indice" : ""},
+    {"theme" : "carte_analyse", "question" : "Le chiffre/nombre en bas à gauche du cercle, sur une carte d'analyse de surface représente? (Sans déterminant)", "réponse" : "Point de rosée", "indice" : ""},
+    {"theme" : "carte_analyse", "question" : "Sur une carte d'analyse de surface, si un cercle entroure la station et qu'une donnée est en gras, qu'est-ce que cela veut dire?", "réponse" : "La station a détecté qu'une de ses données est peut-être éronnées ", "indice" : "La station "},
+]
 
+vent = [
+    {"theme" : "vent_turbulence", "question" : "Quel sont les deux facteurs au niveau du vent, qui fait en sorte que les performances diminuent?", "réponse" : "Un vent de dos qui augmente et un vent de face qui diminue", "indice" : "Un vent de dos qui  et un vent de face qui "},
+    {"theme" : "vent_turbulence", "question" : "Quel sont les deux facteurs au niveau du vent, qui fait en sorte que les performances augmentent?", "réponse" : "Un vent de dos qui diminue et un vent de face qui augmente", "indice" : "Un vent de dos qui  et un vent de face qui "},
+    {"theme" : "vent_turbulence", "question" : "Un nuage cumuliforme signifie qu'il y a un cisaillement au niveau verticale ou horizontale?", "réponse" : "Au niveau verticale", "indice" : "Au niveau"},
+    {"theme" : "vent_turbulence", "question" : "Que doit-on rajouté à notre vitesse d'approche lorsque l'on sait qu'il y a du cisaillement ou des rafales?", "réponse" : "Ajouté 50 '%' de la compostante de rafales à notre vitesse d'approche", "indice" : "Ajouté  '%' de  à notre vitesse d'approche"},
+    {"theme" : "vent_turbulence", "question" : "À quel moment de la journée est-ce que le vent est le plus fort et pourquoi?", "réponse" : "Lors de l'après-midi, car c'est à ce moment qu'il y a le plus de convection", "indice" : "Lors , car "},
+    {"theme" : "vent_turbulence", "question" : "Lorsque l'on fait du vol en montagne, de quel côté devons-nous nous placer?", "réponse" : "Du côté du vent ascendant", "indice" : "Du côté "},
+    {"theme" : "vent_turbulence", "question" : "Lorsqu'une chaine de montagne crée un effet venturie, est-ce qu'elle crée une basse ou une haute pression? Qu'est-ce qu'elle crée en plus d'une modification de la pression?", "réponse" : "Elle crée une basse pression et un  fort cisaillement de vent localement", "indice" : "Elle crée une  pression et "},
+    {"theme" : "vent_turbulence", "question" : "Qu'est-ce que le vent anabatique?", "réponse" : "Un vent créé par le réchauffement diurne et qui monte", "indice" : ""},
+    {"theme" : "vent_turbulence", "question" : "Qu'est-ce que le vent catabatique?", "réponse" : "Un vent qui se crée avec le refroidissement et qui descend", "indice" : ""},
+    {"theme" : "vent_turbulence", "question" : "Comment se nomme le phénomène lorsque l'air au-dessus de la terre monte, car la terre réchauffe l'air, et cet air est remplacé par de l'air provenant d'une étendue d'eau?", "réponse" : "Brise de mer", "indice" : ""},
+    {"theme" : "vent_turbulence", "question" : "Comment se nomme le phénomène lorsque l'air au-dessus de l'eau monte, car l'eau réchauffe l'air, et cet air est remplacé par de l'air provenant d'une étendue de terre?", "réponse" : "Brise de terre", "indice" : ""},
+    {"theme" : "vent_turbulence", "question" : "Quel est la vitesse que peux prendre un courant-jet nocture?", "réponse" : "25 à 40 kt", "indice" : " à  kt"},
+    {"theme" : "vent_turbulence", "question" : "Quand diparaissent les courants-jet nocturne?", "réponse" : "Au lever du soleil", "indice" : ""},
+    {"theme" : "vent_turbulence", "question" : "Quel est la cause de la turbulence mécanique?", "réponse" : "Le terrain", "indice" : ""},
+    {"theme" : "vent_turbulence", "question" : "Quel sont les trois nuages que l'on va voir s'il y a des ondes de relief? (sans déterminant)", "réponse" : "nuage en capuchon, stratus dû aux turbillons d'aval et nuages lenticulaires", "indice" : ""},
+    {"theme" : "vent_turbulence", "question" : "Quel est le diamètre des tourbillons marginaux?", "réponse" : "25 à 50 pi", "indice" : " à  pi"},
+    {"theme" : "vent_turbulence", "question" : "Par rapport à l'envergure, où se situe les tourbillons marginaux?", "réponse" : "Au 3/4 d'envergure", "indice" : "Au  d'envergure"},
+    {"theme" : "vent_turbulence", "question" : "Quel est le taux de dessente de la tubulence de sillage?", "réponse" : "400 à 500 pi/min", "indice" : " à  pi/min"},
+    {"theme" : "vent_turbulence", "question" : "Est-ce que la turbulence convective est toujours visible?", "réponse" : "non", "indice" : ""},
+]
 
+cb = [
+    {"theme" : "orage", "question" : "Quels sont les trois facteurs nécéssaires à la formation d'orage?", "réponse" : "De l'air chaud et humide en bas de le l'air froid et sec en haut, de l'instabilité et un agent de soulèvement", "indice" : " ,  et "},
+    {"theme" : "orage", "question" : "Quel est la condition pour qu'un TCU deviennent un CB?", "réponse" : "Les précipitations sortent du nuage", "indice" : ""},
+    {"theme" : "orage", "question" : "Quel est l'ordre des nuages lors de la formation d'un orage? (abréviation)", "réponse" : "CU, TCU, CB", "indice" : " ,  et "},
+    {"theme" : "orage", "question" : "Qu'est-ce qu'il fait qu'un orage se dissipe?", "réponse" : "Les courants ascendants deviennt moins important ou disparaissent, donc, le nuage se vide", "indice" : ""},
+    {"theme" : "orage", "question" : "Quel devrait-être la distance minimale entre nous et l'orage lorsqu'on le contourne?", "réponse" : "10 à 20 NM", "indice" : " à  NM"},
+    {"theme" : "orage", "question" : "Quel est le type de précipitation que l'on peut retrouver sous l'enclume de l'orage, même si nous ne sommes pas dans l'orage? (sans déterminant)", "réponse" : "Grêle", "indice" : ""},
+    {"theme" : "orage", "question" : "Quels sont les deux types d'orage?", "réponse" : "Les orages de masse d'air et les orages dû aux fronts", "indice" : "Les orages de  et les orages dû "},
+    {"theme" : "orage", "question" : "Que se passera-t-il au niveau de la température lorsque nous sommes sout l'orage, au milieu?", "réponse" : "Elle diminuera", "indice" : "Elle "},
+    {"theme" : "orage", "question" : "Lors de la formation de l'orage, que se passe-t-il au niveau de la pression?", "réponse" : "Elle diminue", "indice" : "Elle "},
+    {"theme" : "orage", "question" : "Lorsqu'un orage est mature, que se passe-t-il au niveau de la pression?", "réponse" : "Elle augmente", "indice" : "Elle "},
+    {"theme" : "orage", "question" : "Qu'est-il sugéré de faire lorsque nous voyons des éclaires en vol? (Pas au niveau de notre route)", "réponse" : "Allumer la lumière dans le cockpit", "indice" : ""},
+    {"theme" : "orage", "question" : "À quel moment de la journée est-ce qu'une ligne de grain est la plus intense?", "réponse" : "En après-midi et durant les premières heures de la tombé de la nuit", "indice" : ""},
 
+    {"theme" : "orage", "question" : "?", "réponse" : "", "indice" : ""},
+]
 
-
-
-
-
-
-
-
-
-
-
-{"theme" : "", "question" : "?", "réponse" : "", "indice" : ""},
-###
+# {"theme" : "", "question" : "?", "réponse" : "", "indice" : ""},
 
 categorie = {
     "humidite" : bqhumidité,
@@ -554,5 +594,8 @@ categorie = {
     "pilot_report" : pirep,
     "giv" : givrage,
     "vis" : visibilité,
-    "prev_zone_graphique" : gfa
+    "prev_zone_graphique" : gfa,
+    "carte_analyse" : analyse,
+    "vent_turbulence" : vent,
+    "orage" : cb
 }
